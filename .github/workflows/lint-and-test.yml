@@ -1,0 +1,22 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  lint-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Skeletal Setup Placeholder
+        run: echo "Replace this with your actual environment setup (e.g., setup-node or setup-python)"
+
+      - name: Run Linter
+        run: echo "Replace this with your lint command (e.g., npm run lint or ruff check .)"
+
+      - name: Run Tests
+        run: echo "Replace this with your test command (e.g., npm test or pytest)"
