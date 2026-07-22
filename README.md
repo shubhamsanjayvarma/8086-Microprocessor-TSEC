@@ -1,32 +1,91 @@
-# React + TypeScript + Vite
+# 💻 8086 Microprocessor Simulator (TSEC)
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+An interactive web-based 8086 Microprocessor Simulator built with React, TypeScript, and Vite. Designed to simulate instruction execution, register states, memory allocation, and stack operations for educational and practical 8086 assembly programming.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- **8086 Assembly Compiler & Emulator**: Write and run 8086 assembly code directly in the browser.
+- **Real-Time Register View**: Monitor `AX`, `BX`, `CX`, `DX`, `SI`, `DI`, `BP`, `SP`, `IP`, `CS`, `DS`, `SS`, `ES`.
+- **Flag Register Tracking**: Visual status indicators for Zero (ZF), Carry (CF), Sign (SF), Overflow (OF), Parity (PF), Interrupt (IF), and Direction (DF) flags.
+- **Memory & Stack Inspection**: Live memory grid view with inline editing and stack offset viewer (`SS:SP`).
+- **Code Examples**: Built-in sample assembly programs for quick testing and demonstration.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the Oxlint configuration
+## 🚀 Getting Started
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### Prerequisites
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation & Local Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/shubhamsanjayvarma/8086-Microprocessor-TSEC.git
+
+# Navigate to project directory
+cd 8086-Microprocessor-TSEC
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+---
+
+## 👥 Contributors
+
+Thanks to the following team members for their contributions to this project!
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/pratikforge">
+        <img src="https://github.com/pratikforge.png" width="100px;" alt="Pratik"/>
+        <br />
+        <sub><b>Pratik</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/pratikforge">@pratikforge</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/tarakdesai19">
+        <img src="https://github.com/tarakdesai19.png" width="100px;" alt="Tarak Desai"/>
+        <br />
+        <sub><b>Tarak Desai</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/tarakdesai19">@tarakdesai19</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/shubhamsanjayvarma">
+        <img src="https://github.com/shubhamsanjayvarma.png" width="100px;" alt="Shubham Sanjay Varma"/>
+        <br />
+        <sub><b>Shubham Sanjay Varma</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/shubhamsanjayvarma">@shubhamsanjayvarma</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/tiwaripiyush140-glitch">
+        <img src="https://github.com/tiwaripiyush140-glitch.png" width="100px;" alt="Piyush Tiwari"/>
+        <br />
+        <sub><b>Piyush Tiwari</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/tiwaripiyush140-glitch">@tiwaripiyush140-glitch</a>
+    </td>
+  </tr>
+</table>
+
+---
+
+## 📜 License
+
+This project is open-source and available under the [MIT License](LICENSE).
