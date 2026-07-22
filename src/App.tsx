@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { 
   Play, Square, SkipForward, RefreshCw, FileCode, Terminal, 
-  Cpu, Database, AlertCircle, CheckCircle, Sliders, Search, Edit2 
+  Cpu, Database, AlertCircle, CheckCircle, Sliders, Edit2,
+  Info, HelpCircle
 } from 'lucide-react';
 import { compile8086 } from './utils/compiler';
 import type { CompilerResult, ParsedInstruction } from './utils/compiler';
@@ -10,7 +11,10 @@ import type { CPUState } from './utils/emulator';
 import { examples } from './utils/examples';
 import './App.css';
 
+type ViewMode = 'landing' | 'compiler';
+
 export default function App() {
+  const [viewMode, setViewMode] = useState<ViewMode>('landing');
   const [code, setCode] = useState<string>(examples[0].code);
   const [selectedExampleIndex, setSelectedExampleIndex] = useState<number>(0);
   const [compilerResult, setCompilerResult] = useState<CompilerResult | null>(null);
@@ -31,6 +35,7 @@ export default function App() {
 
   // Register display format: hex | dec | bin
   const [regFormat, setRegFormat] = useState<'hex' | 'dec' | 'bin'>('hex');
+
 
   const emulatorRef = useRef<Emulator | null>(null);
   const timerRef = useRef<number | null>(null);
@@ -166,7 +171,7 @@ export default function App() {
       return val.toString(2).padStart(size, '0');
     }
     // Default Hex
-    return '0x' + val.toString(16).padStart(size / 4, '0').toUpperCase();
+    return val.toString(16).padStart(size / 4, '0').toUpperCase();
   };
 
   // Convert segment & offset inputs to safe numbers
@@ -331,6 +336,139 @@ export default function App() {
     </div>
   ));
 
+  // ============================================
+  // LANDING PAGE VIEW
+  // ============================================
+  if (viewMode === 'landing') {
+    return (
+      <div className="app-container">
+        {/* NAVBAR */}
+        <header className="navbar">
+          <div className="navbar-logo">
+            <Cpu className="logo-icon" />
+            <div className="logo-title">
+              <h1>8086 Compiler</h1>
+            </div>
+          </div>
+
+          <div className="navbar-actions">
+            <button className="navbar-btn" onClick={() => setViewMode('compiler')} title="Open Compiler">
+              <Terminal style={{ width: 14, height: 14 }} /> Compiler
+            </button>
+            <button className="navbar-btn" title="About">
+              <Info style={{ width: 14, height: 14 }} />
+            </button>
+          </div>
+        </header>
+
+        {/* LANDING CONTENT */}
+        <div className="landing-page">
+          {/* Hero */}
+          <section className="hero-section">
+            <div className="hero-image">
+              <img 
+                src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" 
+                alt="8086 Microprocessor" 
+              />
+            </div>
+            <div className="hero-content">
+              <h2>Online 8086 EMULATOR</h2>
+              <p>Platform and Device Independent!</p>
+              <p>Now run 8086 based assembly programs right in browser.</p>
+              <p>Open Source : <a href="https://github.com/shubhamsanjayvarma/8086-Microprocessor-TSEC" target="_blank" rel="noreferrer">Github Repository</a></p>
+              <p>Made Using React, TypeScript and Vite.</p>
+              <div className="hero-buttons">
+                <button className="hero-btn-primary" onClick={() => setViewMode('compiler')}>
+                  TRY ONLINE 8086 COMPILER
+                </button>
+                <button className="hero-btn-secondary" onClick={() => {
+                  const el = document.querySelector('.features-grid');
+                  el?.scrollIntoView({ behavior: 'smooth' });
+                }}>
+                  INSTRUCTION SET
+                </button>
+              </div>
+            </div>
+          </section>
+
+          {/* Feature Cards */}
+          <div className="features-grid">
+            <div className="feature-card">
+              <h3>Multiple Themes</h3>
+              <p>
+                We know that programmers love the dark theme. Toggle between Bright and Dark Theme 
+                using the theme button in Navbar.
+              </p>
+            </div>
+            <div className="feature-card">
+              <h3>Access To 1 MB Memory</h3>
+              <p>
+                The Emulator supports complete 1 MB Memory, which can be accessed from the memory table.
+              </p>
+            </div>
+            <div className="feature-card">
+              <h3>Validated Jump and Call using Labels</h3>
+              <p>
+                As Jumps and calls only allows valid labels, it does not permit any jumps to incorrect position.
+              </p>
+            </div>
+            <div className="feature-card">
+              <h3>Selected Interrupts</h3>
+              <p>
+                Being an Emulator, this does not have 'true' memory so it supports select few interrupts.
+              </p>
+            </div>
+            <div className="feature-card">
+              <h3>Line by Line Execution</h3>
+              <p>
+                Supports running all instructions automatically, or manual line by line execution. 
+                You can also stop the automatic execution with a simple button click.
+              </p>
+            </div>
+            <div className="feature-card">
+              <h3>Check Registers and Flags in Real Time</h3>
+              <p>
+                Updates Flags and registers along with the execution, so can check the state of Emulator 
+                easily, all in a single view.
+              </p>
+            </div>
+          </div>
+
+          {/* Contributors */}
+          <section className="contributors-section">
+            <h2>Contributors</h2>
+            <div className="contributors-grid">
+              <a href="https://github.com/pratikforge" target="_blank" rel="noreferrer" className="contributor-card">
+                <img src="https://github.com/pratikforge.png" alt="Pratik" />
+                <span>Pratik</span>
+              </a>
+              <a href="https://github.com/tarakdesai19" target="_blank" rel="noreferrer" className="contributor-card">
+                <img src="https://github.com/tarakdesai19.png" alt="Tarak Desai" />
+                <span>Tarak Desai</span>
+              </a>
+              <a href="https://github.com/shubhamsanjayvarma" target="_blank" rel="noreferrer" className="contributor-card">
+                <img src="https://github.com/shubhamsanjayvarma.png" alt="Shubham Sanjay Varma" />
+                <span>Shubham Sanjay Varma</span>
+              </a>
+              <a href="https://github.com/tiwaripiyush140-glitch" target="_blank" rel="noreferrer" className="contributor-card">
+                <img src="https://github.com/tiwaripiyush140-glitch.png" alt="Piyush Tiwari" />
+                <span>Piyush Tiwari</span>
+              </a>
+            </div>
+          </section>
+        </div>
+
+        {/* Footer */}
+        <footer className="footer">
+          © Reserved | Developed by • <a href="https://github.com/pratikforge">Pratik</a> • <a href="https://github.com/tarakdesai19">Tarak Desai</a> • <a href="https://github.com/shubhamsanjayvarma">Shubham Sanjay Varma</a> • <a href="https://github.com/tiwaripiyush140-glitch">Piyush Tiwari</a>
+        </footer>
+      </div>
+    );
+  }
+
+  // ============================================
+  // COMPILER VIEW (Main IDE)
+  // ============================================
   return (
     <div className="app-container">
       {/* HEADER NAVBAR */}
@@ -338,8 +476,7 @@ export default function App() {
         <div className="navbar-logo">
           <Cpu className="logo-icon" />
           <div className="logo-title">
-            <h1>8086 Compiler & Emulator</h1>
-            <span className="logo-tag">TSEC Microprocessor IDE</span>
+            <h1>8086 Compiler</h1>
           </div>
         </div>
 
@@ -352,17 +489,25 @@ export default function App() {
           <span className="status-text">{statusText}</span>
         </div>
 
-        <div className="navbar-examples">
-          <FileCode className="example-icon" />
-          <select 
-            value={selectedExampleIndex} 
-            onChange={(e) => handleExampleChange(Number(e.target.value))}
-            className="example-dropdown"
-          >
-            {examples.map((ex, idx) => (
-              <option key={idx} value={idx}>{ex.name}</option>
-            ))}
-          </select>
+        <div className="navbar-actions">
+          <div className="navbar-examples">
+            <FileCode className="example-icon" />
+            <select 
+              value={selectedExampleIndex} 
+              onChange={(e) => handleExampleChange(Number(e.target.value))}
+              className="example-dropdown"
+            >
+              {examples.map((ex, idx) => (
+                <option key={idx} value={idx}>{ex.name}</option>
+              ))}
+            </select>
+          </div>
+          <button className="navbar-btn" onClick={() => setViewMode('landing')} title="Home Page">
+            <HelpCircle style={{ width: 14, height: 14 }} />
+          </button>
+          <button className="navbar-btn" title="About">
+            <Info style={{ width: 14, height: 14 }} />
+          </button>
         </div>
       </header>
 
@@ -372,7 +517,7 @@ export default function App() {
           <button 
             className="btn btn-compile"
             onClick={handleCompile}
-            title="Compile Assembly (F7)"
+            title="Compile Assembly"
           >
             <CheckCircle className="icon" />
             <span>Compile</span>
@@ -384,20 +529,20 @@ export default function App() {
             className="btn btn-run"
             onClick={() => setIsRunning(!isRunning)}
             disabled={compilerResult?.errors.length ? true : false}
-            title={isRunning ? "Pause execution" : "Run program continuous"}
+            title={isRunning ? "Stop execution" : "Run program"}
           >
-            {isRunning ? <Square className="icon" /> : <Play className="icon animate-pulse" />}
-            <span>{isRunning ? 'Pause' : 'Run'}</span>
+            {isRunning ? <Square className="icon" /> : <Play className="icon" />}
+            <span>{isRunning ? 'Stop' : 'Run'}</span>
           </button>
 
           <button 
             className="btn btn-step"
             onClick={handleStep}
             disabled={isRunning || (compilerResult?.errors.length ? true : false)}
-            title="Single Step execution (F8)"
+            title="Single Step execution"
           >
             <SkipForward className="icon" />
-            <span>Step</span>
+            <span>Next</span>
           </button>
 
           <button 
@@ -406,7 +551,7 @@ export default function App() {
             title="Reset CPU State and Memory"
           >
             <RefreshCw className="icon" />
-            <span>Reset</span>
+            <span>Stop</span>
           </button>
         </div>
 
@@ -448,7 +593,7 @@ export default function App() {
           <div className="card-header">
             <div className="card-title">
               <FileCode className="header-icon" />
-              <h2>Assembly Source Code</h2>
+              <h2>Code Editor</h2>
             </div>
             <span className="card-subtitle">{examples[selectedExampleIndex].description}</span>
           </div>
@@ -479,7 +624,7 @@ export default function App() {
           <div className="console-panel">
             <div className="console-tabs">
               <span className="console-tab active">
-                <Terminal className="tab-icon" /> Console Output
+                <Terminal className="tab-icon" /> Output
               </span>
             </div>
             <div className="console-body">
@@ -493,7 +638,7 @@ export default function App() {
 
           {/* COMPILER ALERTS OR LISTING */}
           <div className="listing-panel">
-            <h3>Assembler Listing & Logs</h3>
+            <h3>Assembler Listing</h3>
             {compilerResult && compilerResult.errors.length > 0 ? (
               <div className="error-list">{errorAlerts}</div>
             ) : compilerResult && compilerResult.listing.length > 0 ? (
@@ -515,7 +660,7 @@ export default function App() {
           <div className="card-header">
             <div className="card-title">
               <Cpu className="header-icon" />
-              <h2>CPU Registers</h2>
+              <h2>Registers & Flags</h2>
             </div>
           </div>
 
@@ -564,16 +709,31 @@ export default function App() {
 
             {/* Index & Pointers */}
             <div className="registers-group">
-              <h3>Index & Pointers</h3>
+              <h3>Segments</h3>
+              <div className="segment-grid">
+                <div className="segment-card">
+                  <span className="segment-name">SS</span>
+                  <span className="segment-value">{formatRegister(cpuState.registers.SS, 16)}</span>
+                </div>
+                <div className="segment-card">
+                  <span className="segment-name">DS</span>
+                  <span className="segment-value">{formatRegister(cpuState.registers.DS, 16)}</span>
+                </div>
+                <div className="segment-card">
+                  <span className="segment-name">ES</span>
+                  <span className="segment-value">{formatRegister(cpuState.registers.ES, 16)}</span>
+                </div>
+                <div className="segment-card">
+                  <span className="segment-name">CS</span>
+                  <span className="segment-value">{formatRegister(cpuState.registers.CS, 16)}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Pointers */}
+            <div className="registers-group">
+              <h3>Pointers</h3>
               <div className="pointer-grid">
-                <div className="pointer-card">
-                  <span className="pointer-name">SI</span>
-                  <span className="pointer-value">{formatRegister(cpuState.registers.SI, 16)}</span>
-                </div>
-                <div className="pointer-card">
-                  <span className="pointer-name">DI</span>
-                  <span className="pointer-value">{formatRegister(cpuState.registers.DI, 16)}</span>
-                </div>
                 <div className="pointer-card">
                   <span className="pointer-name">SP</span>
                   <span className="pointer-value">{formatRegister(cpuState.registers.SP, 16)}</span>
@@ -582,6 +742,14 @@ export default function App() {
                   <span className="pointer-name">BP</span>
                   <span className="pointer-value">{formatRegister(cpuState.registers.BP, 16)}</span>
                 </div>
+                <div className="pointer-card">
+                  <span className="pointer-name">SI</span>
+                  <span className="pointer-value">{formatRegister(cpuState.registers.SI, 16)}</span>
+                </div>
+                <div className="pointer-card">
+                  <span className="pointer-name">DI</span>
+                  <span className="pointer-value">{formatRegister(cpuState.registers.DI, 16)}</span>
+                </div>
                 <div className="pointer-card highlight-ip">
                   <span className="pointer-name">IP</span>
                   <span className="pointer-value">{formatRegister(cpuState.registers.IP, 16)}</span>
@@ -589,118 +757,89 @@ export default function App() {
               </div>
             </div>
 
-            {/* Segment Registers */}
-            <div className="registers-group">
-              <h3>Segments</h3>
-              <div className="segment-grid">
-                <div className="segment-card">
-                  <span className="segment-name">CS</span>
-                  <span className="segment-value">{formatRegister(cpuState.registers.CS, 16)}</span>
-                </div>
-                <div className="segment-card">
-                  <span className="segment-name">DS</span>
-                  <span className="segment-value">{formatRegister(cpuState.registers.DS, 16)}</span>
-                </div>
-                <div className="segment-card">
-                  <span className="segment-name">SS</span>
-                  <span className="segment-value">{formatRegister(cpuState.registers.SS, 16)}</span>
-                </div>
-                <div className="segment-card">
-                  <span className="segment-name">ES</span>
-                  <span className="segment-value">{formatRegister(cpuState.registers.ES, 16)}</span>
-                </div>
-              </div>
-            </div>
-
             {/* Status Flags */}
             <div className="registers-group flags-group">
-              <h3>Status Flags</h3>
+              <h3>Flags:</h3>
               <div className="flags-grid">
-                <div className={`flag-badge ${cpuState.flags.CF ? 'active' : ''}`} title="Carry Flag: Set on arithmetic carry/borrow">
-                  <span className="flag-lbl">CF</span>
-                  <span className="flag-state">{cpuState.flags.CF ? '1' : '0'}</span>
-                </div>
-                <div className={`flag-badge ${cpuState.flags.ZF ? 'active' : ''}`} title="Zero Flag: Set if operation result is zero">
-                  <span className="flag-lbl">ZF</span>
-                  <span className="flag-state">{cpuState.flags.ZF ? '1' : '0'}</span>
-                </div>
-                <div className={`flag-badge ${cpuState.flags.SF ? 'active' : ''}`} title="Sign Flag: Set if result is negative">
-                  <span className="flag-lbl">SF</span>
-                  <span className="flag-state">{cpuState.flags.SF ? '1' : '0'}</span>
-                </div>
-                <div className={`flag-badge ${cpuState.flags.OF ? 'active' : ''}`} title="Overflow Flag: Set if signed arithmetic overflow occurs">
+                <div className={`flag-badge ${cpuState.flags.OF ? 'active' : ''}`} title="Overflow Flag">
                   <span className="flag-lbl">OF</span>
                   <span className="flag-state">{cpuState.flags.OF ? '1' : '0'}</span>
                 </div>
-                <div className={`flag-badge ${cpuState.flags.PF ? 'active' : ''}`} title="Parity Flag: Set if low 8 bits of result contain even number of 1s">
-                  <span className="flag-lbl">PF</span>
-                  <span className="flag-state">{cpuState.flags.PF ? '1' : '0'}</span>
-                </div>
-                <div className={`flag-badge ${cpuState.flags.AF ? 'active' : ''}`} title="Auxiliary Carry Flag: Used for BCD operations">
-                  <span className="flag-lbl">AF</span>
-                  <span className="flag-state">{cpuState.flags.AF ? '1' : '0'}</span>
-                </div>
-                <div className={`flag-badge ${cpuState.flags.DF ? 'active' : ''}`} title="Direction Flag: Controls string auto-inc/dec direction">
+                <div className={`flag-badge ${cpuState.flags.DF ? 'active' : ''}`} title="Direction Flag">
                   <span className="flag-lbl">DF</span>
                   <span className="flag-state">{cpuState.flags.DF ? '1' : '0'}</span>
                 </div>
-                <div className={`flag-badge ${cpuState.flags.IF ? 'active' : ''}`} title="Interrupt Enable Flag: Set if interrupts are enabled">
+                <div className={`flag-badge ${cpuState.flags.IF ? 'active' : ''}`} title="Interrupt Flag">
                   <span className="flag-lbl">IF</span>
                   <span className="flag-state">{cpuState.flags.IF ? '1' : '0'}</span>
                 </div>
+                <div className={`flag-badge ${cpuState.flags.SF ? 'active' : ''}`} title="Sign Flag">
+                  <span className="flag-lbl">SF</span>
+                  <span className="flag-state">{cpuState.flags.SF ? '1' : '0'}</span>
+                </div>
+                <div className={`flag-badge ${cpuState.flags.ZF ? 'active' : ''}`} title="Zero Flag">
+                  <span className="flag-lbl">ZF</span>
+                  <span className="flag-state">{cpuState.flags.ZF ? '1' : '0'}</span>
+                </div>
+                <div className={`flag-badge ${cpuState.flags.AF ? 'active' : ''}`} title="Auxiliary Flag">
+                  <span className="flag-lbl">AF</span>
+                  <span className="flag-state">{cpuState.flags.AF ? '1' : '0'}</span>
+                </div>
+                <div className={`flag-badge ${cpuState.flags.PF ? 'active' : ''}`} title="Parity Flag">
+                  <span className="flag-lbl">PF</span>
+                  <span className="flag-state">{cpuState.flags.PF ? '1' : '0'}</span>
+                </div>
+                <div className={`flag-badge ${cpuState.flags.CF ? 'active' : ''}`} title="Carry Flag">
+                  <span className="flag-lbl">CF</span>
+                  <span className="flag-state">{cpuState.flags.CF ? '1' : '0'}</span>
+                </div>
               </div>
-            </div>
-
-            {/* Instruction Count */}
-            <div className="cycles-panel">
-              <span className="cycles-lbl">Instruction Step Cycles:</span>
-              <span className="cycles-val">{cpuState.cycles}</span>
             </div>
           </div>
         </section>
 
-        {/* COLUMN 3: MEMORY & STACK VIEWERS */}
+        {/* COLUMN 3: MEMORY & STACK */}
         <section className="dashboard-card memory-section">
           <div className="card-header">
             <div className="card-title">
               <Database className="header-icon" />
-              <h2>System Memory</h2>
+              <h2>Memory</h2>
             </div>
           </div>
 
-          {/* Memory Search */}
+          {/* Memory Controls */}
           <div className="memory-controls">
             <div className="addr-inputs">
-              <input
-                type="text"
-                placeholder="Seg"
-                value={memSegment}
-                onChange={e => setMemSegment(e.target.value)}
+              <span style={{ fontSize: 10, color: '#888', fontFamily: 'var(--font-mono)' }}>Start Address</span>
+              <input 
                 className="hex-input"
-                maxLength={4}
+                value={memSegment + memOffset}
+                onChange={e => {
+                  const v = e.target.value.replace(/[^0-9a-fA-F]/g, '').padStart(8, '0');
+                  setMemSegment(v.substring(0, 4));
+                  setMemOffset(v.substring(4, 8));
+                }}
+                maxLength={8}
+                placeholder="00000"
               />
-              <span className="colon-separator">:</span>
-              <input
-                type="text"
-                placeholder="Offset"
-                value={memOffset}
-                onChange={e => setMemOffset(e.target.value)}
-                className="hex-input"
-                maxLength={4}
-              />
+              <button 
+                className="search-btn" 
+                onClick={() => {/* address already bound */}}
+                style={{ border: 'none', padding: '4px 10px', borderRadius: 4, background: 'var(--accent-gold)', color: '#fff', cursor: 'pointer', fontFamily: 'var(--font-mono)', fontWeight: 700 }}
+              >
+                SET
+              </button>
             </div>
-
             <div className="search-box">
               <input
-                type="text"
-                placeholder="Search symbol/hex..."
+                className="search-input"
                 value={searchTarget}
                 onChange={e => setSearchTarget(e.target.value)}
-                className="search-input"
+                placeholder="Search variable/label..."
                 onKeyDown={e => e.key === 'Enter' && handleSearchMemory()}
               />
               <button onClick={handleSearchMemory} className="search-btn">
-                <Search className="icon-sm" />
+                Go
               </button>
             </div>
           </div>
@@ -752,6 +891,11 @@ export default function App() {
         </section>
 
       </main>
+
+      {/* Footer */}
+      <footer className="footer">
+        © Reserved | Developed by • <a href="https://github.com/pratikforge">Pratik</a> • <a href="https://github.com/tarakdesai19">Tarak Desai</a> • <a href="https://github.com/shubhamsanjayvarma">Shubham Sanjay Varma</a> • <a href="https://github.com/tiwaripiyush140-glitch">Piyush Tiwari</a>
+      </footer>
     </div>
   );
 }
