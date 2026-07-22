@@ -365,27 +365,27 @@ export default function App() {
           <section className="yj-contributors-section">
             <h2>Contributors</h2>
             <div className="yj-contributors-grid">
-              <a href="https://github.com/pratikforge" target="_blank" rel="noreferrer" className="yj-contributor-card">
-                <img src="https://github.com/pratikforge.png" alt="Pratik" />
-                <span>Pratik</span>
-              </a>
-              <a href="https://github.com/tarakdesai19" target="_blank" rel="noreferrer" className="yj-contributor-card">
-                <img src="https://github.com/tarakdesai19.png" alt="Tarak Desai" />
-                <span>Tarak Desai</span>
-              </a>
               <a href="https://github.com/shubhamsanjayvarma" target="_blank" rel="noreferrer" className="yj-contributor-card">
-                <img src="https://github.com/shubhamsanjayvarma.png" alt="Shubham Sanjay Varma" />
-                <span>Shubham Sanjay Varma</span>
+                <img src="https://github.com/shubhamsanjayvarma.png" alt="Shubham Varma" />
+                <span>Shubham Varma</span>
+              </a>
+              <a href="https://github.com/pratikforge" target="_blank" rel="noreferrer" className="yj-contributor-card">
+                <img src="https://github.com/pratikforge.png" alt="Pratik Yadav" />
+                <span>Pratik Yadav</span>
               </a>
               <a href="https://github.com/tiwaripiyush140-glitch" target="_blank" rel="noreferrer" className="yj-contributor-card">
                 <img src="https://github.com/tiwaripiyush140-glitch.png" alt="Piyush Tiwari" />
                 <span>Piyush Tiwari</span>
               </a>
+              <a href="https://github.com/tarakdesai19" target="_blank" rel="noreferrer" className="yj-contributor-card">
+                <img src="https://github.com/tarakdesai19.png" alt="Tarak Desai" />
+                <span>Tarak Desai</span>
+              </a>
             </div>
           </section>
 
           <footer className="yj-footer">
-            © Reserved | Developed by • <a href="https://github.com/pratikforge">Pratik</a> • <a href="https://github.com/tarakdesai19">Tarak Desai</a> • <a href="https://github.com/shubhamsanjayvarma">Shubham Sanjay Varma</a> • <a href="https://github.com/tiwaripiyush140-glitch">Piyush Tiwari</a>
+            © Reserved | Developed by • <a href="https://github.com/shubhamsanjayvarma">Shubham Varma</a> • <a href="https://github.com/pratikforge">Pratik Yadav</a> • <a href="https://github.com/tiwaripiyush140-glitch">Piyush Tiwari</a> • <a href="https://github.com/tarakdesai19">Tarak Desai</a>
           </footer>
         </div>
       ) : (
@@ -698,7 +698,7 @@ export default function App() {
 
           {/* FOOTER */}
           <footer className="yj-footer">
-            © Reserved | Developed by • <a href="https://github.com/pratikforge">Pratik</a> • <a href="https://github.com/tarakdesai19">Tarak Desai</a> • <a href="https://github.com/shubhamsanjayvarma">Shubham Sanjay Varma</a> • <a href="https://github.com/tiwaripiyush140-glitch">Piyush Tiwari</a>
+            © Reserved | Developed by • <a href="https://github.com/shubhamsanjayvarma">Shubham Varma</a> • <a href="https://github.com/pratikforge">Pratik Yadav</a> • <a href="https://github.com/tiwaripiyush140-glitch">Piyush Tiwari</a> • <a href="https://github.com/tarakdesai19">Tarak Desai</a>
           </footer>
         </div>
       )}

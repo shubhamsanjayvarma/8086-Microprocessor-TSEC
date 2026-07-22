@@ -46,31 +46,22 @@ Thanks to the following team members for their contributions to this project!
 <table>
   <tr>
     <td align="center">
-      <a href="https://github.com/pratikforge">
-        <img src="https://github.com/pratikforge.png" width="100px;" alt="Pratik"/>
-        <br />
-        <sub><b>Pratik</b></sub>
-      </a>
-      <br />
-      <a href="https://github.com/pratikforge">@pratikforge</a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/tarakdesai19">
-        <img src="https://github.com/tarakdesai19.png" width="100px;" alt="Tarak Desai"/>
-        <br />
-        <sub><b>Tarak Desai</b></sub>
-      </a>
-      <br />
-      <a href="https://github.com/tarakdesai19">@tarakdesai19</a>
-    </td>
-    <td align="center">
       <a href="https://github.com/shubhamsanjayvarma">
-        <img src="https://github.com/shubhamsanjayvarma.png" width="100px;" alt="Shubham Sanjay Varma"/>
+        <img src="https://github.com/shubhamsanjayvarma.png" width="100px;" alt="Shubham Varma"/>
         <br />
-        <sub><b>Shubham Sanjay Varma</b></sub>
+        <sub><b>Shubham Varma</b></sub>
       </a>
       <br />
       <a href="https://github.com/shubhamsanjayvarma">@shubhamsanjayvarma</a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/pratikforge">
+        <img src="https://github.com/pratikforge.png" width="100px;" alt="Pratik Yadav"/>
+        <br />
+        <sub><b>Pratik Yadav</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/pratikforge">@pratikforge</a>
     </td>
     <td align="center">
       <a href="https://github.com/tiwaripiyush140-glitch">
@@ -81,6 +72,15 @@ Thanks to the following team members for their contributions to this project!
       <br />
       <a href="https://github.com/tiwaripiyush140-glitch">@tiwaripiyush140-glitch</a>
     </td>
+    <td align="center">
+      <a href="https://github.com/tarakdesai19">
+        <img src="https://github.com/tarakdesai19.png" width="100px;" alt="Tarak Desai"/>
+        <br />
+        <sub><b>Tarak Desai</b></sub>
+      </a>
+      <br />
+      <a href="https://github.com/tarakdesai19">@tarakdesai19</a>
+    </td>
   </tr>
 </table>
 
@@ -88,4 +88,4 @@ Thanks to the following team members for their contributions to this project!
 
 ## 📜 License
 
-This project is open-source and available under the [MIT License](LICENSE).
+This project is open-source and available under the [TSEC License](LICENSE).

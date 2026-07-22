@@ -812,17 +812,28 @@ body, html, #root {
 
 .yj-footer {
   text-align: center;
-  padding: 16px;
+  padding: 18px 24px;
   font-family: var(--yj-font-mono);
-  font-size: 12px;
-  color: var(--yj-text-dim);
-  border-top: 1px solid var(--yj-border);
-  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--yj-text-main);
+  border-top: 2px solid var(--yj-border);
+  margin-top: 24px;
+  letter-spacing: 0.02em;
+  background-color: var(--yj-card-bg);
 }
 
 .yj-footer a {
-  color: var(--yj-gold);
-  text-decoration: none;
+  color: #B87300;
+  font-weight: 700;
+  text-decoration: underline;
+  padding: 0 2px;
+  transition: color 0.15s;
+}
+
+.yj-footer a:hover {
+  color: #000000;
+  background-color: var(--yj-gold-light);
 }
 
 .text-dim { color: var(--yj-text-dim); }
