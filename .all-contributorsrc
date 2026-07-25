@@ -1,7 +1,5 @@
 {
-  "files": [
-    "README.md"
-  ],
+  "files": ["README.md"],
   "imageSize": 100,
   "children": {},
   "contributors": [
@@ -10,40 +8,28 @@
       "name": "Pratik",
       "avatar_url": "https://github.com/pratikforge.png",
       "profile": "https://github.com/pratikforge",
-      "contributions": [
-        "code",
-        "doc"
-      ]
+      "contributions": ["code", "doc"]
     },
     {
       "login": "tarakdesai19",
       "name": "Tarak Desai",
       "avatar_url": "https://github.com/tarakdesai19.png",
       "profile": "https://github.com/tarakdesai19",
-      "contributions": [
-        "code",
-        "doc"
-      ]
+      "contributions": ["code", "doc"]
     },
     {
       "login": "shubhamsanjayvarma",
       "name": "Shubham Sanjay Varma",
       "avatar_url": "https://github.com/shubhamsanjayvarma.png",
       "profile": "https://github.com/shubhamsanjayvarma",
-      "contributions": [
-        "code",
-        "doc"
-      ]
+      "contributions": ["code", "doc"]
     },
     {
       "login": "tiwaripiyush140-glitch",
       "name": "Piyush Tiwari",
       "avatar_url": "https://github.com/tiwaripiyush140-glitch.png",
       "profile": "https://github.com/tiwaripiyush140-glitch",
-      "contributions": [
-        "code",
-        "doc"
-      ]
+      "contributions": ["code", "doc"]
     }
   ],
   "projectName": "8086-Microprocessor-TSEC",

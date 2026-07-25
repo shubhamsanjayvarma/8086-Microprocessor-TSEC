@@ -17,6 +17,7 @@ import type { CompilerResult, ParsedInstruction } from "./utils/compiler";
 import { Emulator, initialCPUState } from "./utils/emulator";
 import type { CPUState } from "./utils/emulator";
 import { examples } from "./utils/examples";
+import { Logger } from "./utils/logger";
 import "./App.css";
 
 type ViewMode = "compiler" | "landing";
@@ -73,6 +74,7 @@ export default function App() {
     if (result.errors.length > 0) {
       setStatusText("Compilation Failed");
       setCurrentLineIndex(-1);
+      Logger.error("Compilation Failed", { errors: result.errors });
       return;
     }
 
@@ -121,11 +123,18 @@ export default function App() {
       return;
     }
 
-    const executedInst = emulatorRef.current.step();
-    setCpuState(JSON.parse(JSON.stringify(emulatorRef.current.state)));
+    try {
+      const executedInst = emulatorRef.current.step();
+      setCpuState(JSON.parse(JSON.stringify(emulatorRef.current.state)));
 
-    if (executedInst) {
-      setStatusText(`Executed: ${executedInst.originalLine.trim()}`);
+      if (executedInst) {
+        setStatusText(`Executed: ${executedInst.originalLine.trim()}`);
+      }
+    } catch (err) {
+      Logger.fatal("Emulator crashed during step execution", err);
+      setStatusText("Emulator Crashed. Check logs.");
+      setIsRunning(false);
+      return;
     }
 
     if (emulatorRef.current.state.halted) {

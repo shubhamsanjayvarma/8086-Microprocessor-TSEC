@@ -2,18 +2,18 @@
 
 ## Corpus Check
 
-- 99 files · ~87,482 words
+- 105 files · ~89,825 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 
-- 938 nodes · 949 edges · 64 communities (56 shown, 8 thin omitted)
+- 981 nodes · 1007 edges · 66 communities (58 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
 
-- Built from commit: `c20fe93a`
+- Built from commit: `3658a811`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -78,6 +78,8 @@
 - [[_COMMUNITY_Community 59|Community 59]]
 - [[_COMMUNITY_Community 60|Community 60]]
 - [[_COMMUNITY_Community 61|Community 61]]
+- [[_COMMUNITY_Community 64|Community 64]]
+- [[_COMMUNITY_Community 65|Community 65]]
 
 ## God Nodes (most connected - your core abstractions)
 
@@ -85,12 +87,12 @@
 2. `Code Review and Quality` - 19 edges
 3. `compilerOptions` - 18 edges
 4. `compile8086()` - 17 edges
-5. `Security and Hardening` - 16 edges
-6. `compilerOptions` - 15 edges
-7. `Git Workflow and Versioning` - 15 edges
-8. `Product Requirements Document (PRD)` - 15 edges
+5. `Logger` - 17 edges
+6. `Security and Hardening` - 16 edges
+7. `compilerOptions` - 15 edges
+8. `Git Workflow and Versioning` - 15 edges
 9. `Product Requirements Document (PRD)` - 15 edges
-10. `Test-Driven Development` - 14 edges
+10. `Product Requirements Document (PRD)` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 
@@ -103,7 +105,7 @@
 
 - None detected.
 
-## Communities (64 total, 8 thin omitted)
+## Communities (66 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
 
@@ -302,8 +304,8 @@ Nodes (5): For /graphify explain, For /graphify path, graphify reference: query,
 
 ### Community 39 - "Community 39"
 
-Cohesion: 0.25
-Nodes (7): 2026-07-24: Example Code Bug, 2026-07-24: Incomplete Emulator Jump Instruction Set, 2026-07-24: Invalid Unicode escape sequence in TypeScript, 2026-07-24: Memory Displacement Parsing, 2026-07-24: Memory Size Inference Bug, 2026-07-24: Test Assertions on Clobbered Registers, Error Log
+Cohesion: 0.20
+Nodes (9): 2026-07-24: Example Code Bug, 2026-07-24: Incomplete Emulator Jump Instruction Set, 2026-07-24: Invalid Unicode escape sequence in TypeScript, 2026-07-24: Memory Displacement Parsing, 2026-07-24: Memory Size Inference Bug, 2026-07-24: Test Assertions on Clobbered Registers, 2026-07-25: CI Performance Bounds Timeout, 2026-07-25: Oxlint `eslint-disable` Directive Placement (+1 more)
 
 ### Community 40 - "Community 40"
 
@@ -337,32 +339,42 @@ Nodes (29): Arithmetic Instructions, Combinatorial Scenarios, Combinatorial Scen
 
 ### Community 57 - "Community 57"
 
-Cohesion: 0.17
-Nodes (11): Component 1: Compiler (`compile8086`), Component 2: Emulator Execution (`Emulator.step`), Component 3: UI State Management (`App.tsx`), Overview, Space Complexity, Space Complexity, Space Complexity, Space & Time Complexity Testing Report (+3 more)
+Cohesion: 0.13
+Nodes (14): Component 1: Compiler (`compile8086`), Component 2: Emulator Execution (`Emulator.step`), Component 3: UI State Management (`App.tsx`), Component 4: Telemetry & Logging (`Logger`), Overview, Space Complexity, Space Complexity, Space Complexity (+6 more)
 
 ### Community 58 - "Community 58"
 
-Cohesion: 0.25
-Nodes (7): 1. Regex Denial of Service (ReDoS) [STRIDE: Denial of Service], 2. Instruction Opcodes & Fallthrough [STRIDE: Tampering], 3. Memory Out of Bounds Spoofing [STRIDE: Information Disclosure], 4. Cross-Site Scripting (XSS) [OWASP: Injection], Codebase Security Review Report, Cyber Attack Mitigation Results, Overview
+Cohesion: 0.22
+Nodes (8): 1. Regex Denial of Service (ReDoS) [STRIDE: Denial of Service], 2. Instruction Opcodes & Fallthrough [STRIDE: Tampering], 3. Memory Out of Bounds Spoofing [STRIDE: Information Disclosure], 4. Cross-Site Scripting (XSS) [OWASP: Injection], 5. Log Injection & Context Masking [OWASP: Log Injection / STRIDE: Information Disclosure], Codebase Security Review Report, Cyber Attack Mitigation Results, Overview
 
 ### Community 59 - "Community 59"
 
-Cohesion: 0.25
-Nodes (7): 1. Interface Constraints & Boundary Inputs, 2. Browser Integration checks, 3. Edge Case Assertions, Conclusion, Overview, QA Testing Report, Test Areas Executed
+Cohesion: 0.22
+Nodes (8): 1. Interface Constraints & Boundary Inputs, 2. Browser Integration checks, 3. Edge Case Assertions, 4. Error Boundaries & Telemetry, Conclusion, Overview, QA Testing Report, Test Areas Executed
 
 ### Community 60 - "Community 60"
 
-Cohesion: 0.33
-Nodes (5): 1. Compiler Instruction Logic, 2. Emulator Instruction Logic, 3. Data Synchronization (App Contract), Logic Testing Report, Overview
+Cohesion: 0.29
+Nodes (6): 1. Compiler Instruction Logic, 2. Emulator Instruction Logic, 3. Data Synchronization (App Contract), 4. Telemetry & Error Boundaries, Logic Testing Report, Overview
 
 ### Community 61 - "Community 61"
 
 Cohesion: 0.10
 Nodes (20): Checklist: Verifying Completeness, General Rules (Apply to ALL Testing Types), Instructions, Instructions, Instructions, Instructions, Objective, Objective (+12 more)
 
+### Community 64 - "Community 64"
+
+Cohesion: 0.11
+Nodes (7): ErrorBoundary, Props, State, LogEntry, Logger, LogLevel, REDACTED_KEYS
+
+### Community 65 - "Community 65"
+
+Cohesion: 0.25
+Nodes (7): 1. Objective, 2. Test Execution Details, 3. Conclusion, Milestone 1: Structural UI Sanity, Milestone 2: Pre-Commit Hook Strictness, Milestone 3: CI Performance Scaling (UI Deep Cloning), UI Integration & Layout Testing Report
+
 ## Knowledge Gaps
 
-- **682 isolated node(s):** `idea-refine.sh script`, `husky.sh script`, `$schema`, `plugins`, `react/rules-of-hooks` (+677 more)
+- **699 isolated node(s):** `idea-refine.sh script`, `husky.sh script`, `$schema`, `plugins`, `react/rules-of-hooks` (+694 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -370,10 +382,12 @@ Nodes (20): Checklist: Verifying Completeness, General Rules (Apply to ALL Testi
 
 _Questions this graph is uniquely positioned to answer:_
 
+- **Why does `Logger` connect `Community 64` to `Community 0`?**
+  _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `idea-refine.sh script`, `husky.sh script`, `$schema` to the rest of the system?**
-  _682 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _699 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.10122448979591837 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10459183673469388 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.05 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
@@ -381,6 +395,4 @@ _Questions this graph is uniquely positioned to answer:_
 - **Should `Community 3` be split into smaller, more focused modules?**
   _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
 - **Should `Community 4` be split into smaller, more focused modules?**
-  _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
-- **Should `Community 5` be split into smaller, more focused modules?**
   _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
