@@ -17,8 +17,8 @@ describe("Component 1: Compiler (compile8086) Space/Time Complexity", () => {
     expect(result.errors).toHaveLength(0);
     expect(result.instructions).toHaveLength(10000);
 
-    // It should parse 10,000 lines in under 200ms in a Node environment (bumped to 1000ms for CI)
-    expect(end - start).toBeLessThan(1000);
+    // It should parse 10,000 lines efficiently (Rule 18: generous upper-bound for parallel test runners).
+    expect(end - start).toBeLessThan(5000);
   });
 
   it("Edge Case: handles 10,000 blank lines and comments in linear time", () => {

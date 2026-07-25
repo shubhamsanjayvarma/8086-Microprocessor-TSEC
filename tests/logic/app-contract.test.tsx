@@ -6,7 +6,7 @@ import * as React from "react";
 describe("Milestone 5: Inter-Module Contract Testing", () => {
   describe("5.1 & 5.2 Error Propagation & UI Sync", () => {
     it("shows compilation errors on invalid code", async () => {
-      const { container } = render(<App />);
+      const { container } = render(<App initialViewMode="compiler" />);
 
       const textarea = container.querySelector(
         ".yj-code-textarea",
@@ -31,7 +31,7 @@ describe("Milestone 5: Inter-Module Contract Testing", () => {
     });
 
     it("syncs registers to UI correctly after stepping", async () => {
-      const { container } = render(<App />);
+      const { container } = render(<App initialViewMode="compiler" />);
 
       const textarea = container.querySelector(
         ".yj-code-textarea",

@@ -11,19 +11,24 @@ import {
   Copy,
   Check,
   Accessibility,
+  Cpu,
 } from "lucide-react";
 import { compile8086 } from "./utils/compiler";
 import type { CompilerResult, ParsedInstruction } from "./utils/compiler";
-import { Emulator, initialCPUState } from "./utils/emulator";
+import { Emulator, initialCPUState, cloneCPUState } from "./utils/emulator";
 import type { CPUState } from "./utils/emulator";
 import { examples } from "./utils/examples";
 import { Logger } from "./utils/logger";
 import "./App.css";
 
-type ViewMode = "compiler" | "landing";
+export type ViewMode = "compiler" | "landing";
 
-export default function App() {
-  const [viewMode, setViewMode] = useState<ViewMode>("compiler");
+export interface AppProps {
+  initialViewMode?: ViewMode;
+}
+
+export default function App({ initialViewMode = "landing" }: AppProps = {}) {
+  const [viewMode, setViewMode] = useState<ViewMode>(initialViewMode);
   const [code, setCode] = useState<string>(examples[0].code);
   const [selectedExampleIndex, setSelectedExampleIndex] = useState<number>(0);
   const [compilerResult, setCompilerResult] = useState<CompilerResult | null>(
@@ -49,11 +54,42 @@ export default function App() {
   const [accessibilityMode, setAccessibilityMode] = useState<boolean>(false);
   // Dark mode toggle
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  // Interactive Tutorial state (Steps 1 to 4)
+  const [tutorialStep, setTutorialStep] = useState<number | null>(null);
   // Copy success notification
   const [copied, setCopied] = useState<boolean>(false);
 
   const emulatorRef = useRef<Emulator | null>(null);
   const timerRef = useRef<number | null>(null);
+
+  // Keyboard shortcut listener: Alt+Shift+E to focus editor
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.altKey && e.shiftKey && (e.key === "e" || e.key === "E")) {
+        e.preventDefault();
+        const textarea = document.querySelector(
+          ".yj-code-textarea",
+        ) as HTMLTextAreaElement;
+        textarea?.focus();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  const handleStartTutorial = () => {
+    setViewMode("compiler");
+    setTutorialStep(1);
+  };
+
+  const handleNextTutorialStep = () => {
+    if (tutorialStep === null) return;
+    if (tutorialStep >= 9) {
+      setTutorialStep(null);
+    } else {
+      setTutorialStep(tutorialStep + 1);
+    }
+  };
 
   // Auto-compile on mount
   useEffect(() => {
@@ -86,7 +122,7 @@ export default function App() {
 
     const emulator = new Emulator(result.instructions, initialMem);
     emulatorRef.current = emulator;
-    setCpuState(JSON.parse(JSON.stringify(emulator.state)));
+    setCpuState(cloneCPUState(emulator.state));
     setStatusText("Compilation Successful. Ready to Run.");
 
     // Highlight the first instruction
@@ -125,7 +161,7 @@ export default function App() {
 
     try {
       const executedInst = emulatorRef.current.step();
-      setCpuState(JSON.parse(JSON.stringify(emulatorRef.current.state)));
+      setCpuState(cloneCPUState(emulatorRef.current.state));
 
       if (executedInst) {
         setStatusText(`Executed: ${executedInst.originalLine.trim()}`);
@@ -194,7 +230,7 @@ export default function App() {
     const parsedVal = parseInt(editingMemVal, 16);
     if (!isNaN(parsedVal)) {
       emulatorRef.current.state.memory[address] = parsedVal & 0xff;
-      setCpuState(JSON.parse(JSON.stringify(emulatorRef.current.state)));
+      setCpuState(cloneCPUState(emulatorRef.current.state));
     }
     setEditingMemAddr(null);
   };
@@ -305,7 +341,7 @@ export default function App() {
               setViewMode(viewMode === "compiler" ? "landing" : "compiler")
             }
           >
-            8086 Compiler
+            TSEC 8086 Compiler
           </span>
         </div>
 
@@ -313,11 +349,7 @@ export default function App() {
           <button
             className="yj-nav-icon-btn"
             title="Help / Tutorial"
-            onClick={() =>
-              alert(
-                "8086 Online Emulator Tutorial:\n1. Write or edit 8086 Assembly in Code Editor.\n2. Click COMPILE to assemble.\n3. Click RUN for automatic execution or NEXT for single stepping.\n4. Observe Registers, Flags, and Memory in real-time.",
-              )
-            }
+            onClick={handleStartTutorial}
           >
             <HelpCircle size={18} />
           </button>
@@ -340,6 +372,18 @@ export default function App() {
 
           <button
             className="yj-nav-icon-btn"
+            title="Microprocessor Specs"
+            onClick={() =>
+              alert(
+                "8086 Microprocessor Specifications:\n- 16-bit Architecture\n- 1 MB Physical Memory Address Space\n- 14 Registers (AX, BX, CX, DX, SI, DI, SP, BP, IP, CS, DS, SS, ES, Flags)\n- Clock Speed: 5-10 MHz",
+              )
+            }
+          >
+            <Cpu size={18} />
+          </button>
+
+          <button
+            className="yj-nav-icon-btn"
             title="Toggle Light/Dark Theme"
             onClick={() => setIsDarkMode(!isDarkMode)}
           >
@@ -354,8 +398,8 @@ export default function App() {
           <section className="yj-hero-card">
             <div className="yj-hero-img-col">
               <img
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80"
-                alt="8086 Microprocessor"
+                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80"
+                alt="Workspace Desk"
                 className="yj-hero-img"
               />
             </div>
@@ -373,7 +417,8 @@ export default function App() {
                   Github Repository
                 </a>
               </p>
-              <p>Made Using React, TypeScript and Vite.</p>
+              <p>Also in Command Line version</p>
+              <p>Made Using React, WASM and Rust.</p>
               <div className="yj-hero-btns">
                 <button
                   className="yj-btn-gold"
@@ -899,6 +944,50 @@ export default function App() {
             </a>{" "}
             • <a href="https://github.com/tarakdesai19">Tarak Desai</a>
           </footer>
+        </div>
+      )}
+
+      {/* INTERACTIVE GUIDED TUTORIAL OVERLAY */}
+      {tutorialStep !== null && (
+        <div className="yj-tutorial-overlay" onClick={handleNextTutorialStep}>
+          <div
+            className={`yj-tutorial-popover step-${tutorialStep}`}
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNextTutorialStep();
+            }}
+          >
+            <div className="yj-tutorial-header">
+              <span className="yj-tutorial-title">Step {tutorialStep}</span>
+            </div>
+            <div className="yj-tutorial-divider" />
+            <div className="yj-tutorial-body">
+              {tutorialStep === 1 && (
+                <>
+                  <p>Write your Code in the editor.</p>
+                  <div className="yj-hotkey-badge">
+                    <span className="yj-kbd">Alt+Shift+e</span> to focus on
+                    editor.
+                  </div>
+                </>
+              )}
+              {tutorialStep === 2 && <p>Next, Compile the code.</p>}
+              {tutorialStep === 3 && <p>Run the compiled code.</p>}
+              {tutorialStep === 4 && (
+                <p>Execute the next line of the instruction.</p>
+              )}
+              {tutorialStep === 5 && <p>Halt the execution.</p>}
+              {tutorialStep === 6 && <p>Check Registers values here.</p>}
+              {tutorialStep === 7 && <p>Check flags here</p>}
+              {tutorialStep === 8 && (
+                <p>
+                  Check RAM Memory here. You can also adjust the memory
+                  locations with the text field
+                </p>
+              )}
+              {tutorialStep === 9 && <p>Download Code from here</p>}
+            </div>
+          </div>
         </div>
       )}
     </div>

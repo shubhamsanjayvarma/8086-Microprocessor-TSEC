@@ -12,7 +12,7 @@ import * as React from "react";
 describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () => {
   it("Time Complexity: Memory Viewer renders predictably without blowing up execution frames", async () => {
     // We mount the App, then compile a simple program, then test stepping rapidly.
-    const { container } = render(<App />);
+    const { container } = render(<App initialViewMode="compiler" />);
     const textarea = container.querySelector(
       ".yj-code-textarea",
     ) as HTMLTextAreaElement;
@@ -44,7 +44,7 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
   });
 
   it("Space Complexity: Deep cloning CPU state does not trigger maximum call stack bounds", async () => {
-    const { container } = render(<App />);
+    const { container } = render(<App initialViewMode="compiler" />);
     const textarea = container.querySelector(
       ".yj-code-textarea",
     ) as HTMLTextAreaElement;
@@ -80,7 +80,7 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
   }, 30000);
 
   it("Cyber Attack (XSS): App sanitizes script injections in compiled assembly", async () => {
-    const { container } = render(<App />);
+    const { container } = render(<App initialViewMode="compiler" />);
     const textarea = container.querySelector(
       ".yj-code-textarea",
     ) as HTMLTextAreaElement;

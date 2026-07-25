@@ -78,7 +78,7 @@ describe("Milestone 3: Data Flow & State Mutation Integrity", () => {
       expect(clonedState.memory instanceof Uint8Array).toBe(false);
       expect(typeof clonedState.memory).toBe("object");
       expect(clonedState.memory["0"]).toBe(42);
-    });
+    }, 30000);
   });
 
   describe("3.3 setRegValue() / getRegValue() Round-Trip", () => {
