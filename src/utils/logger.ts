@@ -21,26 +21,6 @@ export class Logger {
   private static head = 0;
   private static count = 0;
 
-  private static redact(obj: any): any {
-    if (obj === null || obj === undefined) return obj;
-    if (typeof obj !== "object") return obj;
-
-    const sanitized: any = Array.isArray(obj) ? [] : {};
-    for (const key in obj) {
-      if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        if (REDACTED_KEYS.has(key.toLowerCase())) {
-          sanitized[key] = "[REDACTED]";
-        } else {
-          // Prevent deep circular references by shallow copying for now,
-          // or doing a simple 1-level deep redact if needed.
-          // For simplicity in this logger, we'll stringify and catch circular errors.
-          sanitized[key] = obj[key];
-        }
-      }
-    }
-    return sanitized;
-  }
-
   private static sanitizeMessage(msg: string): string {
     return msg.replace(/\n|\r/g, "\\n");
   }
