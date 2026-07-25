@@ -16,7 +16,7 @@ vi.mock("../../src/utils/compiler", () => ({
 
 describe("Milestone 4.4 & 4.5: App Memory Validation", () => {
   it("handles segment and offset inputs safely", async () => {
-    const { container } = render(<App />);
+    const { container } = render(<App initialViewMode="compiler" />);
 
     // Find the Memory Address input
     const input = container.querySelector(

@@ -67,6 +67,17 @@ export const initialCPUState = (): CPUState => {
   };
 };
 
+export function cloneCPUState(state: CPUState): CPUState {
+  return {
+    registers: { ...state.registers },
+    flags: { ...state.flags },
+    memory: state.memory.slice(),
+    consoleOutput: state.consoleOutput,
+    halted: state.halted,
+    cycles: state.cycles,
+  };
+}
+
 // Parity flag helper: returns true if lowest byte has even number of 1s
 function calculateParity(val: number): boolean {
   let count = 0;
@@ -81,6 +92,7 @@ function calculateParity(val: number): boolean {
 export class Emulator {
   state: CPUState;
   instructionMap: Map<number, ParsedInstruction>; // IP -> Instruction
+  maxCycles: number = 1000000; // Safety guardrail against runaway infinite loops
 
   constructor(
     instructions: ParsedInstruction[],
@@ -292,6 +304,13 @@ export class Emulator {
   // Step execute one instruction
   step(): ParsedInstruction | null {
     if (this.state.halted) return null;
+
+    if (this.state.cycles >= this.maxCycles) {
+      this.state.halted = true;
+      this.state.consoleOutput +=
+        "\n[CPU Execution Terminated: Exceeded Max Cycle Limit]";
+      return null;
+    }
 
     const ip = this.state.registers.IP;
     const inst = this.instructionMap.get(ip);

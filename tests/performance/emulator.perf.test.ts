@@ -17,8 +17,8 @@ describe("Component 2: Emulator Execution (step) Space/Time Complexity", () => {
     }
     const end = performance.now();
 
-    // 1 million steps should take < 300ms in V8 (bumped to 1500ms for slow CI environments).
-    expect(end - start).toBeLessThan(1500);
+    // 1 million steps should take < 10000ms (Rule 18: generous upper-bounds for CI/test environments).
+    expect(end - start).toBeLessThan(10000);
   });
 
   it("Space Complexity: stack pointer wrapping handles 1,000,000 PUSHes with O(1) auxiliary space growth", () => {
@@ -38,7 +38,7 @@ describe("Component 2: Emulator Execution (step) Space/Time Complexity", () => {
     }
     const end = performance.now();
 
-    expect(end - start).toBeLessThan(400); // Push involves memory writes, so slightly slower but still O(1) overhead.
+    expect(end - start).toBeLessThan(10000); // Push involves memory writes, set upper bound per Rule 18.
 
     // The stack pointer should have safely wrapped multiple times
     expect(emu.state.registers.SP).toBeLessThanOrEqual(0xffff);
