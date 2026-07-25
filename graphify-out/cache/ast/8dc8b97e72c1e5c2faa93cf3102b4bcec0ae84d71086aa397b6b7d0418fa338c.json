@@ -1,0 +1,111 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_spec_logic_testing_report_md",
+      "label": "logic_testing_report.md",
+      "file_type": "document",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_logic_testing_report_logic_testing_report",
+      "label": "Logic Testing Report",
+      "file_type": "document",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_logic_testing_report_overview",
+      "label": "Overview",
+      "file_type": "document",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "spec_logic_testing_report_1_compiler_instruction_logic",
+      "label": "1. Compiler Instruction Logic",
+      "file_type": "document",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "spec_logic_testing_report_2_emulator_instruction_logic",
+      "label": "2. Emulator Instruction Logic",
+      "file_type": "document",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L16"
+    },
+    {
+      "id": "spec_logic_testing_report_3_data_synchronization_app_contract",
+      "label": "3. Data Synchronization (App Contract)",
+      "file_type": "document",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L25"
+    },
+    {
+      "id": "spec_logic_testing_report_4_telemetry_error_boundaries",
+      "label": "4. Telemetry & Error Boundaries",
+      "file_type": "document",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L29"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_spec_logic_testing_report_md",
+      "target": "spec_logic_testing_report_logic_testing_report",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_logic_testing_report_logic_testing_report",
+      "target": "spec_logic_testing_report_overview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_logic_testing_report_logic_testing_report",
+      "target": "spec_logic_testing_report_1_compiler_instruction_logic",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_logic_testing_report_logic_testing_report",
+      "target": "spec_logic_testing_report_2_emulator_instruction_logic",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_logic_testing_report_logic_testing_report",
+      "target": "spec_logic_testing_report_3_data_synchronization_app_contract",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_logic_testing_report_logic_testing_report",
+      "target": "spec_logic_testing_report_4_telemetry_error_boundaries",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L29",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

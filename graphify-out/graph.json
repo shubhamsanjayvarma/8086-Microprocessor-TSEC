@@ -613,7 +613,7 @@
       "label": ".render()",
       "file_type": "code",
       "source_file": "src/components/ErrorBoundary.tsx",
-      "source_location": "L43",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "components_errorboundary_errorboundary_render",
       "community": 64,
@@ -1238,6 +1238,26 @@
       "id": "performance_ui_perf_test",
       "community": 0,
       "norm_label": "ui.perf.test.tsx"
+    },
+    {
+      "label": "error-boundary.test.tsx",
+      "file_type": "code",
+      "source_file": "tests/qa/error-boundary.test.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "qa_error_boundary_test",
+      "community": 64,
+      "norm_label": "error-boundary.test.tsx"
+    },
+    {
+      "label": "CrashingComponent()",
+      "file_type": "code",
+      "source_file": "tests/qa/error-boundary.test.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "qa_error_boundary_test_crashingcomponent",
+      "community": 64,
+      "norm_label": "crashingcomponent()"
     },
     {
       "label": "logger.stride.test.ts",
@@ -8790,6 +8810,16 @@
       "norm_label": "4. cross-site scripting (xss) [owasp: injection]"
     },
     {
+      "label": "5. Log Injection & Context Masking [OWASP: Log Injection / STRIDE: Information Disclosure]",
+      "file_type": "document",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "spec_codebase_security_review_report_5_log_injection_context_masking_owasp_log_injection_stride_information_disclosure",
+      "community": 58,
+      "norm_label": "5. log injection & context masking [owasp: log injection / stride: information disclosure]"
+    },
+    {
       "label": "doc_req.md",
       "file_type": "document",
       "source_file": "spec/doc_req.md",
@@ -8858,6 +8888,16 @@
       "id": "spec_logic_testing_report_3_data_synchronization_app_contract",
       "community": 60,
       "norm_label": "3. data synchronization (app contract)"
+    },
+    {
+      "label": "4. Telemetry & Error Boundaries",
+      "file_type": "document",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "spec_logic_testing_report_4_telemetry_error_boundaries",
+      "community": 60,
+      "norm_label": "4. telemetry & error boundaries"
     },
     {
       "label": "qa_testing_plan.md",
@@ -9230,10 +9270,20 @@
       "norm_label": "3. edge case assertions"
     },
     {
-      "label": "Conclusion",
+      "label": "4. Error Boundaries & Telemetry",
       "file_type": "document",
       "source_file": "spec/qa_testing_report.md",
       "source_location": "L24",
+      "_origin": "ast",
+      "id": "spec_qa_testing_report_4_error_boundaries_telemetry",
+      "community": 59,
+      "norm_label": "4. error boundaries & telemetry"
+    },
+    {
+      "label": "Conclusion",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "spec_qa_testing_report_conclusion",
       "community": 59,
@@ -9356,6 +9406,36 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "spec_space_time_complexity_report_space_complexity_46",
+      "community": 57,
+      "norm_label": "space complexity"
+    },
+    {
+      "label": "Component 4: Telemetry & Logging (`Logger`)",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "spec_space_time_complexity_report_component_4_telemetry_logging_logger",
+      "community": 57,
+      "norm_label": "component 4: telemetry & logging (`logger`)"
+    },
+    {
+      "label": "Time Complexity",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "spec_space_time_complexity_report_time_complexity_52",
+      "community": 57,
+      "norm_label": "time complexity"
+    },
+    {
+      "label": "Space Complexity",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "spec_space_time_complexity_report_space_complexity_58",
       "community": 57,
       "norm_label": "space complexity"
     },
@@ -10372,9 +10452,9 @@
       "source_file": "src/App.tsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "utils_logger",
-      "confidence_score": 1.0
+      "target": "utils_logger"
     },
     {
       "relation": "imports",
@@ -10383,9 +10463,9 @@
       "source_file": "src/App.tsx",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_app",
-      "target": "utils_logger_logger",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger"
     },
     {
       "relation": "imports_from",
@@ -10415,9 +10495,9 @@
       "source_file": "src/components/ErrorBoundary.tsx",
       "source_location": "L13",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_errorboundary",
-      "target": "components_errorboundary_errorboundary",
-      "confidence_score": 1.0
+      "target": "components_errorboundary_errorboundary"
     },
     {
       "relation": "contains",
@@ -10425,9 +10505,9 @@
       "source_file": "src/components/ErrorBoundary.tsx",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_errorboundary",
-      "target": "components_errorboundary_props",
-      "confidence_score": 1.0
+      "target": "components_errorboundary_props"
     },
     {
       "relation": "contains",
@@ -10435,9 +10515,9 @@
       "source_file": "src/components/ErrorBoundary.tsx",
       "source_location": "L8",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_errorboundary",
-      "target": "components_errorboundary_state",
-      "confidence_score": 1.0
+      "target": "components_errorboundary_state"
     },
     {
       "relation": "imports_from",
@@ -10446,9 +10526,9 @@
       "source_file": "src/components/ErrorBoundary.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_errorboundary",
-      "target": "utils_logger",
-      "confidence_score": 1.0
+      "target": "utils_logger"
     },
     {
       "relation": "imports",
@@ -10457,8 +10537,19 @@
       "source_file": "src/components/ErrorBoundary.tsx",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_errorboundary",
-      "target": "utils_logger_logger",
+      "target": "utils_logger_logger"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/qa/error-boundary.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "qa_error_boundary_test",
+      "target": "components_errorboundary",
       "confidence_score": 1.0
     },
     {
@@ -10468,9 +10559,9 @@
       "source_file": "src/main.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_main",
-      "target": "components_errorboundary",
-      "confidence_score": 1.0
+      "target": "components_errorboundary"
     },
     {
       "relation": "method",
@@ -10478,9 +10569,9 @@
       "source_file": "src/components/ErrorBoundary.tsx",
       "source_location": "L23",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_errorboundary_errorboundary",
-      "target": "components_errorboundary_errorboundary_componentdidcatch",
-      "confidence_score": 1.0
+      "target": "components_errorboundary_errorboundary_componentdidcatch"
     },
     {
       "relation": "method",
@@ -10488,9 +10579,9 @@
       "source_file": "src/components/ErrorBoundary.tsx",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_errorboundary_errorboundary",
-      "target": "components_errorboundary_errorboundary_getderivedstatefromerror",
-      "confidence_score": 1.0
+      "target": "components_errorboundary_errorboundary_getderivedstatefromerror"
     },
     {
       "relation": "method",
@@ -10498,8 +10589,19 @@
       "source_file": "src/components/ErrorBoundary.tsx",
       "source_location": "L43",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "components_errorboundary_errorboundary",
-      "target": "components_errorboundary_errorboundary_render",
+      "target": "components_errorboundary_errorboundary_render"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/qa/error-boundary.test.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "qa_error_boundary_test",
+      "target": "components_errorboundary_errorboundary",
       "confidence_score": 1.0
     },
     {
@@ -10509,9 +10611,9 @@
       "source_file": "src/main.tsx",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "src_main",
-      "target": "components_errorboundary_errorboundary",
-      "confidence_score": 1.0
+      "target": "components_errorboundary_errorboundary"
     },
     {
       "relation": "imports_from",
@@ -11668,7 +11770,18 @@
       "source_file": "tests/logic/logger.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "logic_logger_test",
+      "target": "utils_logger"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/qa/error-boundary.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "qa_error_boundary_test",
       "target": "utils_logger",
       "confidence_score": 1.0
     },
@@ -11679,9 +11792,9 @@
       "source_file": "tests/security/logger.stride.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "security_logger_stride_test",
-      "target": "utils_logger",
-      "confidence_score": 1.0
+      "target": "utils_logger"
     },
     {
       "relation": "contains",
@@ -11689,9 +11802,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger",
-      "target": "utils_logger_logentry",
-      "confidence_score": 1.0
+      "target": "utils_logger_logentry"
     },
     {
       "relation": "contains",
@@ -11699,9 +11812,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger",
-      "target": "utils_logger_logger",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger"
     },
     {
       "relation": "contains",
@@ -11709,9 +11822,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger",
-      "target": "utils_logger_loglevel",
-      "confidence_score": 1.0
+      "target": "utils_logger_loglevel"
     },
     {
       "relation": "contains",
@@ -11719,9 +11832,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L11",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger",
-      "target": "utils_logger_redacted_keys",
-      "confidence_score": 1.0
+      "target": "utils_logger_redacted_keys"
     },
     {
       "relation": "imports",
@@ -11730,7 +11843,18 @@
       "source_file": "tests/logic/logger.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "logic_logger_test",
+      "target": "utils_logger_logger"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/qa/error-boundary.test.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "qa_error_boundary_test",
       "target": "utils_logger_logger",
       "confidence_score": 1.0
     },
@@ -11741,9 +11865,9 @@
       "source_file": "tests/security/logger.stride.test.ts",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "security_logger_stride_test",
-      "target": "utils_logger_logger",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger"
     },
     {
       "relation": "method",
@@ -11751,9 +11875,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L139",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_clear",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_clear"
     },
     {
       "relation": "method",
@@ -11761,9 +11885,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L113",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_error",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_error"
     },
     {
       "relation": "method",
@@ -11771,9 +11895,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L135",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_exportlogs",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_exportlogs"
     },
     {
       "relation": "method",
@@ -11781,9 +11905,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L117",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_fatal",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_fatal"
     },
     {
       "relation": "method",
@@ -11791,9 +11915,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L121",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_getlogs",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_getlogs"
     },
     {
       "relation": "method",
@@ -11801,9 +11925,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L105",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_info",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_info"
     },
     {
       "relation": "method",
@@ -11811,9 +11935,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L64",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_log",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_log"
     },
     {
       "relation": "method",
@@ -11821,9 +11945,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L24",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_redact",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_redact"
     },
     {
       "relation": "method",
@@ -11831,9 +11955,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L48",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_safestringify",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_safestringify"
     },
     {
       "relation": "method",
@@ -11841,9 +11965,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L44",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_sanitizemessage",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_sanitizemessage"
     },
     {
       "relation": "method",
@@ -11851,9 +11975,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L109",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger",
-      "target": "utils_logger_logger_warn",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_warn"
     },
     {
       "relation": "calls",
@@ -11862,9 +11986,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L65",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger_log",
-      "target": "utils_logger_logger_sanitizemessage",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_sanitizemessage"
     },
     {
       "relation": "calls",
@@ -11873,9 +11997,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L73",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger_log",
-      "target": "utils_logger_logger_safestringify",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_safestringify"
     },
     {
       "relation": "calls",
@@ -11884,9 +12008,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L114",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger_error",
-      "target": "utils_logger_logger_log",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_log"
     },
     {
       "relation": "calls",
@@ -11895,9 +12019,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L118",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger_fatal",
-      "target": "utils_logger_logger_log",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_log"
     },
     {
       "relation": "calls",
@@ -11906,9 +12030,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L106",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger_info",
-      "target": "utils_logger_logger_log",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_log"
     },
     {
       "relation": "calls",
@@ -11917,9 +12041,9 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L110",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger_warn",
-      "target": "utils_logger_logger_log",
-      "confidence_score": 1.0
+      "target": "utils_logger_logger_log"
     },
     {
       "relation": "calls",
@@ -11928,8 +12052,18 @@
       "source_file": "src/utils/logger.ts",
       "source_location": "L136",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "utils_logger_logger_exportlogs",
-      "target": "utils_logger_logger_getlogs",
+      "target": "utils_logger_logger_getlogs"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/qa/error-boundary.test.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "qa_error_boundary_test",
+      "target": "qa_error_boundary_test_crashingcomponent",
       "confidence_score": 1.0
     },
     {
@@ -18945,6 +19079,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "spec_codebase_security_review_report_cyber_attack_mitigation_results",
+      "target": "spec_codebase_security_review_report_5_log_injection_context_masking_owasp_log_injection_stride_information_disclosure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "spec/logic_testing_report.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -18981,6 +19125,16 @@
       "confidence_score": 1.0,
       "source": "spec_logic_testing_report_logic_testing_report",
       "target": "spec_logic_testing_report_3_data_synchronization_app_contract"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/logic_testing_report.md",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "spec_logic_testing_report_logic_testing_report",
+      "target": "spec_logic_testing_report_4_telemetry_error_boundaries",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -19355,6 +19509,16 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "spec_qa_testing_report_test_areas_executed",
+      "target": "spec_qa_testing_report_4_error_boundaries_telemetry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "spec/space_time_complexity_report.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -19391,6 +19555,16 @@
       "confidence_score": 1.0,
       "source": "spec_space_time_complexity_report_space_time_complexity_testing_report",
       "target": "spec_space_time_complexity_report_component_3_ui_state_management_app_tsx"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L50",
+      "weight": 1.0,
+      "source": "spec_space_time_complexity_report_space_time_complexity_testing_report",
+      "target": "spec_space_time_complexity_report_component_4_telemetry_logging_logger",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -19461,6 +19635,26 @@
       "confidence_score": 1.0,
       "source": "spec_space_time_complexity_report_component_3_ui_state_management_app_tsx",
       "target": "spec_space_time_complexity_report_time_complexity_41"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "spec_space_time_complexity_report_component_4_telemetry_logging_logger",
+      "target": "spec_space_time_complexity_report_space_complexity_58",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "spec_space_time_complexity_report_component_4_telemetry_logging_logger",
+      "target": "spec_space_time_complexity_report_time_complexity_52",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -19668,9 +19862,9 @@
       "source_file": "spec/ui_integration_testing_report.md",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "spec_ui_integration_testing_report",
-      "target": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
-      "confidence_score": 1.0
+      "target": "spec_ui_integration_testing_report_ui_integration_layout_testing_report"
     },
     {
       "relation": "contains",
@@ -19678,9 +19872,9 @@
       "source_file": "spec/ui_integration_testing_report.md",
       "source_location": "L6",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
-      "target": "spec_ui_integration_testing_report_1_objective",
-      "confidence_score": 1.0
+      "target": "spec_ui_integration_testing_report_1_objective"
     },
     {
       "relation": "contains",
@@ -19688,9 +19882,9 @@
       "source_file": "spec/ui_integration_testing_report.md",
       "source_location": "L10",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
-      "target": "spec_ui_integration_testing_report_2_test_execution_details",
-      "confidence_score": 1.0
+      "target": "spec_ui_integration_testing_report_2_test_execution_details"
     },
     {
       "relation": "contains",
@@ -19698,9 +19892,9 @@
       "source_file": "spec/ui_integration_testing_report.md",
       "source_location": "L33",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
-      "target": "spec_ui_integration_testing_report_3_conclusion",
-      "confidence_score": 1.0
+      "target": "spec_ui_integration_testing_report_3_conclusion"
     },
     {
       "relation": "contains",
@@ -19708,9 +19902,9 @@
       "source_file": "spec/ui_integration_testing_report.md",
       "source_location": "L14",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "spec_ui_integration_testing_report_2_test_execution_details",
-      "target": "spec_ui_integration_testing_report_milestone_1_structural_ui_sanity",
-      "confidence_score": 1.0
+      "target": "spec_ui_integration_testing_report_milestone_1_structural_ui_sanity"
     },
     {
       "relation": "contains",
@@ -19718,9 +19912,9 @@
       "source_file": "spec/ui_integration_testing_report.md",
       "source_location": "L20",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "spec_ui_integration_testing_report_2_test_execution_details",
-      "target": "spec_ui_integration_testing_report_milestone_2_pre_commit_hook_strictness",
-      "confidence_score": 1.0
+      "target": "spec_ui_integration_testing_report_milestone_2_pre_commit_hook_strictness"
     },
     {
       "relation": "contains",
@@ -19728,9 +19922,9 @@
       "source_file": "spec/ui_integration_testing_report.md",
       "source_location": "L26",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "spec_ui_integration_testing_report_2_test_execution_details",
-      "target": "spec_ui_integration_testing_report_milestone_3_ci_performance_scaling_ui_deep_cloning",
-      "confidence_score": 1.0
+      "target": "spec_ui_integration_testing_report_milestone_3_ci_performance_scaling_ui_deep_cloning"
     },
     {
       "relation": "contains",
@@ -19808,9 +20002,9 @@
       "source_file": "telemetry/error_log.md",
       "source_location": "L45",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "telemetry_error_log_error_log",
-      "target": "telemetry_error_log_2026_07_25_ci_performance_bounds_timeout",
-      "confidence_score": 1.0
+      "target": "telemetry_error_log_2026_07_25_ci_performance_bounds_timeout"
     },
     {
       "relation": "contains",
@@ -19818,11 +20012,11 @@
       "source_file": "telemetry/error_log.md",
       "source_location": "L52",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "telemetry_error_log_error_log",
-      "target": "telemetry_error_log_2026_07_25_oxlint_eslint_disable_directive_placement",
-      "confidence_score": 1.0
+      "target": "telemetry_error_log_2026_07_25_oxlint_eslint_disable_directive_placement"
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "33f82b419728974b3ccd8753d1fcf4f070aecbf1"
+  "built_at_commit": "3658a811bda7995ef6d76c4960d36b5f4bee5a9e"
 }

@@ -2,18 +2,18 @@
 
 ## Corpus Check
 
-- 104 files · ~89,345 words
+- 105 files · ~89,825 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 
-- 973 nodes · 996 edges · 66 communities (58 shown, 8 thin omitted)
+- 981 nodes · 1007 edges · 66 communities (58 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
 
-- Built from commit: `33f82b41`
+- Built from commit: `3658a811`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -87,7 +87,7 @@
 2. `Code Review and Quality` - 19 edges
 3. `compilerOptions` - 18 edges
 4. `compile8086()` - 17 edges
-5. `Logger` - 16 edges
+5. `Logger` - 17 edges
 6. `Security and Hardening` - 16 edges
 7. `compilerOptions` - 15 edges
 8. `Git Workflow and Versioning` - 15 edges
@@ -339,23 +339,23 @@ Nodes (29): Arithmetic Instructions, Combinatorial Scenarios, Combinatorial Scen
 
 ### Community 57 - "Community 57"
 
-Cohesion: 0.17
-Nodes (11): Component 1: Compiler (`compile8086`), Component 2: Emulator Execution (`Emulator.step`), Component 3: UI State Management (`App.tsx`), Overview, Space Complexity, Space Complexity, Space Complexity, Space & Time Complexity Testing Report (+3 more)
+Cohesion: 0.13
+Nodes (14): Component 1: Compiler (`compile8086`), Component 2: Emulator Execution (`Emulator.step`), Component 3: UI State Management (`App.tsx`), Component 4: Telemetry & Logging (`Logger`), Overview, Space Complexity, Space Complexity, Space Complexity (+6 more)
 
 ### Community 58 - "Community 58"
 
-Cohesion: 0.25
-Nodes (7): 1. Regex Denial of Service (ReDoS) [STRIDE: Denial of Service], 2. Instruction Opcodes & Fallthrough [STRIDE: Tampering], 3. Memory Out of Bounds Spoofing [STRIDE: Information Disclosure], 4. Cross-Site Scripting (XSS) [OWASP: Injection], Codebase Security Review Report, Cyber Attack Mitigation Results, Overview
+Cohesion: 0.22
+Nodes (8): 1. Regex Denial of Service (ReDoS) [STRIDE: Denial of Service], 2. Instruction Opcodes & Fallthrough [STRIDE: Tampering], 3. Memory Out of Bounds Spoofing [STRIDE: Information Disclosure], 4. Cross-Site Scripting (XSS) [OWASP: Injection], 5. Log Injection & Context Masking [OWASP: Log Injection / STRIDE: Information Disclosure], Codebase Security Review Report, Cyber Attack Mitigation Results, Overview
 
 ### Community 59 - "Community 59"
 
-Cohesion: 0.25
-Nodes (7): 1. Interface Constraints & Boundary Inputs, 2. Browser Integration checks, 3. Edge Case Assertions, Conclusion, Overview, QA Testing Report, Test Areas Executed
+Cohesion: 0.22
+Nodes (8): 1. Interface Constraints & Boundary Inputs, 2. Browser Integration checks, 3. Edge Case Assertions, 4. Error Boundaries & Telemetry, Conclusion, Overview, QA Testing Report, Test Areas Executed
 
 ### Community 60 - "Community 60"
 
-Cohesion: 0.33
-Nodes (5): 1. Compiler Instruction Logic, 2. Emulator Instruction Logic, 3. Data Synchronization (App Contract), Logic Testing Report, Overview
+Cohesion: 0.29
+Nodes (6): 1. Compiler Instruction Logic, 2. Emulator Instruction Logic, 3. Data Synchronization (App Contract), 4. Telemetry & Error Boundaries, Logic Testing Report, Overview
 
 ### Community 61 - "Community 61"
 
@@ -374,7 +374,7 @@ Nodes (7): 1. Objective, 2. Test Execution Details, 3. Conclusion, Milestone 1: 
 
 ## Knowledge Gaps
 
-- **694 isolated node(s):** `idea-refine.sh script`, `husky.sh script`, `$schema`, `plugins`, `react/rules-of-hooks` (+689 more)
+- **699 isolated node(s):** `idea-refine.sh script`, `husky.sh script`, `$schema`, `plugins`, `react/rules-of-hooks` (+694 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -385,7 +385,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `Logger` connect `Community 64` to `Community 0`?**
   _High betweenness centrality (0.002) - this node is a cross-community bridge._
 - **What connects `idea-refine.sh script`, `husky.sh script`, `$schema` to the rest of the system?**
-  _694 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _699 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
   _Cohesion score 0.10459183673469388 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
