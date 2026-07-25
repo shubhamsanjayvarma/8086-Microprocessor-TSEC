@@ -28,6 +28,8 @@
   --yj-scrollbar-thumb: #cccccc;
   --yj-scrollbar-thumb-hover: #aaaaaa;
 
+  --yj-text-glow: none;
+
   --yj-font-mono: "JetBrains Mono", "Courier Prime", "Courier New", monospace;
   --yj-font-sans: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
 
@@ -55,6 +57,8 @@
   --yj-scrollbar-bg: #1e1e1e;
   --yj-scrollbar-thumb: #454545;
   --yj-scrollbar-thumb-hover: #666666;
+
+  --yj-text-glow: 0 0 2px rgba(255, 255, 255, 0.4);
 }
 
 * {
@@ -93,6 +97,7 @@ html,
   min-height: 100vh;
   background-color: var(--yj-bg);
   color: var(--yj-text-main);
+  text-shadow: var(--yj-text-glow);
   font-family: var(--yj-font-sans);
   display: flex;
   flex-direction: column;
@@ -335,6 +340,7 @@ html,
   font-size: 14px;
   line-height: 22px;
   color: var(--yj-text-main);
+  text-shadow: var(--yj-text-glow);
   resize: none;
   tab-size: 4;
 }
@@ -416,6 +422,7 @@ html,
   font-family: var(--yj-font-mono);
   font-size: 13px;
   color: var(--yj-text-main);
+  text-shadow: var(--yj-text-glow);
   padding: 4px;
 }
 
@@ -459,6 +466,7 @@ html,
 
 .yj-output-text {
   color: #228b22;
+  text-shadow: var(--yj-text-glow);
   white-space: pre-wrap;
 }
 
@@ -698,6 +706,7 @@ html,
   font-size: 11px;
   text-align: center;
   outline: none;
+  text-shadow: var(--yj-text-glow);
 }
 
 /* Floating Chatbot Widget */
