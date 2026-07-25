@@ -2,9 +2,9 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
 
 jobs:
   lint-and-test:
@@ -12,11 +12,23 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Skeletal Setup Placeholder
-        run: echo "Replace this with your actual environment setup (e.g., setup-node or setup-python)"
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
 
-      - name: Run Linter
-        run: echo "Replace this with your lint command (e.g., npm run lint or ruff check .)"
+      - name: Install Dependencies
+        run: npm ci
 
-      - name: Run Tests
-        run: echo "Replace this with your test command (e.g., npm test or pytest)"
+      - name: Type Check
+        run: npx tsc --noEmit
+
+      - name: Run Linter (Oxlint)
+        run: npm run lint
+
+      - name: Run Tests (Vitest)
+        run: npm run test
+
+      - name: Build Project
+        run: npm run build
