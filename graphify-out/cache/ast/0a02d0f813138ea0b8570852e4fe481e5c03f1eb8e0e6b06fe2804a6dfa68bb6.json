@@ -1,0 +1,143 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_discovery_agent_spec_md",
+      "label": "discovery-agent-spec.md",
+      "file_type": "document",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_discovery_agent_spec_agent_idea_discovery_validation_execution_spec",
+      "label": "Agent Idea Discovery & Validation \u2014 Execution Spec",
+      "file_type": "document",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_discovery_agent_spec_milestone_0_scope_lock_do_this_first_don_t_skip",
+      "label": "Milestone 0 \u2014 Scope Lock (do this first, don't skip)",
+      "file_type": "document",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L16"
+    },
+    {
+      "id": "8086_discovery_agent_spec_milestone_1_parallel_discovery_one_subagent_per_field",
+      "label": "Milestone 1 \u2014 Parallel Discovery (one subagent per field)",
+      "file_type": "document",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L44"
+    },
+    {
+      "id": "8086_discovery_agent_spec_milestone_2_idea_bank_compilation",
+      "label": "Milestone 2 \u2014 Idea Bank Compilation",
+      "file_type": "document",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L75"
+    },
+    {
+      "id": "8086_discovery_agent_spec_milestone_3_validation_rubric_definition",
+      "label": "Milestone 3 \u2014 Validation Rubric Definition",
+      "file_type": "document",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L106"
+    },
+    {
+      "id": "8086_discovery_agent_spec_milestone_4_parallel_validation_research",
+      "label": "Milestone 4 \u2014 Parallel Validation Research",
+      "file_type": "document",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L129"
+    },
+    {
+      "id": "8086_discovery_agent_spec_milestone_5_final_ranked_output",
+      "label": "Milestone 5 \u2014 Final Ranked Output",
+      "file_type": "document",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L154"
+    },
+    {
+      "id": "8086_discovery_agent_spec_run_order_summary",
+      "label": "Run Order Summary",
+      "file_type": "document",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L178"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_discovery_agent_spec_md",
+      "target": "8086_discovery_agent_spec_agent_idea_discovery_validation_execution_spec",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_discovery_agent_spec_agent_idea_discovery_validation_execution_spec",
+      "target": "8086_discovery_agent_spec_milestone_0_scope_lock_do_this_first_don_t_skip",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_discovery_agent_spec_agent_idea_discovery_validation_execution_spec",
+      "target": "8086_discovery_agent_spec_milestone_1_parallel_discovery_one_subagent_per_field",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_discovery_agent_spec_agent_idea_discovery_validation_execution_spec",
+      "target": "8086_discovery_agent_spec_milestone_2_idea_bank_compilation",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L75",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_discovery_agent_spec_agent_idea_discovery_validation_execution_spec",
+      "target": "8086_discovery_agent_spec_milestone_3_validation_rubric_definition",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L106",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_discovery_agent_spec_agent_idea_discovery_validation_execution_spec",
+      "target": "8086_discovery_agent_spec_milestone_4_parallel_validation_research",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L129",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_discovery_agent_spec_agent_idea_discovery_validation_execution_spec",
+      "target": "8086_discovery_agent_spec_milestone_5_final_ranked_output",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L154",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_discovery_agent_spec_agent_idea_discovery_validation_execution_spec",
+      "target": "8086_discovery_agent_spec_run_order_summary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "discovery-agent-spec.md",
+      "source_location": "L178",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

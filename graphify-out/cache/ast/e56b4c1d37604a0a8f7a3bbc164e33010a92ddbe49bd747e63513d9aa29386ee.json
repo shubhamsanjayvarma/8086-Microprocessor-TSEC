@@ -1,0 +1,239 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_agents_skills_idea_refine_skill_md",
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "idea_refine_skill_idea_refine",
+      "label": "Idea Refine",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L6"
+    },
+    {
+      "id": "idea_refine_skill_how_it_works",
+      "label": "How It Works",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L10"
+    },
+    {
+      "id": "idea_refine_skill_usage",
+      "label": "Usage",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L16"
+    },
+    {
+      "id": "idea_refine_skill_output",
+      "label": "Output",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L31"
+    },
+    {
+      "id": "idea_refine_skill_detailed_instructions",
+      "label": "Detailed Instructions",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "idea_refine_skill_philosophy",
+      "label": "Philosophy",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "idea_refine_skill_process",
+      "label": "Process",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L54"
+    },
+    {
+      "id": "idea_refine_skill_phase_1_understand_expand_divergent",
+      "label": "Phase 1: Understand & Expand (Divergent)",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L58"
+    },
+    {
+      "id": "idea_refine_skill_phase_2_evaluate_converge",
+      "label": "Phase 2: Evaluate & Converge",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L88"
+    },
+    {
+      "id": "idea_refine_skill_phase_3_sharpen_ship",
+      "label": "Phase 3: Sharpen & Ship",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L110"
+    },
+    {
+      "id": "idea_refine_skill_anti_patterns_to_avoid",
+      "label": "Anti-patterns to Avoid",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L150"
+    },
+    {
+      "id": "idea_refine_skill_tone",
+      "label": "Tone",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L160"
+    },
+    {
+      "id": "idea_refine_skill_red_flags",
+      "label": "Red Flags",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L166"
+    },
+    {
+      "id": "idea_refine_skill_verification",
+      "label": "Verification",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L176"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_agents_skills_idea_refine_skill_md",
+      "target": "idea_refine_skill_idea_refine",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_idea_refine",
+      "target": "idea_refine_skill_how_it_works",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_idea_refine",
+      "target": "idea_refine_skill_usage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_idea_refine",
+      "target": "idea_refine_skill_output",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_idea_refine",
+      "target": "idea_refine_skill_detailed_instructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_detailed_instructions",
+      "target": "idea_refine_skill_philosophy",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_detailed_instructions",
+      "target": "idea_refine_skill_process",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L54",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_process",
+      "target": "idea_refine_skill_phase_1_understand_expand_divergent",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_process",
+      "target": "idea_refine_skill_phase_2_evaluate_converge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L88",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_process",
+      "target": "idea_refine_skill_phase_3_sharpen_ship",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_detailed_instructions",
+      "target": "idea_refine_skill_anti_patterns_to_avoid",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L150",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_detailed_instructions",
+      "target": "idea_refine_skill_tone",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L160",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_idea_refine",
+      "target": "idea_refine_skill_red_flags",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L166",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_skill_idea_refine",
+      "target": "idea_refine_skill_verification",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/SKILL.md",
+      "source_location": "L176",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

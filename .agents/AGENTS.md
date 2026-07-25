@@ -184,3 +184,9 @@ These guidelines are working if: fewer unnecessary changes in diffs, fewer rewri
 
 17. Implicit Memory Size Override Inference
     When writing parsing logic for memory operands, ALWAYS ensure that the size (8-bit vs 16-bit) is explicitly passed down or inferred from the other operand (e.g., register size) in the AST. Failing to do so causes data corruption where 16-bit registers receive only 8 bits of memory data.
+
+18. CI vs Local Performance Thresholds
+    When writing time or space complexity performance tests using `performance.now()` bounds, NEVER assume that CI runners (like GitHub Actions) execute as fast as the local environment. Always set generous upper-bounds (e.g., 3x-5x local speeds) for `toBeLessThan` assertions and Vitest timeout durations to prevent flaky CI pipelines.
+
+19. Oxlint `eslint-disable` Comment Placement
+    When attempting to bypass a linter warning in `oxlint` (e.g., `react-hooks/exhaustive-deps`), the `// eslint-disable-next-line` directive MUST be placed on the exact line immediately preceding the target code structure (like the dependency array closing bracket `}, []);`). Placing it above a regular code comment will cause oxlint to ignore the directive and fail the build.

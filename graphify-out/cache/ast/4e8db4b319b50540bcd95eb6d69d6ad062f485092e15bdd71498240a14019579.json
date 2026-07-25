@@ -1,0 +1,255 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_spec_prd_template_md",
+      "label": "PRD_Template.md",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_prd_template_product_requirements_document_prd",
+      "label": "Product Requirements Document (PRD)",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_prd_template_1_title_summary",
+      "label": "1. Title & Summary",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L5"
+    },
+    {
+      "id": "spec_prd_template_2_problem_statement",
+      "label": "2. Problem Statement",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L13"
+    },
+    {
+      "id": "spec_prd_template_3_goals_success_metrics",
+      "label": "3. Goals & Success Metrics",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L22"
+    },
+    {
+      "id": "spec_prd_template_4_target_users",
+      "label": "4. Target Users",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L28"
+    },
+    {
+      "id": "spec_prd_template_5_non_goals_out_of_scope",
+      "label": "5. Non-Goals / Out of Scope",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "spec_prd_template_6_user_stories_use_cases",
+      "label": "6. User Stories / Use Cases",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L39"
+    },
+    {
+      "id": "spec_prd_template_7_features_functional_requirements",
+      "label": "7. Features & Functional Requirements",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L45"
+    },
+    {
+      "id": "spec_prd_template_8_user_flow",
+      "label": "8. User Flow",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L51"
+    },
+    {
+      "id": "spec_prd_template_9_edge_cases_error_states",
+      "label": "9. Edge Cases & Error States",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L58"
+    },
+    {
+      "id": "spec_prd_template_10_assumptions_constraints",
+      "label": "10. Assumptions & Constraints",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L65"
+    },
+    {
+      "id": "spec_prd_template_11_dependencies",
+      "label": "11. Dependencies",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L70"
+    },
+    {
+      "id": "spec_prd_template_12_risks_open_questions",
+      "label": "12. Risks & Open Questions",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L74"
+    },
+    {
+      "id": "spec_prd_template_13_timeline_milestones",
+      "label": "13. Timeline / Milestones",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L79"
+    },
+    {
+      "id": "spec_prd_template_14_appendix",
+      "label": "14. Appendix",
+      "file_type": "document",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L86"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_spec_prd_template_md",
+      "target": "spec_prd_template_product_requirements_document_prd",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_1_title_summary",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_2_problem_statement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_3_goals_success_metrics",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_4_target_users",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_5_non_goals_out_of_scope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_6_user_stories_use_cases",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_7_features_functional_requirements",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L45",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_8_user_flow",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_9_edge_cases_error_states",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L58",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_10_assumptions_constraints",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_11_dependencies",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_12_risks_open_questions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L74",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_13_timeline_milestones",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_prd_template_product_requirements_document_prd",
+      "target": "spec_prd_template_14_appendix",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/PRD_Template.md",
+      "source_location": "L86",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

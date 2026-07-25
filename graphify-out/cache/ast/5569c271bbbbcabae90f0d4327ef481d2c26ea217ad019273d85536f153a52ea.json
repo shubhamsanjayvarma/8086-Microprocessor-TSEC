@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_agents_skills_cyber_security_frameworks_skill_md",
+      "label": "SKILL.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/cyber-security-frameworks/SKILL.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "cyber_security_frameworks_skill_cyber_security_frameworks",
+      "label": "Cyber Security Frameworks",
+      "file_type": "document",
+      "source_file": ".agents/skills/cyber-security-frameworks/SKILL.md",
+      "source_location": "L6"
+    },
+    {
+      "id": "cyber_security_frameworks_skill_1_microsoft_stride_framework",
+      "label": "1. Microsoft STRIDE Framework",
+      "file_type": "document",
+      "source_file": ".agents/skills/cyber-security-frameworks/SKILL.md",
+      "source_location": "L10"
+    },
+    {
+      "id": "cyber_security_frameworks_skill_2_owasp_top_10",
+      "label": "2. OWASP Top 10",
+      "file_type": "document",
+      "source_file": ".agents/skills/cyber-security-frameworks/SKILL.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "cyber_security_frameworks_skill_implementation_guidelines_for_tdd",
+      "label": "Implementation Guidelines for TDD",
+      "file_type": "document",
+      "source_file": ".agents/skills/cyber-security-frameworks/SKILL.md",
+      "source_location": "L36"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_agents_skills_cyber_security_frameworks_skill_md",
+      "target": "cyber_security_frameworks_skill_cyber_security_frameworks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/cyber-security-frameworks/SKILL.md",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "cyber_security_frameworks_skill_cyber_security_frameworks",
+      "target": "cyber_security_frameworks_skill_1_microsoft_stride_framework",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/cyber-security-frameworks/SKILL.md",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "cyber_security_frameworks_skill_cyber_security_frameworks",
+      "target": "cyber_security_frameworks_skill_2_owasp_top_10",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/cyber-security-frameworks/SKILL.md",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "cyber_security_frameworks_skill_cyber_security_frameworks",
+      "target": "cyber_security_frameworks_skill_implementation_guidelines_for_tdd",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/cyber-security-frameworks/SKILL.md",
+      "source_location": "L36",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

@@ -41,3 +41,17 @@
 - **Error**: High byte of AX was wiped because memory read defaulted to 8-bit.
 - **Cause**: The compiler failed to infer `sizeOverride` for memory operands based on the register operand's size.
 - **Resolution**: Updated `compiler.ts` to infer memory size from register size if no `ptr` keyword is provided.
+
+## 2026-07-25: CI Performance Bounds Timeout
+
+- **Context**: Running performance tests (`ui.perf.test.tsx`, `compiler.perf.test.ts`, `emulator.perf.test.ts`) on GitHub Actions.
+- **Error**: Tests failed with timeouts or exceeded maximum execution time thresholds.
+- **Cause**: Local performance thresholds (e.g., `< 50ms`) are too aggressive for shared CI runners which often have significant CPU variability.
+- **Resolution**: Increased CI timeout limits and `toBeLessThan` bounds significantly (e.g., 50ms -> 500ms, 300ms -> 1500ms) to accommodate slower remote workers.
+
+## 2026-07-25: Oxlint `eslint-disable` Directive Placement
+
+- **Context**: Bypassing an `exhaustive-deps` warning in a React Hook using an inline comment.
+- **Error**: `oxlint` still reported the warning despite the `// eslint-disable-next-line` directive.
+- **Cause**: The directive was placed above a regular code comment instead of directly adjacent to the dependency array.
+- **Resolution**: Moved the `eslint-disable-next-line` comment immediately above the closing dependency bracket `}, []);`.

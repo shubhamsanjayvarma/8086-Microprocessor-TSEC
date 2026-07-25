@@ -1,0 +1,287 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_agents_skills_idea_refine_examples_md",
+      "label": "examples.md",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "idea_refine_examples_ideation_session_examples",
+      "label": "Ideation Session Examples",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "idea_refine_examples_example_1_vague_early_stage_concept_full_3_phase_session",
+      "label": "Example 1: Vague Early-Stage Concept (Full 3-Phase Session)",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "idea_refine_examples_phase_1_understand_expand",
+      "label": "Phase 1: Understand & Expand",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L11"
+    },
+    {
+      "id": "idea_refine_examples_phase_2_evaluate_converge",
+      "label": "Phase 2: Evaluate & Converge",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L49"
+    },
+    {
+      "id": "idea_refine_examples_phase_3_sharpen_ship",
+      "label": "Phase 3: Sharpen & Ship",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L86"
+    },
+    {
+      "id": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "label": "ReOrder: Keep Your Regulars Ordering Direct",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L90"
+    },
+    {
+      "id": "idea_refine_examples_problem_statement",
+      "label": "Problem Statement",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L92"
+    },
+    {
+      "id": "idea_refine_examples_recommended_direction",
+      "label": "Recommended Direction",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L96"
+    },
+    {
+      "id": "idea_refine_examples_key_assumptions_to_validate",
+      "label": "Key Assumptions to Validate",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L104"
+    },
+    {
+      "id": "idea_refine_examples_mvp_scope",
+      "label": "MVP Scope",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L110"
+    },
+    {
+      "id": "idea_refine_examples_not_doing_and_why",
+      "label": "Not Doing (and Why)",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L119"
+    },
+    {
+      "id": "idea_refine_examples_open_questions",
+      "label": "Open Questions",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L127"
+    },
+    {
+      "id": "idea_refine_examples_example_2_feature_idea_within_an_existing_product_codebase_aware",
+      "label": "Example 2: Feature Idea Within an Existing Product (Codebase-Aware)",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L136"
+    },
+    {
+      "id": "idea_refine_examples_phase_1_understand_expand_140",
+      "label": "Phase 1: Understand & Expand",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L140"
+    },
+    {
+      "id": "idea_refine_examples_example_3_process_workflow_idea_non_product",
+      "label": "Example 3: Process/Workflow Idea (Non-Product)",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L182"
+    },
+    {
+      "id": "idea_refine_examples_phase_1_understand_expand_186",
+      "label": "Phase 1: Understand & Expand",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L186"
+    },
+    {
+      "id": "idea_refine_examples_what_to_notice_in_these_examples",
+      "label": "What to Notice in These Examples",
+      "file_type": "document",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L228"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_agents_skills_idea_refine_examples_md",
+      "target": "idea_refine_examples_ideation_session_examples",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_ideation_session_examples",
+      "target": "idea_refine_examples_example_1_vague_early_stage_concept_full_3_phase_session",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_example_1_vague_early_stage_concept_full_3_phase_session",
+      "target": "idea_refine_examples_phase_1_understand_expand",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_example_1_vague_early_stage_concept_full_3_phase_session",
+      "target": "idea_refine_examples_phase_2_evaluate_converge",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L49",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_example_1_vague_early_stage_concept_full_3_phase_session",
+      "target": "idea_refine_examples_phase_3_sharpen_ship",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L86",
+      "weight": 1.0
+    },
+    {
+      "source": "c_8086_agents_skills_idea_refine_examples_md",
+      "target": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L90",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "target": "idea_refine_examples_problem_statement",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L92",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "target": "idea_refine_examples_recommended_direction",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "target": "idea_refine_examples_key_assumptions_to_validate",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "target": "idea_refine_examples_mvp_scope",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "target": "idea_refine_examples_not_doing_and_why",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L119",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "target": "idea_refine_examples_open_questions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L127",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "target": "idea_refine_examples_example_2_feature_idea_within_an_existing_product_codebase_aware",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L136",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_example_2_feature_idea_within_an_existing_product_codebase_aware",
+      "target": "idea_refine_examples_phase_1_understand_expand_140",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L140",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "target": "idea_refine_examples_example_3_process_workflow_idea_non_product",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L182",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_example_3_process_workflow_idea_non_product",
+      "target": "idea_refine_examples_phase_1_understand_expand_186",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L186",
+      "weight": 1.0
+    },
+    {
+      "source": "idea_refine_examples_reorder_keep_your_regulars_ordering_direct",
+      "target": "idea_refine_examples_what_to_notice_in_these_examples",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".agents/skills/idea-refine/examples.md",
+      "source_location": "L228",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

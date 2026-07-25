@@ -1,0 +1,191 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_spec_space_time_complexity_report_md",
+      "label": "space_time_complexity_report.md",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_space_time_complexity_report_space_time_complexity_testing_report",
+      "label": "Space & Time Complexity Testing Report",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_space_time_complexity_report_overview",
+      "label": "Overview",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "spec_space_time_complexity_report_component_1_compiler_compile8086",
+      "label": "Component 1: Compiler (`compile8086`)",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "spec_space_time_complexity_report_time_complexity",
+      "label": "Time Complexity",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "spec_space_time_complexity_report_space_complexity",
+      "label": "Space Complexity",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "spec_space_time_complexity_report_component_2_emulator_execution_emulator_step",
+      "label": "Component 2: Emulator Execution (`Emulator.step`)",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "spec_space_time_complexity_report_time_complexity_26",
+      "label": "Time Complexity",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L26"
+    },
+    {
+      "id": "spec_space_time_complexity_report_space_complexity_33",
+      "label": "Space Complexity",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L33"
+    },
+    {
+      "id": "spec_space_time_complexity_report_component_3_ui_state_management_app_tsx",
+      "label": "Component 3: UI State Management (`App.tsx`)",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L39"
+    },
+    {
+      "id": "spec_space_time_complexity_report_time_complexity_41",
+      "label": "Time Complexity",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L41"
+    },
+    {
+      "id": "spec_space_time_complexity_report_space_complexity_46",
+      "label": "Space Complexity",
+      "file_type": "document",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L46"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_spec_space_time_complexity_report_md",
+      "target": "spec_space_time_complexity_report_space_time_complexity_testing_report",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_space_time_complexity_report_space_time_complexity_testing_report",
+      "target": "spec_space_time_complexity_report_overview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_space_time_complexity_report_space_time_complexity_testing_report",
+      "target": "spec_space_time_complexity_report_component_1_compiler_compile8086",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_space_time_complexity_report_component_1_compiler_compile8086",
+      "target": "spec_space_time_complexity_report_time_complexity",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_space_time_complexity_report_component_1_compiler_compile8086",
+      "target": "spec_space_time_complexity_report_space_complexity",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_space_time_complexity_report_space_time_complexity_testing_report",
+      "target": "spec_space_time_complexity_report_component_2_emulator_execution_emulator_step",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_space_time_complexity_report_component_2_emulator_execution_emulator_step",
+      "target": "spec_space_time_complexity_report_time_complexity_26",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_space_time_complexity_report_component_2_emulator_execution_emulator_step",
+      "target": "spec_space_time_complexity_report_space_complexity_33",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_space_time_complexity_report_space_time_complexity_testing_report",
+      "target": "spec_space_time_complexity_report_component_3_ui_state_management_app_tsx",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_space_time_complexity_report_component_3_ui_state_management_app_tsx",
+      "target": "spec_space_time_complexity_report_time_complexity_41",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_space_time_complexity_report_component_3_ui_state_management_app_tsx",
+      "target": "spec_space_time_complexity_report_space_complexity_46",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/space_time_complexity_report.md",
+      "source_location": "L46",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

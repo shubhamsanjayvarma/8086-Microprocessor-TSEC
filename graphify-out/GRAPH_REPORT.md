@@ -2,18 +2,18 @@
 
 ## Corpus Check
 
-- 98 files · ~86,310 words
+- 99 files · ~87,482 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 
-- 933 nodes · 947 edges · 62 communities (54 shown, 8 thin omitted)
+- 938 nodes · 949 edges · 64 communities (56 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
 
-- Built from commit: `292e22ec`
+- Built from commit: `c20fe93a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -83,8 +83,8 @@
 
 1. `Emulator` - 22 edges
 2. `Code Review and Quality` - 19 edges
-3. `compile8086()` - 18 edges
-4. `compilerOptions` - 18 edges
+3. `compilerOptions` - 18 edges
+4. `compile8086()` - 17 edges
 5. `Security and Hardening` - 16 edges
 6. `compilerOptions` - 15 edges
 7. `Git Workflow and Versioning` - 15 edges
@@ -103,12 +103,12 @@
 
 - None detected.
 
-## Communities (62 total, 8 thin omitted)
+## Communities (64 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
 
 Cohesion: 0.10
-Nodes (20): result, App(), compile8086(), CompilerResult, encodeInstruction(), Operand, OperandType, ParsedInstruction (+12 more)
+Nodes (20): App(), ViewMode, compile8086(), CompilerResult, encodeInstruction(), Operand, OperandType, ParsedInstruction (+12 more)
 
 ### Community 1 - "Community 1"
 
@@ -312,8 +312,8 @@ Nodes (4): 1. Microsoft STRIDE Framework, 2. OWASP Top 10, Cyber Security Framew
 
 ### Community 41 - "Community 41"
 
-Cohesion: 0.50
-Nodes (3): Expanding the Oxlint configuration, React Compiler, React + TypeScript + Vite
+Cohesion: 0.25
+Nodes (7): 💻 8086 Microprocessor Simulator (TSEC), 👥 Contributors, ✨ Features, 🚀 Getting Started, Installation & Local Setup, 📜 License, Prerequisites
 
 ### Community 42 - "Community 42"
 
@@ -362,7 +362,7 @@ Nodes (20): Checklist: Verifying Completeness, General Rules (Apply to ALL Testi
 
 ## Knowledge Gaps
 
-- **679 isolated node(s):** `idea-refine.sh script`, `husky.sh script`, `$schema`, `plugins`, `react/rules-of-hooks` (+674 more)
+- **682 isolated node(s):** `idea-refine.sh script`, `husky.sh script`, `$schema`, `plugins`, `react/rules-of-hooks` (+677 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -371,9 +371,9 @@ Nodes (20): Checklist: Verifying Completeness, General Rules (Apply to ALL Testi
 _Questions this graph is uniquely positioned to answer:_
 
 - **What connects `idea-refine.sh script`, `husky.sh script`, `$schema` to the rest of the system?**
-  _679 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _682 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.0988235294117647 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10122448979591837 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
   _Cohesion score 0.05 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**

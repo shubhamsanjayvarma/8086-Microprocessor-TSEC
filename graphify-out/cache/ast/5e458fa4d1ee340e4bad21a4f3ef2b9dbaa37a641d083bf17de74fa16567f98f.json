@@ -1,0 +1,335 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_spec_template_testing_md",
+      "label": "template_testing.md",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_template_testing_testing_template_reusable_agent_instructions",
+      "label": "Testing Template \u2014 Reusable Agent Instructions",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_template_testing_general_rules_apply_to_all_testing_types",
+      "label": "General Rules (Apply to ALL Testing Types)",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "spec_template_testing_workflow_plan_execute_log",
+      "label": "Workflow: Plan \u2192 Execute \u2192 Log",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "spec_template_testing_stage_1_plan",
+      "label": "Stage 1: Plan",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L13"
+    },
+    {
+      "id": "spec_template_testing_stage_2_execute",
+      "label": "Stage 2: Execute",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L25"
+    },
+    {
+      "id": "spec_template_testing_stage_3_log",
+      "label": "Stage 3: Log",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L36"
+    },
+    {
+      "id": "spec_template_testing_testing_type_1_space_time_complexity",
+      "label": "Testing Type 1: Space & Time Complexity",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L46"
+    },
+    {
+      "id": "spec_template_testing_objective",
+      "label": "Objective",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L48"
+    },
+    {
+      "id": "spec_template_testing_instructions",
+      "label": "Instructions",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L52"
+    },
+    {
+      "id": "spec_template_testing_testing_type_2_logic_testing",
+      "label": "Testing Type 2: Logic Testing",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L97"
+    },
+    {
+      "id": "spec_template_testing_objective_99",
+      "label": "Objective",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L99"
+    },
+    {
+      "id": "spec_template_testing_instructions_103",
+      "label": "Instructions",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L103"
+    },
+    {
+      "id": "spec_template_testing_testing_type_3_codebase_security_review",
+      "label": "Testing Type 3: Codebase Security Review",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L156"
+    },
+    {
+      "id": "spec_template_testing_objective_158",
+      "label": "Objective",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L158"
+    },
+    {
+      "id": "spec_template_testing_instructions_162",
+      "label": "Instructions",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L162"
+    },
+    {
+      "id": "spec_template_testing_testing_type_4_qa_testing",
+      "label": "Testing Type 4: QA Testing",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L227"
+    },
+    {
+      "id": "spec_template_testing_objective_229",
+      "label": "Objective",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L229"
+    },
+    {
+      "id": "spec_template_testing_instructions_233",
+      "label": "Instructions",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L233"
+    },
+    {
+      "id": "spec_template_testing_quick_reference_agent_invocation_prompt",
+      "label": "Quick Reference: Agent Invocation Prompt",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L293"
+    },
+    {
+      "id": "spec_template_testing_checklist_verifying_completeness",
+      "label": "Checklist: Verifying Completeness",
+      "file_type": "document",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L312"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_spec_template_testing_md",
+      "target": "spec_template_testing_testing_template_reusable_agent_instructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_template_reusable_agent_instructions",
+      "target": "spec_template_testing_general_rules_apply_to_all_testing_types",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_general_rules_apply_to_all_testing_types",
+      "target": "spec_template_testing_workflow_plan_execute_log",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_workflow_plan_execute_log",
+      "target": "spec_template_testing_stage_1_plan",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_workflow_plan_execute_log",
+      "target": "spec_template_testing_stage_2_execute",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_workflow_plan_execute_log",
+      "target": "spec_template_testing_stage_3_log",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_template_reusable_agent_instructions",
+      "target": "spec_template_testing_testing_type_1_space_time_complexity",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L46",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_type_1_space_time_complexity",
+      "target": "spec_template_testing_objective",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_type_1_space_time_complexity",
+      "target": "spec_template_testing_instructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_template_reusable_agent_instructions",
+      "target": "spec_template_testing_testing_type_2_logic_testing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L97",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_type_2_logic_testing",
+      "target": "spec_template_testing_objective_99",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L99",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_type_2_logic_testing",
+      "target": "spec_template_testing_instructions_103",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L103",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_template_reusable_agent_instructions",
+      "target": "spec_template_testing_testing_type_3_codebase_security_review",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L156",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_type_3_codebase_security_review",
+      "target": "spec_template_testing_objective_158",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L158",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_type_3_codebase_security_review",
+      "target": "spec_template_testing_instructions_162",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_template_reusable_agent_instructions",
+      "target": "spec_template_testing_testing_type_4_qa_testing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L227",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_type_4_qa_testing",
+      "target": "spec_template_testing_objective_229",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L229",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_type_4_qa_testing",
+      "target": "spec_template_testing_instructions_233",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L233",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_template_reusable_agent_instructions",
+      "target": "spec_template_testing_quick_reference_agent_invocation_prompt",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L293",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_template_testing_testing_template_reusable_agent_instructions",
+      "target": "spec_template_testing_checklist_verifying_completeness",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/template_testing.md",
+      "source_location": "L312",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
