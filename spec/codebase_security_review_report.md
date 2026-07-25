@@ -29,3 +29,9 @@ The security review strictly aligned with the OWASP Top 10 and STRIDE Cyber Atta
 - **Threat Vector:** Forcing `INT 21H` prints containing active Javascript components attempting to inject into the React DOM.
 - **Testing:** Initialized `.data` registers with strings like `MSG DB '<script>alert("XSS")</script>$'`.
 - **Resolution:** Safe interpolation validated. React intrinsically escapes Virtual DOM parameters preventing raw HTML hydration inside the emulator's console viewer. Script tags sit silently as inactive visual text arrays.
+
+### 5. Log Injection & Context Masking [OWASP: Log Injection / STRIDE: Information Disclosure]
+
+- **Threat Vector:** Attackers passing malicious newline payloads into inputs trying to spoof fake log entries (`\n[FATAL] Admin logged in`), or backend contexts accidentally leaking plain-text passwords.
+- **Testing:** Supplied multiline poisoned strings and objects containing keys like `apiKey` and `password`.
+- **Resolution:** The `Logger` string sanitizer regex replaces any `\n` characters, keeping log context physically restricted to single JSON entries per instance. A recursive mask check forces all sensitive strings to `[REDACTED]` prior to the stringify cycle.

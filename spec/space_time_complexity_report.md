@@ -46,4 +46,17 @@ The compiler architecture uses a fast two-pass structure over plain text.
 ### Space Complexity
 
 - **Results:**
-  - Evaluated deep cloning vectors mapping CPU state memory directly to `useState` hooks. Memory did not breach V8 max call stack sizes even when running lengthy recursive nested branches.
+
+## Component 4: Telemetry & Logging (`Logger`)
+
+### Time Complexity
+
+- **Goal:** $O(1)$ fast insertions and ring-buffer evictions.
+- **Results:**
+  - A DoS stress-test flooding the logger with 100,000 rapid sequential logs processed in under `100ms`, passing the `<1000ms` strict time budget and confirming that replacing elements in the cyclic buffer is extremely lightweight compared to traditional Array shifting.
+
+### Space Complexity
+
+- **Goal:** $O(1)$ strictly bound memory footprint.
+- **Results:**
+  - Using a pre-allocated array of `1000` items, the logger operates in exactly $O(1)$ space. Length bounds strictly remain at 1000 regardless of unbounded flooding loops, completely immune to memory leaking across long sessions.

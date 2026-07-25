@@ -25,4 +25,10 @@ The `Emulator` handles standard runtime loop modeling.
 ## 3. Data Synchronization (App Contract)
 
 - Passed React dependency testing, confirming the DOM memory visualizer identically maps to the underlying `Uint8Array` 1MB representation in real-time.
-- State is properly lifted up, isolating state mutation cycles into decoupled hooks so UI components (like Register views and Memory cells) logically subscribe only to mutated byte-lengths.
+
+## 4. Telemetry & Error Boundaries
+
+The `Logger` utility and React `ErrorBoundary` manage system-level stability.
+
+- Passed structural logic tests ensuring `INFO`, `WARN`, `ERROR`, and `FATAL` logs categorize correctly.
+- Safely degrades recursive objects using a circular-dependency verification Set within `safeStringify`, guaranteeing that complex cyclic objects injected into logs will stringify as `[Circular]` instead of throwing `TypeError: Converting circular structure to JSON`.
