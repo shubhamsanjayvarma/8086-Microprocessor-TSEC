@@ -22,7 +22,7 @@ jobs:
         run: npm ci
 
       - name: Type Check
-        run: npx tsc --noEmit
+        run: npx tsc -b
 
       - name: Run Linter (Oxlint)
         run: npm run lint
