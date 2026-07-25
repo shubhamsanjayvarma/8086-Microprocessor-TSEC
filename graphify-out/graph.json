@@ -533,7 +533,7 @@
       "label": "ViewMode",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "src_app_viewmode",
       "community": 0,
@@ -543,11 +543,81 @@
       "label": "App()",
       "file_type": "code",
       "source_file": "src/App.tsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "src_app_app",
       "community": 0,
       "norm_label": "app()"
+    },
+    {
+      "label": "ErrorBoundary.tsx",
+      "file_type": "code",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_errorboundary",
+      "community": 64,
+      "norm_label": "errorboundary.tsx"
+    },
+    {
+      "label": "Props",
+      "file_type": "code",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "components_errorboundary_props",
+      "community": 64,
+      "norm_label": "props"
+    },
+    {
+      "label": "State",
+      "file_type": "code",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "components_errorboundary_state",
+      "community": 64,
+      "norm_label": "state"
+    },
+    {
+      "label": "ErrorBoundary",
+      "file_type": "code",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "components_errorboundary_errorboundary",
+      "community": 64,
+      "norm_label": "errorboundary"
+    },
+    {
+      "label": ".getDerivedStateFromError()",
+      "file_type": "code",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "components_errorboundary_errorboundary_getderivedstatefromerror",
+      "community": 64,
+      "norm_label": ".getderivedstatefromerror()"
+    },
+    {
+      "label": ".componentDidCatch()",
+      "file_type": "code",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "components_errorboundary_errorboundary_componentdidcatch",
+      "community": 64,
+      "norm_label": ".componentdidcatch()"
+    },
+    {
+      "label": ".render()",
+      "file_type": "code",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "components_errorboundary_errorboundary_render",
+      "community": 64,
+      "norm_label": ".render()"
     },
     {
       "label": "main.tsx",
@@ -556,7 +626,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "src_main",
-      "community": 0,
+      "community": 64,
       "norm_label": "main.tsx"
     },
     {
@@ -880,6 +950,166 @@
       "norm_label": "examples"
     },
     {
+      "label": "logger.ts",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "utils_logger",
+      "community": 64,
+      "norm_label": "logger.ts"
+    },
+    {
+      "label": "LogLevel",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "utils_logger_loglevel",
+      "community": 64,
+      "norm_label": "loglevel"
+    },
+    {
+      "label": "LogEntry",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "utils_logger_logentry",
+      "community": 64,
+      "norm_label": "logentry"
+    },
+    {
+      "label": "REDACTED_KEYS",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "utils_logger_redacted_keys",
+      "community": 64,
+      "norm_label": "redacted_keys"
+    },
+    {
+      "label": "Logger",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "utils_logger_logger",
+      "community": 64,
+      "norm_label": "logger"
+    },
+    {
+      "label": ".redact()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "utils_logger_logger_redact",
+      "community": 64,
+      "norm_label": ".redact()"
+    },
+    {
+      "label": ".sanitizeMessage()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "utils_logger_logger_sanitizemessage",
+      "community": 64,
+      "norm_label": ".sanitizemessage()"
+    },
+    {
+      "label": ".safeStringify()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L48",
+      "_origin": "ast",
+      "id": "utils_logger_logger_safestringify",
+      "community": 64,
+      "norm_label": ".safestringify()"
+    },
+    {
+      "label": ".log()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "utils_logger_logger_log",
+      "community": 64,
+      "norm_label": ".log()"
+    },
+    {
+      "label": ".info()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L105",
+      "_origin": "ast",
+      "id": "utils_logger_logger_info",
+      "community": 64,
+      "norm_label": ".info()"
+    },
+    {
+      "label": ".warn()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L109",
+      "_origin": "ast",
+      "id": "utils_logger_logger_warn",
+      "community": 64,
+      "norm_label": ".warn()"
+    },
+    {
+      "label": ".error()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L113",
+      "_origin": "ast",
+      "id": "utils_logger_logger_error",
+      "community": 64,
+      "norm_label": ".error()"
+    },
+    {
+      "label": ".fatal()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L117",
+      "_origin": "ast",
+      "id": "utils_logger_logger_fatal",
+      "community": 64,
+      "norm_label": ".fatal()"
+    },
+    {
+      "label": ".getLogs()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "utils_logger_logger_getlogs",
+      "community": 64,
+      "norm_label": ".getlogs()"
+    },
+    {
+      "label": ".exportLogs()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L135",
+      "_origin": "ast",
+      "id": "utils_logger_logger_exportlogs",
+      "community": 64,
+      "norm_label": ".exportlogs()"
+    },
+    {
+      "label": ".clear()",
+      "file_type": "code",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L139",
+      "_origin": "ast",
+      "id": "utils_logger_logger_clear",
+      "community": 64,
+      "norm_label": ".clear()"
+    },
+    {
       "label": "compiler.test.ts",
       "file_type": "code",
       "source_file": "tests/compiler/compiler.test.ts",
@@ -960,6 +1190,16 @@
       "norm_label": "emulator-instructions.test.ts"
     },
     {
+      "label": "logger.test.ts",
+      "file_type": "code",
+      "source_file": "tests/logic/logger.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "logic_logger_test",
+      "community": 64,
+      "norm_label": "logger.test.ts"
+    },
+    {
       "label": "memory-safety.test.ts",
       "file_type": "code",
       "source_file": "tests/logic/memory-safety.test.ts",
@@ -998,6 +1238,16 @@
       "id": "performance_ui_perf_test",
       "community": 0,
       "norm_label": "ui.perf.test.tsx"
+    },
+    {
+      "label": "logger.stride.test.ts",
+      "file_type": "code",
+      "source_file": "tests/security/logger.stride.test.ts",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "security_logger_stride_test",
+      "community": 64,
+      "norm_label": "logger.stride.test.ts"
     },
     {
       "label": "security.test.ts",
@@ -9320,6 +9570,86 @@
       "norm_label": "checklist: verifying completeness"
     },
     {
+      "label": "ui_integration_testing_report.md",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "spec_ui_integration_testing_report",
+      "community": 65,
+      "norm_label": "ui_integration_testing_report.md"
+    },
+    {
+      "label": "UI Integration & Layout Testing Report",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
+      "community": 65,
+      "norm_label": "ui integration & layout testing report"
+    },
+    {
+      "label": "1. Objective",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "spec_ui_integration_testing_report_1_objective",
+      "community": 65,
+      "norm_label": "1. objective"
+    },
+    {
+      "label": "2. Test Execution Details",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "spec_ui_integration_testing_report_2_test_execution_details",
+      "community": 65,
+      "norm_label": "2. test execution details"
+    },
+    {
+      "label": "Milestone 1: Structural UI Sanity",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "spec_ui_integration_testing_report_milestone_1_structural_ui_sanity",
+      "community": 65,
+      "norm_label": "milestone 1: structural ui sanity"
+    },
+    {
+      "label": "Milestone 2: Pre-Commit Hook Strictness",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "spec_ui_integration_testing_report_milestone_2_pre_commit_hook_strictness",
+      "community": 65,
+      "norm_label": "milestone 2: pre-commit hook strictness"
+    },
+    {
+      "label": "Milestone 3: CI Performance Scaling (UI Deep Cloning)",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "spec_ui_integration_testing_report_milestone_3_ci_performance_scaling_ui_deep_cloning",
+      "community": 65,
+      "norm_label": "milestone 3: ci performance scaling (ui deep cloning)"
+    },
+    {
+      "label": "3. Conclusion",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "spec_ui_integration_testing_report_3_conclusion",
+      "community": 65,
+      "norm_label": "3. conclusion"
+    },
+    {
       "label": "error_log.md",
       "file_type": "document",
       "source_file": "telemetry/error_log.md",
@@ -9398,6 +9728,26 @@
       "id": "telemetry_error_log_2026_07_24_memory_size_inference_bug",
       "community": 39,
       "norm_label": "2026-07-24: memory size inference bug"
+    },
+    {
+      "label": "2026-07-25: CI Performance Bounds Timeout",
+      "file_type": "document",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "telemetry_error_log_2026_07_25_ci_performance_bounds_timeout",
+      "community": 39,
+      "norm_label": "2026-07-25: ci performance bounds timeout"
+    },
+    {
+      "label": "2026-07-25: Oxlint `eslint-disable` Directive Placement",
+      "file_type": "document",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "telemetry_error_log_2026_07_25_oxlint_eslint_disable_directive_placement",
+      "community": 39,
+      "norm_label": "2026-07-25: oxlint `eslint-disable` directive placement"
     }
   ],
   "links": [
@@ -10019,6 +10369,28 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "utils_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.tsx",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "utils_logger_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "src/main.tsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -10036,6 +10408,110 @@
       "weight": 1.0,
       "source": "src_app_app",
       "target": "utils_emulator_initialcpustate"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "components_errorboundary",
+      "target": "components_errorboundary_errorboundary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "components_errorboundary",
+      "target": "components_errorboundary_props",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "components_errorboundary",
+      "target": "components_errorboundary_state",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_errorboundary",
+      "target": "utils_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "components_errorboundary",
+      "target": "utils_logger_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "components_errorboundary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "components_errorboundary_errorboundary",
+      "target": "components_errorboundary_errorboundary_componentdidcatch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "components_errorboundary_errorboundary",
+      "target": "components_errorboundary_errorboundary_getderivedstatefromerror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/components/ErrorBoundary.tsx",
+      "source_location": "L43",
+      "weight": 1.0,
+      "source": "components_errorboundary_errorboundary",
+      "target": "components_errorboundary_errorboundary_render",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "components_errorboundary_errorboundary",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -11184,6 +11660,277 @@
       "confidence_score": 1.0,
       "source": "examples_examples_test",
       "target": "utils_examples_examples"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/logic/logger.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "logic_logger_test",
+      "target": "utils_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/security/logger.stride.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "security_logger_stride_test",
+      "target": "utils_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "utils_logger",
+      "target": "utils_logger_logentry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "utils_logger",
+      "target": "utils_logger_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "utils_logger",
+      "target": "utils_logger_loglevel",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "utils_logger",
+      "target": "utils_logger_redacted_keys",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/logic/logger.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "logic_logger_test",
+      "target": "utils_logger_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "tests/security/logger.stride.test.ts",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "security_logger_stride_test",
+      "target": "utils_logger_logger",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L139",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_clear",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L113",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_error",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L135",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_exportlogs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L117",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_fatal",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L121",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_getlogs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L105",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_info",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L64",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_redact",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L48",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_safestringify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_sanitizemessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L109",
+      "weight": 1.0,
+      "source": "utils_logger_logger",
+      "target": "utils_logger_logger_warn",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "utils_logger_logger_log",
+      "target": "utils_logger_logger_sanitizemessage",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L73",
+      "weight": 1.0,
+      "source": "utils_logger_logger_log",
+      "target": "utils_logger_logger_safestringify",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L114",
+      "weight": 1.0,
+      "source": "utils_logger_logger_error",
+      "target": "utils_logger_logger_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L118",
+      "weight": 1.0,
+      "source": "utils_logger_logger_fatal",
+      "target": "utils_logger_logger_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L106",
+      "weight": 1.0,
+      "source": "utils_logger_logger_info",
+      "target": "utils_logger_logger_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L110",
+      "weight": 1.0,
+      "source": "utils_logger_logger_warn",
+      "target": "utils_logger_logger_log",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/utils/logger.ts",
+      "source_location": "L136",
+      "weight": 1.0,
+      "source": "utils_logger_logger_exportlogs",
+      "target": "utils_logger_logger_getlogs",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -15101,9 +15848,9 @@
       "source_file": ".agents/skills/idea-refine/examples.md",
       "source_location": "L140",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "idea_refine_examples_example_2_feature_idea_within_an_existing_product_codebase_aware",
-      "target": "idea_refine_examples_phase_1_understand_expand_140",
-      "confidence_score": 1.0
+      "target": "idea_refine_examples_phase_1_understand_expand_140"
     },
     {
       "relation": "contains",
@@ -15111,9 +15858,9 @@
       "source_file": ".agents/skills/idea-refine/examples.md",
       "source_location": "L186",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "idea_refine_examples_example_3_process_workflow_idea_non_product",
-      "target": "idea_refine_examples_phase_1_understand_expand_186",
-      "confidence_score": 1.0
+      "target": "idea_refine_examples_phase_1_understand_expand_186"
     },
     {
       "relation": "contains",
@@ -18918,6 +19665,76 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "spec_ui_integration_testing_report",
+      "target": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
+      "target": "spec_ui_integration_testing_report_1_objective",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
+      "target": "spec_ui_integration_testing_report_2_test_execution_details",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
+      "target": "spec_ui_integration_testing_report_3_conclusion",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "spec_ui_integration_testing_report_2_test_execution_details",
+      "target": "spec_ui_integration_testing_report_milestone_1_structural_ui_sanity",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "spec_ui_integration_testing_report_2_test_execution_details",
+      "target": "spec_ui_integration_testing_report_milestone_2_pre_commit_hook_strictness",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "spec_ui_integration_testing_report_2_test_execution_details",
+      "target": "spec_ui_integration_testing_report_milestone_3_ci_performance_scaling_ui_deep_cloning",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "telemetry/error_log.md",
       "source_location": "L1",
       "weight": 1.0,
@@ -18984,8 +19801,28 @@
       "confidence_score": 1.0,
       "source": "telemetry_error_log_error_log",
       "target": "telemetry_error_log_2026_07_24_test_assertions_on_clobbered_registers"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "telemetry_error_log_error_log",
+      "target": "telemetry_error_log_2026_07_25_ci_performance_bounds_timeout",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L52",
+      "weight": 1.0,
+      "source": "telemetry_error_log_error_log",
+      "target": "telemetry_error_log_2026_07_25_oxlint_eslint_disable_directive_placement",
+      "confidence_score": 1.0
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "c20fe93aad133e34530300780076fb8779b74615"
+  "built_at_commit": "33f82b419728974b3ccd8753d1fcf4f070aecbf1"
 }

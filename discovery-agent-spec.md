@@ -20,6 +20,7 @@ Before any scraping, lock down scope so subagents aren't improvising queries.
 **Output:** `spec/00-scope.md`
 
 Define:
+
 1. **Fields to search** (default list below — edit if you want different fields):
    - Students / EdTech
    - Freelancers & Solopreneurs
@@ -80,6 +81,7 @@ This is a single agent (not subagents) doing synthesis — merging duplicates ac
 easier with one pass than parallel writers stepping on each other.
 
 Process:
+
 1. Cluster raw complaints into distinct **problems** (multiple threads often describe the same
    underlying issue — merge them, keep all links as evidence).
 2. Drop anything with only 1 supporting thread and no engagement — that's noise, not signal.
@@ -92,8 +94,8 @@ Process:
 ```markdown
 ## [Field]
 
-| # | Problem | Evidence (links, count) | Severity (1-5) | Agent-solvability note |
-|---|---------|--------------------------|-----------------|------------------------|
+| #   | Problem | Evidence (links, count) | Severity (1-5) | Agent-solvability note |
+| --- | ------- | ----------------------- | -------------- | ---------------------- |
 ```
 
 **Exit criteria:** `spec/01-idea-bank.md` has every field from scope, 5-10 ranked ideas each,
@@ -108,12 +110,12 @@ every row traceable to ≥2 evidence links.
 Turn the four validation questions into a scored rubric so subagents apply it consistently
 instead of each interpreting "is this a real need" differently.
 
-| Parameter | What to check | Score 1 | Score 3 | Score 5 |
-|---|---|---|---|---|
-| **Complaint Frequency** | # of independent threads/posts on this exact problem | 1-2 threads | 3-5 threads | 6+ threads across sources |
-| **Willingness to Pay** | Language signal | Pure venting, no ask | "I wish there was a tool" | Explicitly paying for a worse workaround, or asking "does X exist, I'd pay" |
-| **Recency** | Most recent complaint date | >6mo old, no recent echoes | Mixed old + some recent | Active complaints within last 4-6 weeks |
-| **Competition/Saturation** | Existing tools solving this | Crowded, many funded competitors | A few weak/incomplete tools | No real solution, or existing tools are widely complained about |
+| Parameter                  | What to check                                        | Score 1                          | Score 3                     | Score 5                                                                     |
+| -------------------------- | ---------------------------------------------------- | -------------------------------- | --------------------------- | --------------------------------------------------------------------------- |
+| **Complaint Frequency**    | # of independent threads/posts on this exact problem | 1-2 threads                      | 3-5 threads                 | 6+ threads across sources                                                   |
+| **Willingness to Pay**     | Language signal                                      | Pure venting, no ask             | "I wish there was a tool"   | Explicitly paying for a worse workaround, or asking "does X exist, I'd pay" |
+| **Recency**                | Most recent complaint date                           | >6mo old, no recent echoes       | Mixed old + some recent     | Active complaints within last 4-6 weeks                                     |
+| **Competition/Saturation** | Existing tools solving this                          | Crowded, many funded competitors | A few weak/incomplete tools | No real solution, or existing tools are widely complained about             |
 
 **Weighting (adjust if you disagree):** Frequency 30%, WTP 30%, Recency 20%, Low-saturation 20%.
 
@@ -162,7 +164,7 @@ Single synthesis agent compiles final ranking.
 # Validated Idea Ranking
 
 | Rank | Idea | Field | Freq | WTP | Recency | Saturation | Weighted Score | Evidence |
-|------|------|-------|------|-----|---------|------------|-----------------|----------|
+| ---- | ---- | ----- | ---- | --- | ------- | ---------- | -------------- | -------- |
 ```
 
 Sort descending by weighted score. Flag top 3-5 as **Recommended** with a short "why this one"

@@ -2,37 +2,37 @@
    8086 Compiler & Emulator — Exact yjdoc2 Replication
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap");
 
 :root {
-  --yj-bg: #FCFCFC;
-  --yj-card-bg: #FFFFFF;
-  --yj-navbar-bg: #FFFFFF;
-  --yj-border: #E0E0E0;
-  --yj-border-dark: #D0D0D0;
+  --yj-bg: #fcfcfc;
+  --yj-card-bg: #ffffff;
+  --yj-navbar-bg: #ffffff;
+  --yj-border: #e0e0e0;
+  --yj-border-dark: #d0d0d0;
   --yj-text-main: #333333;
   --yj-text-dim: #777777;
-  
-  --yj-gold: #F4C430;
-  --yj-gold-hover: #E5B800;
-  --yj-gold-light: #FFF9E6;
-  
-  --yj-font-mono: 'JetBrains Mono', 'Courier Prime', 'Courier New', monospace;
-  --yj-font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --yj-shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-  --yj-shadow-card: 0 2px 8px rgba(0,0,0,0.06);
+  --yj-gold: #f4c430;
+  --yj-gold-hover: #e5b800;
+  --yj-gold-light: #fff9e6;
+
+  --yj-font-mono: "JetBrains Mono", "Courier Prime", "Courier New", monospace;
+  --yj-font-sans: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --yj-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --yj-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .dark-theme {
-  --yj-bg: #1E1E1E;
+  --yj-bg: #1e1e1e;
   --yj-card-bg: #252526;
-  --yj-navbar-bg: #2D2D2D;
-  --yj-border: #3E3E42;
+  --yj-navbar-bg: #2d2d2d;
+  --yj-border: #3e3e42;
   --yj-border-dark: #454545;
-  --yj-text-main: #CCCCCC;
+  --yj-text-main: #cccccc;
   --yj-text-dim: #888888;
-  --yj-gold-light: #332B15;
+  --yj-gold-light: #332b15;
 }
 
 * {
@@ -41,7 +41,9 @@
   padding: 0;
 }
 
-body, html, #root {
+body,
+html,
+#root {
   height: 100%;
   width: 100%;
 }
@@ -102,7 +104,8 @@ body, html, #root {
   transition: all 0.2s;
 }
 
-.yj-nav-icon-btn:hover, .yj-nav-icon-btn.active {
+.yj-nav-icon-btn:hover,
+.yj-nav-icon-btn.active {
   color: var(--yj-text-main);
   border-color: var(--yj-gold);
   background-color: var(--yj-gold-light);
@@ -159,7 +162,7 @@ body, html, #root {
   width: 36px;
   height: 20px;
   border-radius: 10px;
-  background-color: #CCCCCC;
+  background-color: #cccccc;
   border: none;
   cursor: pointer;
   position: relative;
@@ -167,14 +170,14 @@ body, html, #root {
 }
 
 .yj-switch.on {
-  background-color: #4CAF50;
+  background-color: #4caf50;
 }
 
 .yj-switch-knob {
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   position: absolute;
   top: 2px;
   left: 2px;
@@ -202,18 +205,18 @@ body, html, #root {
   padding: 10px 32px;
   border-radius: 4px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.12);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
   transition: all 0.15s;
   letter-spacing: 0.05em;
 }
 
 .yj-btn-compile-gold:hover {
   background-color: var(--yj-gold-hover);
-  box-shadow: 0 3px 6px rgba(0,0,0,0.18);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
 }
 
 .yj-btn-action {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: var(--yj-text-dim);
   font-family: var(--yj-font-mono);
   font-size: 13px;
@@ -239,7 +242,7 @@ body, html, #root {
 
 /* Editor Box */
 .yj-editor-box {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px solid var(--yj-border);
   border-radius: 4px;
   box-shadow: var(--yj-shadow-card);
@@ -257,7 +260,7 @@ body, html, #root {
 
 .yj-line-gutter {
   width: 44px;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   border-right: 1px solid var(--yj-border);
   padding: 12px 0;
   display: flex;
@@ -276,7 +279,7 @@ body, html, #root {
 }
 
 .yj-line-no.active-line {
-  background-color: #E8E8E8;
+  background-color: #e8e8e8;
   color: var(--yj-gold);
   font-weight: bold;
 }
@@ -299,7 +302,7 @@ body, html, #root {
 .yj-editor-side-tools {
   width: 40px;
   border-left: 1px solid var(--yj-border);
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -319,7 +322,7 @@ body, html, #root {
 
 .yj-side-icon-btn:hover {
   color: var(--yj-text-main);
-  background-color: #EFEFEF;
+  background-color: #efefef;
 }
 
 /* Example Banner */
@@ -358,7 +361,7 @@ body, html, #root {
 .yj-input-box-wrapper {
   display: flex;
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px solid var(--yj-border);
   border-radius: 4px;
   padding: 4px 8px;
@@ -385,7 +388,7 @@ body, html, #root {
 }
 
 .yj-input-submit-btn:hover {
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 /* Output Section */
@@ -403,7 +406,7 @@ body, html, #root {
 }
 
 .yj-output-box {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px solid var(--yj-border);
   border-radius: 4px;
   height: 70px;
@@ -419,11 +422,11 @@ body, html, #root {
 }
 
 .yj-error-box {
-  background-color: #FFF0F0;
-  border: 1px solid #FFCDCD;
+  background-color: #fff0f0;
+  border: 1px solid #ffcdcd;
   border-radius: 4px;
   padding: 8px 12px;
-  color: #CC0000;
+  color: #cc0000;
   font-family: var(--yj-font-mono);
   font-size: 13px;
 }
@@ -454,7 +457,7 @@ body, html, #root {
 
 .yj-card-table-header {
   background-color: #000000;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: var(--yj-font-mono);
   font-size: 13px;
   font-weight: 700;
@@ -510,7 +513,7 @@ body, html, #root {
 
 .yj-flags-header {
   background-color: #000000;
-  color: #FFFFFF;
+  color: #ffffff;
   font-family: var(--yj-font-mono);
   font-size: 13px;
   font-weight: 700;
@@ -524,7 +527,8 @@ body, html, #root {
   gap: 4px;
 }
 
-.yj-flags-head-row, .yj-flags-val-row {
+.yj-flags-head-row,
+.yj-flags-val-row {
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   text-align: center;
@@ -596,7 +600,7 @@ body, html, #root {
 }
 
 .yj-btn-set {
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: 1px solid var(--yj-border-dark);
   border-radius: 4px;
   font-family: var(--yj-font-mono);
@@ -618,7 +622,7 @@ body, html, #root {
   gap: 4px;
   font-family: var(--yj-font-mono);
   font-size: 12px;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   padding: 8px;
   border: 1px solid var(--yj-border);
   border-radius: 4px;
@@ -663,11 +667,11 @@ body, html, #root {
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #0072FF 0%, #00C6FF 100%);
+  background: linear-gradient(135deg, #0072ff 0%, #00c6ff 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 22px;
   box-shadow: 0 4px 12px rgba(0, 114, 255, 0.4);
   cursor: pointer;
@@ -824,7 +828,7 @@ body, html, #root {
 }
 
 .yj-footer a {
-  color: #B87300;
+  color: #b87300;
   font-weight: 700;
   text-decoration: underline;
   padding: 0 2px;
@@ -836,8 +840,12 @@ body, html, #root {
   background-color: var(--yj-gold-light);
 }
 
-.text-dim { color: var(--yj-text-dim); }
-.italic { font-style: italic; }
+.text-dim {
+  color: var(--yj-text-dim);
+}
+.italic {
+  font-style: italic;
+}
 
 @media (max-width: 1024px) {
   .yj-compiler-grid {

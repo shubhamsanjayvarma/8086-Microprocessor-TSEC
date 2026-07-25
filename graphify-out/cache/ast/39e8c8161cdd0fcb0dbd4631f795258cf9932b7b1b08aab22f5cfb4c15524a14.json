@@ -1,0 +1,127 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_spec_ui_integration_testing_report_md",
+      "label": "ui_integration_testing_report.md",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
+      "label": "UI Integration & Layout Testing Report",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_ui_integration_testing_report_1_objective",
+      "label": "1. Objective",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L6"
+    },
+    {
+      "id": "spec_ui_integration_testing_report_2_test_execution_details",
+      "label": "2. Test Execution Details",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L10"
+    },
+    {
+      "id": "spec_ui_integration_testing_report_milestone_1_structural_ui_sanity",
+      "label": "Milestone 1: Structural UI Sanity",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L14"
+    },
+    {
+      "id": "spec_ui_integration_testing_report_milestone_2_pre_commit_hook_strictness",
+      "label": "Milestone 2: Pre-Commit Hook Strictness",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L20"
+    },
+    {
+      "id": "spec_ui_integration_testing_report_milestone_3_ci_performance_scaling_ui_deep_cloning",
+      "label": "Milestone 3: CI Performance Scaling (UI Deep Cloning)",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L26"
+    },
+    {
+      "id": "spec_ui_integration_testing_report_3_conclusion",
+      "label": "3. Conclusion",
+      "file_type": "document",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L33"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_spec_ui_integration_testing_report_md",
+      "target": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
+      "target": "spec_ui_integration_testing_report_1_objective",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
+      "target": "spec_ui_integration_testing_report_2_test_execution_details",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_ui_integration_testing_report_2_test_execution_details",
+      "target": "spec_ui_integration_testing_report_milestone_1_structural_ui_sanity",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_ui_integration_testing_report_2_test_execution_details",
+      "target": "spec_ui_integration_testing_report_milestone_2_pre_commit_hook_strictness",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_ui_integration_testing_report_2_test_execution_details",
+      "target": "spec_ui_integration_testing_report_milestone_3_ci_performance_scaling_ui_deep_cloning",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L26",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_ui_integration_testing_report_ui_integration_layout_testing_report",
+      "target": "spec_ui_integration_testing_report_3_conclusion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/ui_integration_testing_report.md",
+      "source_location": "L33",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
