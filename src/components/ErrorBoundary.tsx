@@ -22,7 +22,8 @@ export class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     Logger.fatal("Unhandled UI crash", {
-      error,
+      errorMessage: error.message,
+      stack: error.stack,
       errorInfo,
     });
   }
