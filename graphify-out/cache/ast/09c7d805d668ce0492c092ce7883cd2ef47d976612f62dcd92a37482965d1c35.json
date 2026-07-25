@@ -1,0 +1,127 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_spec_qa_testing_report_md",
+      "label": "qa_testing_report.md",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_qa_testing_report_qa_testing_report",
+      "label": "QA Testing Report",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_qa_testing_report_overview",
+      "label": "Overview",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "spec_qa_testing_report_test_areas_executed",
+      "label": "Test Areas Executed",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L6"
+    },
+    {
+      "id": "spec_qa_testing_report_1_interface_constraints_boundary_inputs",
+      "label": "1. Interface Constraints & Boundary Inputs",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L8"
+    },
+    {
+      "id": "spec_qa_testing_report_2_browser_integration_checks",
+      "label": "2. Browser Integration checks",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L12"
+    },
+    {
+      "id": "spec_qa_testing_report_3_edge_case_assertions",
+      "label": "3. Edge Case Assertions",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L16"
+    },
+    {
+      "id": "spec_qa_testing_report_conclusion",
+      "label": "Conclusion",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L20"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_spec_qa_testing_report_md",
+      "target": "spec_qa_testing_report_qa_testing_report",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_report_qa_testing_report",
+      "target": "spec_qa_testing_report_overview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_report_qa_testing_report",
+      "target": "spec_qa_testing_report_test_areas_executed",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_report_test_areas_executed",
+      "target": "spec_qa_testing_report_1_interface_constraints_boundary_inputs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_report_test_areas_executed",
+      "target": "spec_qa_testing_report_2_browser_integration_checks",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_report_test_areas_executed",
+      "target": "spec_qa_testing_report_3_edge_case_assertions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_report_qa_testing_report",
+      "target": "spec_qa_testing_report_conclusion",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_report.md",
+      "source_location": "L20",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

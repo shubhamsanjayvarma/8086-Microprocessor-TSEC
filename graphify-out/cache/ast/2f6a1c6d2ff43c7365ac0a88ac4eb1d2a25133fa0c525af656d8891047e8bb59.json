@@ -1,0 +1,127 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_telemetry_error_log_md",
+      "label": "error_log.md",
+      "file_type": "document",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "telemetry_error_log_error_log",
+      "label": "Error Log",
+      "file_type": "document",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "telemetry_error_log_2026_07_24_invalid_unicode_escape_sequence_in_typescript",
+      "label": "2026-07-24: Invalid Unicode escape sequence in TypeScript",
+      "file_type": "document",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "telemetry_error_log_2026_07_24_test_assertions_on_clobbered_registers",
+      "label": "2026-07-24: Test Assertions on Clobbered Registers",
+      "file_type": "document",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L9"
+    },
+    {
+      "id": "telemetry_error_log_2026_07_24_incomplete_emulator_jump_instruction_set",
+      "label": "2026-07-24: Incomplete Emulator Jump Instruction Set",
+      "file_type": "document",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L15"
+    },
+    {
+      "id": "telemetry_error_log_2026_07_24_memory_displacement_parsing",
+      "label": "2026-07-24: Memory Displacement Parsing",
+      "file_type": "document",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L21"
+    },
+    {
+      "id": "telemetry_error_log_2026_07_24_example_code_bug",
+      "label": "2026-07-24: Example Code Bug",
+      "file_type": "document",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L27"
+    },
+    {
+      "id": "telemetry_error_log_2026_07_24_memory_size_inference_bug",
+      "label": "2026-07-24: Memory Size Inference Bug",
+      "file_type": "document",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L33"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_telemetry_error_log_md",
+      "target": "telemetry_error_log_error_log",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "telemetry_error_log_error_log",
+      "target": "telemetry_error_log_2026_07_24_invalid_unicode_escape_sequence_in_typescript",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "telemetry_error_log_error_log",
+      "target": "telemetry_error_log_2026_07_24_test_assertions_on_clobbered_registers",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "telemetry_error_log_error_log",
+      "target": "telemetry_error_log_2026_07_24_incomplete_emulator_jump_instruction_set",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "telemetry_error_log_error_log",
+      "target": "telemetry_error_log_2026_07_24_memory_displacement_parsing",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "telemetry_error_log_error_log",
+      "target": "telemetry_error_log_2026_07_24_example_code_bug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "telemetry_error_log_error_log",
+      "target": "telemetry_error_log_2026_07_24_memory_size_inference_bug",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "telemetry/error_log.md",
+      "source_location": "L33",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

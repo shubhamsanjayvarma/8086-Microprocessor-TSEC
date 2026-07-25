@@ -1,0 +1,302 @@
+{
+  "C:\\8086\\.agents\\skills\\idea-refine\\scripts\\idea-refine.sh": {
+    "size": 357,
+    "mtime_ns": 1784564588712247800,
+    "hash": "ad76505e0a81a1ebe160fac24b910710f2c2f0a452739747c5922aa0254657db"
+  },
+  "C:\\8086\\.husky\\_\\husky.sh": {
+    "size": 160,
+    "mtime_ns": 1784913076326123600,
+    "hash": "6db0aa99aece6ebd17bbc27c5e5287a462fb39cc4a2ca3a82a6277c166bdb3a0"
+  },
+  "C:\\8086\\.oxlintrc.json": {
+    "size": 253,
+    "mtime_ns": 1784564734667515600,
+    "hash": "c8f20a9f44b93bd1c6bc0aef97308fdc0861df290943c250fb0efd6b1f5676b7"
+  },
+  "C:\\8086\\package.json": {
+    "size": 1203,
+    "mtime_ns": 1784916561078298100,
+    "hash": "fb1fd8741243822e5692d9db6ea5cae8e42295fb18d98cca830a19924dbcf7bc"
+  },
+  "C:\\8086\\tsconfig.app.json": {
+    "size": 681,
+    "mtime_ns": 1784564734682881600,
+    "hash": "17ac280f31e742f2a00b8fd5ca9c297bd94f1d359c0d50680d90e20b872f71d6"
+  },
+  "C:\\8086\\tsconfig.json": {
+    "size": 126,
+    "mtime_ns": 1784564734682881600,
+    "hash": "5b591f22ef3ddff72d5c09b467be6033451e1b7bf389bda3145b7f0ae33c2613"
+  },
+  "C:\\8086\\tsconfig.node.json": {
+    "size": 581,
+    "mtime_ns": 1784564734682881600,
+    "hash": "6c1a4680c7d12d486b4a4236c4d3536821d9b53452704ff25642daf0d67eb9f2"
+  },
+  "C:\\8086\\.agents\\AGENTS.md": {
+    "size": 12107,
+    "mtime_ns": 1784915000803593900,
+    "hash": "b1db91cb9061a50d77139d3189d0c95cd98512742e07d43b762abf628ab20a94"
+  },
+  "C:\\8086\\.agents\\rules\\graphify.md": {
+    "size": 947,
+    "mtime_ns": 1784564588672924600,
+    "hash": "e55792958648fb69255e3ce3f71a8fcead36307c34b2d67feda9ac650ac61803"
+  },
+  "C:\\8086\\.agents\\skills\\api-and-interface-design\\SKILL.md": {
+    "size": 10601,
+    "mtime_ns": 1784564588674643200,
+    "hash": "6402e5bfff22748a0b2260f910497d8d72372f49d72ca4ade2c2e85687914aad"
+  },
+  "C:\\8086\\.agents\\skills\\browser-testing-with-devtools\\SKILL.md": {
+    "size": 14856,
+    "mtime_ns": 1784564588675722300,
+    "hash": "a7aa3cedc3f80f94d359f99915a40d8066c07f9309921fdd2df0ad8052f7c515"
+  },
+  "C:\\8086\\.agents\\skills\\ci-cd-and-automation\\SKILL.md": {
+    "size": 11722,
+    "mtime_ns": 1784564588678293300,
+    "hash": "b7c2708f2649d580a31c9917d658bbb2d1a3635c424b5509ce43746f3906f99e"
+  },
+  "C:\\8086\\.agents\\skills\\code-review-and-quality\\SKILL.md": {
+    "size": 18837,
+    "mtime_ns": 1784564588678876000,
+    "hash": "41d0e9a921f12283074ffd8c9bf461df356612862c5e3155f777c61f00128365"
+  },
+  "C:\\8086\\.agents\\skills\\code-simplification\\SKILL.md": {
+    "size": 13876,
+    "mtime_ns": 1784564588681107400,
+    "hash": "71584509fbe5a276903ee6166af5466046aa3787273d60a4f8b1f0defd9f3ed1"
+  },
+  "C:\\8086\\.agents\\skills\\context-engineering\\SKILL.md": {
+    "size": 11359,
+    "mtime_ns": 1784564588682699700,
+    "hash": "4264f01cd4e8ef7eaa7df199a5869629b206be94dd5ccaff3883acefc6738499"
+  },
+  "C:\\8086\\.agents\\skills\\cyber-security-frameworks\\SKILL.md": {
+    "size": 3009,
+    "mtime_ns": 1784564588682699700,
+    "hash": "b216136d13d47b49d6546177eb3eda1c40645c8e94a52c6641567ca8e5843902"
+  },
+  "C:\\8086\\.agents\\skills\\debugging-and-error-recovery\\SKILL.md": {
+    "size": 10903,
+    "mtime_ns": 1784564588684572900,
+    "hash": "113a9538ef32c9a51e281c76bcd654c0a7a29bd072666c5f2ac0e3d89a0c5e52"
+  },
+  "C:\\8086\\.agents\\skills\\deprecation-and-migration\\SKILL.md": {
+    "size": 9206,
+    "mtime_ns": 1784564588685889600,
+    "hash": "6e17598eeac095056728b255f194454ec4edd4c7aee46411f6af91175c26219e"
+  },
+  "C:\\8086\\.agents\\skills\\documentation-and-adrs\\SKILL.md": {
+    "size": 9012,
+    "mtime_ns": 1784564588685889600,
+    "hash": "0097f51fadbff4376dec1d6113c7ce07274f17cfd1089d61bff88d320c36ff6b"
+  },
+  "C:\\8086\\.agents\\skills\\doubt-driven-development\\SKILL.md": {
+    "size": 16730,
+    "mtime_ns": 1784564588688715000,
+    "hash": "88cac7e1ff9bcd64a42eccf75b0686ff40b202e2542e05fa9cc40a6e2973a724"
+  },
+  "C:\\8086\\.agents\\skills\\frontend-ui-engineering\\SKILL.md": {
+    "size": 10967,
+    "mtime_ns": 1784564588689369300,
+    "hash": "cba9674b812143a61a26a2296b0a509121b074a54e7b637e6208a826eac3240f"
+  },
+  "C:\\8086\\.agents\\skills\\git-workflow-and-versioning\\SKILL.md": {
+    "size": 14355,
+    "mtime_ns": 1784564588690473100,
+    "hash": "9060574a61ac1ddca76426186b3d5fce777b22d0207acad6ad3c79e7614213a9"
+  },
+  "C:\\8086\\.agents\\skills\\graphify\\SKILL.md": {
+    "size": 33165,
+    "mtime_ns": 1784564588692826300,
+    "hash": "89134f9cb0fad844a363ade6b7f518aaf483191dce2bc6adcdbdd3a7985128cc"
+  },
+  "C:\\8086\\.agents\\skills\\graphify\\references\\add-watch.md": {
+    "size": 2513,
+    "mtime_ns": 1784564588693906900,
+    "hash": "cd26657774b3a052ec4cb29b2aa122f0508fe006bce69948c83ffaccfeeb6342"
+  },
+  "C:\\8086\\.agents\\skills\\graphify\\references\\exports.md": {
+    "size": 2234,
+    "mtime_ns": 1784564588694691600,
+    "hash": "b6048d6dd3d1e167f7f6ca5e8c4b7be5fb296f5510daf7f867cc0cbf6dc8c090"
+  },
+  "C:\\8086\\.agents\\skills\\graphify\\references\\extraction-spec.md": {
+    "size": 7229,
+    "mtime_ns": 1784564588695229400,
+    "hash": "4d07614ed47c81c6b924a51ce2376aa73e4f0175444f083a53ac30b558f6bf04"
+  },
+  "C:\\8086\\.agents\\skills\\graphify\\references\\github-and-merge.md": {
+    "size": 2223,
+    "mtime_ns": 1784564588702986700,
+    "hash": "5b1c79f8ca4467d51a8ad0d506fe98021a33ff29c8f1833ff0f115517f18a018"
+  },
+  "C:\\8086\\.agents\\skills\\graphify\\references\\hooks.md": {
+    "size": 1300,
+    "mtime_ns": 1784564588703935100,
+    "hash": "beb2cb442a5c5bfded35699014b18616f03f865f0046186b5a0860c207937349"
+  },
+  "C:\\8086\\.agents\\skills\\graphify\\references\\query.md": {
+    "size": 5269,
+    "mtime_ns": 1784564588705257000,
+    "hash": "b563e0d42cc3b69839d6f29b36defbb5acb5d3fd35783a0cf9284c555b6cda80"
+  },
+  "C:\\8086\\.agents\\skills\\graphify\\references\\transcribe.md": {
+    "size": 2700,
+    "mtime_ns": 1784564588705257000,
+    "hash": "b8f9dbe1d3243ceac2955c997f38b2fd1d2b3bdea97feeb6080bf794637a1ac3"
+  },
+  "C:\\8086\\.agents\\skills\\graphify\\references\\update.md": {
+    "size": 7697,
+    "mtime_ns": 1784564588706419600,
+    "hash": "89c4ad8cd8bcc7fa4ec6c12190cbc32814842c0ca346f670f566ad962caf5bb4"
+  },
+  "C:\\8086\\.agents\\skills\\idea-refine\\SKILL.md": {
+    "size": 8289,
+    "mtime_ns": 1784564588707731000,
+    "hash": "1513244004d2eba9a194d192232314270be4bcba33f2784502347eeca234252e"
+  },
+  "C:\\8086\\.agents\\skills\\idea-refine\\examples.md": {
+    "size": 20522,
+    "mtime_ns": 1784564588707731000,
+    "hash": "8ccb1b6b2d132c36de36bbe7f07528a3707c500092d07475d554556c3083056d"
+  },
+  "C:\\8086\\.agents\\skills\\idea-refine\\frameworks.md": {
+    "size": 5503,
+    "mtime_ns": 1784564588709754800,
+    "hash": "38ed1e1c665c6f2bf1552de16fa884c7189f9a502e9c58b5b61c3ca21a6a910f"
+  },
+  "C:\\8086\\.agents\\skills\\idea-refine\\refinement-criteria.md": {
+    "size": 5851,
+    "mtime_ns": 1784564588711235000,
+    "hash": "2648f60c2c2bf447a6859a764e0a6f8b94793511bbe082bc6e8037e443905fc6"
+  },
+  "C:\\8086\\.agents\\skills\\incremental-implementation\\SKILL.md": {
+    "size": 9498,
+    "mtime_ns": 1784564588712790700,
+    "hash": "180716f19b771b7a2acd07912e5f3a8dac3f486007a7528240827e5fcd99f1e4"
+  },
+  "C:\\8086\\.agents\\skills\\interview-me\\SKILL.md": {
+    "size": 14584,
+    "mtime_ns": 1784564588715391300,
+    "hash": "aa4698352a18d733555046677b330881dc1d1b3740295eb188ecb7eb43df8693"
+  },
+  "C:\\8086\\.agents\\skills\\observability-and-instrumentation\\SKILL.md": {
+    "size": 11250,
+    "mtime_ns": 1784564588716265000,
+    "hash": "c8b766d26978f1c6793cbf838985cce7a16d1980ca66a5de5f56a465cdce9484"
+  },
+  "C:\\8086\\.agents\\skills\\performance-optimization\\SKILL.md": {
+    "size": 11943,
+    "mtime_ns": 1784564588717734700,
+    "hash": "e29600116f893c8ad0ffa36ade3d7ee1d50c3a123a9c9fc73010c72b9d1c08d0"
+  },
+  "C:\\8086\\.agents\\skills\\planning-and-task-breakdown\\SKILL.md": {
+    "size": 7866,
+    "mtime_ns": 1784564588717734700,
+    "hash": "b4f957d0fe855a8d7ff2eea84038ac61615b663c6e72825299be295b8a9d6260"
+  },
+  "C:\\8086\\.agents\\skills\\security-and-hardening\\SKILL.md": {
+    "size": 19339,
+    "mtime_ns": 1784564588717734700,
+    "hash": "d9e57c154aabae0bfb760e7c69632e48bcdae5e35e60e6b8d267c7b7443960eb"
+  },
+  "C:\\8086\\.agents\\skills\\shipping-and-launch\\SKILL.md": {
+    "size": 10355,
+    "mtime_ns": 1784564588721398100,
+    "hash": "cbe660e1f0802bca6a0250dfbb37d18b704605e15e481f45b7175e8680595777"
+  },
+  "C:\\8086\\.agents\\skills\\source-driven-development\\SKILL.md": {
+    "size": 8398,
+    "mtime_ns": 1784564588722947200,
+    "hash": "1507d0809cb3580d8c5374461e5133d85f5e13403f1bc09a538656db7519786f"
+  },
+  "C:\\8086\\.agents\\skills\\spec-driven-development\\SKILL.md": {
+    "size": 8733,
+    "mtime_ns": 1784564588724971200,
+    "hash": "b6ffc20a04434a50db65e5fd470e4e11ca93c43ceb1334b7f8284844b07ef9e8"
+  },
+  "C:\\8086\\.agents\\skills\\test-driven-development\\SKILL.md": {
+    "size": 15359,
+    "mtime_ns": 1784564588725513300,
+    "hash": "9533dbe5f42cb1cb7550802c2251f1f56ca510f99527e3b3acc30ada09273ce6"
+  },
+  "C:\\8086\\.agents\\skills\\using-agent-skills\\SKILL.md": {
+    "size": 10528,
+    "mtime_ns": 1784564588725513300,
+    "hash": "872c3b0e97a43c276e8a7ffb0f280683720055b17033d70a94653cd0d26a7adc"
+  },
+  "C:\\8086\\.agents\\workflows\\graphify.md": {
+    "size": 294,
+    "mtime_ns": 1784564588729791800,
+    "hash": "92f7173d16f1957afad71a61047404f9a2816713be0932588489fc7f95e2e062"
+  },
+  "C:\\8086\\README.md": {
+    "size": 1310,
+    "mtime_ns": 1784564734667515600,
+    "hash": "0cab1d4cbc6eb1abe75af5ca8e197afce7c880974aff2035ee6f6e59fd3b2841"
+  },
+  "C:\\8086\\discovery-agent-spec.md": {
+    "size": 8221,
+    "mtime_ns": 1784564588736230400,
+    "hash": "932f27cf97b44aa48020aa155224cc762c60ad6ce825b87e24f40e0531a798fa"
+  },
+  "C:\\8086\\spec\\8086_Compiler_PRD.md": {
+    "size": 6622,
+    "mtime_ns": 1784566250736704900,
+    "hash": "b3df288126120a7b42a33ac5bd3198a3777f70011daa40de03001a6b78e23044"
+  },
+  "C:\\8086\\spec\\8086_tests.md": {
+    "size": 11505,
+    "mtime_ns": 1784912264791542500,
+    "hash": "ae584b58a9a60b17bd8622b62fbf5351eae64665df6d14d45a05c50df73f2c53"
+  },
+  "C:\\8086\\spec\\PRD_Template.md": {
+    "size": 2071,
+    "mtime_ns": 1784565733944429500,
+    "hash": "719afe7a25530940762e586989fff64037959a89f2366ab8136ec75eb31670be"
+  },
+  "C:\\8086\\spec\\doc_req.md": {
+    "size": 1629,
+    "mtime_ns": 1784564588742138700,
+    "hash": "aec2faf9a23bae0a98137fa4991cbcd4321f979c18c9d15897d0233dd482fe18"
+  },
+  "C:\\8086\\telemetry\\error_log.md": {
+    "size": 2730,
+    "mtime_ns": 1784914992653414500,
+    "hash": "2f6a1c6d2ff43c7365ac0a88ac4eb1d2a25133fa0c525af656d8891047e8bb59"
+  },
+  "C:\\8086\\spec\\qa_testing_plan.md": {
+    "size": 23581,
+    "mtime_ns": 1784913977670491300,
+    "hash": "292bd1d0f133d007414e1b6c1b10822e6623d59f322359c5d36bcd899a1781bb"
+  },
+  "C:\\8086\\spec\\codebase_security_review_report.md": {
+    "size": 2456,
+    "mtime_ns": 1784958014851044100,
+    "hash": "b2c2771cc8553080325e2c69e12d0acbd8fa5de4c5d806be3556816ecfeae0ab"
+  },
+  "C:\\8086\\spec\\logic_testing_report.md": {
+    "size": 1859,
+    "mtime_ns": 1784958014834891600,
+    "hash": "eda4e90b29537e0eab481a9780bc3008874c70a5a3f4dd4d0c1125a8d33c829e"
+  },
+  "C:\\8086\\spec\\qa_testing_report.md": {
+    "size": 1529,
+    "mtime_ns": 1784958015214169300,
+    "hash": "09c7d805d668ce0492c092ce7883cd2ef47d976612f62dcd92a37482965d1c35"
+  },
+  "C:\\8086\\spec\\space_time_complexity_report.md": {
+    "size": 2156,
+    "mtime_ns": 1784958011711533300,
+    "hash": "323a38c5b23fe16e1456fd7c6055595575d71893667ba04f9fedb8ea13afcb5b"
+  },
+  "C:\\8086\\spec\\template_testing.md": {
+    "size": 13455,
+    "mtime_ns": 1784958378295015300,
+    "hash": "83a75b243dfcff82913a233339efb8ac0b1c8710ed333feac91ec26c969ede92"
+  }
+}

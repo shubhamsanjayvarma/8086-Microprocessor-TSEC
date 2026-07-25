@@ -1,0 +1,479 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_spec_qa_testing_plan_md",
+      "label": "qa_testing_plan.md",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "label": "QA Testing Plan \u2014 8086 Web Compiler & Emulator",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_qa_testing_plan_feature_inventory",
+      "label": "Feature Inventory",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L8"
+    },
+    {
+      "id": "spec_qa_testing_plan_milestone_1_code_editor_example_selector",
+      "label": "Milestone 1: Code Editor & Example Selector",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L89"
+    },
+    {
+      "id": "spec_qa_testing_plan_test_cases",
+      "label": "Test Cases",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L93"
+    },
+    {
+      "id": "spec_qa_testing_plan_combinatorial_scenarios",
+      "label": "Combinatorial Scenarios",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L108"
+    },
+    {
+      "id": "spec_qa_testing_plan_milestone_2_compiler_functional_error_handling",
+      "label": "Milestone 2: Compiler \u2014 Functional & Error Handling",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L122"
+    },
+    {
+      "id": "spec_qa_testing_plan_functional_tests",
+      "label": "Functional Tests",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L126"
+    },
+    {
+      "id": "spec_qa_testing_plan_error_handling_tests",
+      "label": "Error Handling Tests",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L147"
+    },
+    {
+      "id": "spec_qa_testing_plan_combinatorial_scenarios_162",
+      "label": "Combinatorial Scenarios",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L162"
+    },
+    {
+      "id": "spec_qa_testing_plan_milestone_3_emulator_execution_all_instructions",
+      "label": "Milestone 3: Emulator Execution \u2014 All Instructions",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L180"
+    },
+    {
+      "id": "spec_qa_testing_plan_data_transfer_instructions",
+      "label": "Data Transfer Instructions",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L184"
+    },
+    {
+      "id": "spec_qa_testing_plan_arithmetic_instructions",
+      "label": "Arithmetic Instructions",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L196"
+    },
+    {
+      "id": "spec_qa_testing_plan_logic_instructions",
+      "label": "Logic Instructions",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L215"
+    },
+    {
+      "id": "spec_qa_testing_plan_control_flow_all_conditional_jumps",
+      "label": "Control Flow \u2014 All Conditional Jumps",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L228"
+    },
+    {
+      "id": "spec_qa_testing_plan_interrupt_handling",
+      "label": "Interrupt Handling",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L247"
+    },
+    {
+      "id": "spec_qa_testing_plan_milestone_4_ui_controls_visual_state",
+      "label": "Milestone 4: UI Controls & Visual State",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L259"
+    },
+    {
+      "id": "spec_qa_testing_plan_execution_controls",
+      "label": "Execution Controls",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L263"
+    },
+    {
+      "id": "spec_qa_testing_plan_register_format_toggle",
+      "label": "Register Format Toggle",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L278"
+    },
+    {
+      "id": "spec_qa_testing_plan_flags_panel",
+      "label": "Flags Panel",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L288"
+    },
+    {
+      "id": "spec_qa_testing_plan_memory_viewer",
+      "label": "Memory Viewer",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L300"
+    },
+    {
+      "id": "spec_qa_testing_plan_stack_viewer",
+      "label": "Stack Viewer",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L318"
+    },
+    {
+      "id": "spec_qa_testing_plan_console_output",
+      "label": "Console Output",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L329"
+    },
+    {
+      "id": "spec_qa_testing_plan_milestone_5_integration_full_example_programs",
+      "label": "Milestone 5: Integration \u2014 Full Example Programs",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L344"
+    },
+    {
+      "id": "spec_qa_testing_plan_cross_example_combinations",
+      "label": "Cross-Example Combinations",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L356"
+    },
+    {
+      "id": "spec_qa_testing_plan_milestone_6_security_resilience_stride_owasp",
+      "label": "Milestone 6: Security & Resilience (STRIDE / OWASP)",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L372"
+    },
+    {
+      "id": "spec_qa_testing_plan_stride_coverage",
+      "label": "STRIDE Coverage",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L377"
+    },
+    {
+      "id": "spec_qa_testing_plan_owasp_top_10_relevance",
+      "label": "OWASP Top 10 Relevance",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L396"
+    },
+    {
+      "id": "spec_qa_testing_plan_guardrails_execution_rules",
+      "label": "Guardrails & Execution Rules",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L407"
+    },
+    {
+      "id": "spec_qa_testing_plan_summary_statistics",
+      "label": "Summary Statistics",
+      "file_type": "document",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L437"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_spec_qa_testing_plan_md",
+      "target": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "target": "spec_qa_testing_plan_feature_inventory",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "target": "spec_qa_testing_plan_milestone_1_code_editor_example_selector",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L89",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_1_code_editor_example_selector",
+      "target": "spec_qa_testing_plan_test_cases",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L93",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_1_code_editor_example_selector",
+      "target": "spec_qa_testing_plan_combinatorial_scenarios",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "target": "spec_qa_testing_plan_milestone_2_compiler_functional_error_handling",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L122",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_2_compiler_functional_error_handling",
+      "target": "spec_qa_testing_plan_functional_tests",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L126",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_2_compiler_functional_error_handling",
+      "target": "spec_qa_testing_plan_error_handling_tests",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L147",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_2_compiler_functional_error_handling",
+      "target": "spec_qa_testing_plan_combinatorial_scenarios_162",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L162",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "target": "spec_qa_testing_plan_milestone_3_emulator_execution_all_instructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L180",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_3_emulator_execution_all_instructions",
+      "target": "spec_qa_testing_plan_data_transfer_instructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L184",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_3_emulator_execution_all_instructions",
+      "target": "spec_qa_testing_plan_arithmetic_instructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L196",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_3_emulator_execution_all_instructions",
+      "target": "spec_qa_testing_plan_logic_instructions",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L215",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_3_emulator_execution_all_instructions",
+      "target": "spec_qa_testing_plan_control_flow_all_conditional_jumps",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L228",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_3_emulator_execution_all_instructions",
+      "target": "spec_qa_testing_plan_interrupt_handling",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L247",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "target": "spec_qa_testing_plan_milestone_4_ui_controls_visual_state",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L259",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_4_ui_controls_visual_state",
+      "target": "spec_qa_testing_plan_execution_controls",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L263",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_4_ui_controls_visual_state",
+      "target": "spec_qa_testing_plan_register_format_toggle",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L278",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_4_ui_controls_visual_state",
+      "target": "spec_qa_testing_plan_flags_panel",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L288",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_4_ui_controls_visual_state",
+      "target": "spec_qa_testing_plan_memory_viewer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L300",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_4_ui_controls_visual_state",
+      "target": "spec_qa_testing_plan_stack_viewer",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L318",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_4_ui_controls_visual_state",
+      "target": "spec_qa_testing_plan_console_output",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L329",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "target": "spec_qa_testing_plan_milestone_5_integration_full_example_programs",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L344",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_5_integration_full_example_programs",
+      "target": "spec_qa_testing_plan_cross_example_combinations",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L356",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "target": "spec_qa_testing_plan_milestone_6_security_resilience_stride_owasp",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L372",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_6_security_resilience_stride_owasp",
+      "target": "spec_qa_testing_plan_stride_coverage",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L377",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_milestone_6_security_resilience_stride_owasp",
+      "target": "spec_qa_testing_plan_owasp_top_10_relevance",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L396",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "target": "spec_qa_testing_plan_guardrails_execution_rules",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L407",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_qa_testing_plan_qa_testing_plan_8086_web_compiler_emulator",
+      "target": "spec_qa_testing_plan_summary_statistics",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/qa_testing_plan.md",
+      "source_location": "L437",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

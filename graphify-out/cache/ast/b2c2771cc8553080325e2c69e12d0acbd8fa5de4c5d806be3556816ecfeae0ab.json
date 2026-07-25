@@ -1,0 +1,127 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_spec_codebase_security_review_report_md",
+      "label": "codebase_security_review_report.md",
+      "file_type": "document",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_codebase_security_review_report_codebase_security_review_report",
+      "label": "Codebase Security Review Report",
+      "file_type": "document",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "spec_codebase_security_review_report_overview",
+      "label": "Overview",
+      "file_type": "document",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L3"
+    },
+    {
+      "id": "spec_codebase_security_review_report_cyber_attack_mitigation_results",
+      "label": "Cyber Attack Mitigation Results",
+      "file_type": "document",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L6"
+    },
+    {
+      "id": "spec_codebase_security_review_report_1_regex_denial_of_service_redos_stride_denial_of_service",
+      "label": "1. Regex Denial of Service (ReDoS) [STRIDE: Denial of Service]",
+      "file_type": "document",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L8"
+    },
+    {
+      "id": "spec_codebase_security_review_report_2_instruction_opcodes_fallthrough_stride_tampering",
+      "label": "2. Instruction Opcodes & Fallthrough [STRIDE: Tampering]",
+      "file_type": "document",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L13"
+    },
+    {
+      "id": "spec_codebase_security_review_report_3_memory_out_of_bounds_spoofing_stride_information_disclosure",
+      "label": "3. Memory Out of Bounds Spoofing [STRIDE: Information Disclosure]",
+      "file_type": "document",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "spec_codebase_security_review_report_4_cross_site_scripting_xss_owasp_injection",
+      "label": "4. Cross-Site Scripting (XSS) [OWASP: Injection]",
+      "file_type": "document",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L23"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_spec_codebase_security_review_report_md",
+      "target": "spec_codebase_security_review_report_codebase_security_review_report",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_codebase_security_review_report_codebase_security_review_report",
+      "target": "spec_codebase_security_review_report_overview",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_codebase_security_review_report_codebase_security_review_report",
+      "target": "spec_codebase_security_review_report_cyber_attack_mitigation_results",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_codebase_security_review_report_cyber_attack_mitigation_results",
+      "target": "spec_codebase_security_review_report_1_regex_denial_of_service_redos_stride_denial_of_service",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_codebase_security_review_report_cyber_attack_mitigation_results",
+      "target": "spec_codebase_security_review_report_2_instruction_opcodes_fallthrough_stride_tampering",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_codebase_security_review_report_cyber_attack_mitigation_results",
+      "target": "spec_codebase_security_review_report_3_memory_out_of_bounds_spoofing_stride_information_disclosure",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "spec_codebase_security_review_report_cyber_attack_mitigation_results",
+      "target": "spec_codebase_security_review_report_4_cross_site_scripting_xss_owasp_injection",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "spec/codebase_security_review_report.md",
+      "source_location": "L23",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
