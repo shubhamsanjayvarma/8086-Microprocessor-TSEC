@@ -17,6 +17,17 @@
   --yj-gold-hover: #e5b800;
   --yj-gold-light: #fff9e6;
 
+  --yj-input-bg: #ffffff;
+  --yj-gutter-bg: #f7f7f7;
+  --yj-sidebar-bg: #fafafa;
+  --yj-error-bg: #fff0f0;
+  --yj-error-border: #ffcdcd;
+  --yj-error-text: #cc0000;
+
+  --yj-scrollbar-bg: #f5f5f5;
+  --yj-scrollbar-thumb: #cccccc;
+  --yj-scrollbar-thumb-hover: #aaaaaa;
+
   --yj-font-mono: "JetBrains Mono", "Courier Prime", "Courier New", monospace;
   --yj-font-sans: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
 
@@ -33,12 +44,42 @@
   --yj-text-main: #cccccc;
   --yj-text-dim: #888888;
   --yj-gold-light: #332b15;
+
+  --yj-input-bg: #1e1e1e;
+  --yj-gutter-bg: #252526;
+  --yj-sidebar-bg: #2d2d2d;
+  --yj-error-bg: #3a1c1c;
+  --yj-error-border: #662222;
+  --yj-error-text: #ff6666;
+
+  --yj-scrollbar-bg: #1e1e1e;
+  --yj-scrollbar-thumb: #454545;
+  --yj-scrollbar-thumb-hover: #666666;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scrollbar-width: thin;
+  scrollbar-color: var(--yj-scrollbar-thumb) var(--yj-scrollbar-bg);
+}
+
+/* Custom Webkit Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--yj-scrollbar-bg);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--yj-scrollbar-thumb);
+  border-radius: 5px;
+  border: 2px solid var(--yj-scrollbar-bg);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--yj-scrollbar-thumb-hover);
 }
 
 body,
@@ -216,7 +257,7 @@ html,
 }
 
 .yj-btn-action {
-  background-color: #ffffff;
+  background-color: var(--yj-card-bg);
   color: var(--yj-text-dim);
   font-family: var(--yj-font-mono);
   font-size: 13px;
@@ -242,7 +283,7 @@ html,
 
 /* Editor Box */
 .yj-editor-box {
-  background-color: #ffffff;
+  background-color: var(--yj-input-bg);
   border: 1px solid var(--yj-border);
   border-radius: 4px;
   box-shadow: var(--yj-shadow-card);
@@ -260,7 +301,7 @@ html,
 
 .yj-line-gutter {
   width: 44px;
-  background-color: #f7f7f7;
+  background-color: var(--yj-gutter-bg);
   border-right: 1px solid var(--yj-border);
   padding: 12px 0;
   display: flex;
@@ -271,7 +312,7 @@ html,
 .yj-line-no {
   font-family: var(--yj-font-mono);
   font-size: 13px;
-  color: #999999;
+  color: var(--yj-text-dim);
   height: 22px;
   line-height: 22px;
   text-align: right;
@@ -279,7 +320,7 @@ html,
 }
 
 .yj-line-no.active-line {
-  background-color: #e8e8e8;
+  background-color: var(--yj-border);
   color: var(--yj-gold);
   font-weight: bold;
 }
@@ -293,7 +334,7 @@ html,
   font-family: var(--yj-font-mono);
   font-size: 14px;
   line-height: 22px;
-  color: #222222;
+  color: var(--yj-text-main);
   resize: none;
   tab-size: 4;
 }
@@ -302,7 +343,7 @@ html,
 .yj-editor-side-tools {
   width: 40px;
   border-left: 1px solid var(--yj-border);
-  background-color: #fafafa;
+  background-color: var(--yj-sidebar-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -322,7 +363,7 @@ html,
 
 .yj-side-icon-btn:hover {
   color: var(--yj-text-main);
-  background-color: #efefef;
+  background-color: var(--yj-border);
 }
 
 /* Example Banner */
@@ -361,7 +402,7 @@ html,
 .yj-input-box-wrapper {
   display: flex;
   align-items: center;
-  background-color: #ffffff;
+  background-color: var(--yj-input-bg);
   border: 1px solid var(--yj-border);
   border-radius: 4px;
   padding: 4px 8px;
@@ -406,7 +447,7 @@ html,
 }
 
 .yj-output-box {
-  background-color: #ffffff;
+  background-color: var(--yj-input-bg);
   border: 1px solid var(--yj-border);
   border-radius: 4px;
   height: 70px;
@@ -422,11 +463,11 @@ html,
 }
 
 .yj-error-box {
-  background-color: #fff0f0;
-  border: 1px solid #ffcdcd;
+  background-color: var(--yj-error-bg);
+  border: 1px solid var(--yj-error-border);
   border-radius: 4px;
   padding: 8px 12px;
-  color: #cc0000;
+  color: var(--yj-error-text);
   font-family: var(--yj-font-mono);
   font-size: 13px;
 }
@@ -600,7 +641,7 @@ html,
 }
 
 .yj-btn-set {
-  background-color: #ffffff;
+  background-color: var(--yj-card-bg);
   border: 1px solid var(--yj-border-dark);
   border-radius: 4px;
   font-family: var(--yj-font-mono);
@@ -622,7 +663,7 @@ html,
   gap: 4px;
   font-family: var(--yj-font-mono);
   font-size: 12px;
-  background-color: #fafafa;
+  background-color: var(--yj-sidebar-bg);
   padding: 8px;
   border: 1px solid var(--yj-border);
   border-radius: 4px;
