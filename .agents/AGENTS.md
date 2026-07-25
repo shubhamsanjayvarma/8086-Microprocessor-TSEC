@@ -190,3 +190,9 @@ These guidelines are working if: fewer unnecessary changes in diffs, fewer rewri
 
 19. Oxlint `eslint-disable` Comment Placement
     When attempting to bypass a linter warning in `oxlint` (e.g., `react-hooks/exhaustive-deps`), the `// eslint-disable-next-line` directive MUST be placed on the exact line immediately preceding the target code structure (like the dependency array closing bracket `}, []);`). Placing it above a regular code comment will cause oxlint to ignore the directive and fail the build.
+
+20. Feature Branch & PR Workflow (The Safety Net)
+    NEVER develop new features or tests directly on the `main` branch.
+    - **Local Isolation:** Always create a new branch (e.g., `feat/ui-updates`) for your work. If the code breaks irreparably or a massive conflict occurs locally, simply delete the branch and reset to `main`.
+    - **Remote PRs:** When ready, push the branch and open a Pull Request. Never push directly to `main`.
+    - **Reverting:** If an issue is discovered _after_ merging to `main`, do not attempt to manually track and revert individual scattered commits via the terminal. Instead, track the issue to the specific PR and use GitHub's 1-click "Revert Pull Request" feature to cleanly undo the entire feature block at once.
