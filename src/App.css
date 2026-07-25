@@ -12,6 +12,7 @@
   --yj-border-dark: #D0D0D0;
   --yj-text-main: #333333;
   --yj-text-dim: #777777;
+  --yj-text-glow: none;
   
   --yj-gold: #F4C430;
   --yj-gold-hover: #E5B800;
@@ -30,8 +31,9 @@
   --yj-navbar-bg: #2D2D2D;
   --yj-border: #3E3E42;
   --yj-border-dark: #454545;
-  --yj-text-main: #CCCCCC;
-  --yj-text-dim: #888888;
+  --yj-text-main: #FFFFFF;
+  --yj-text-dim: #AAAAAA;
+  --yj-text-glow: 0 0 4px rgba(255, 255, 255, 0.35);
   --yj-gold-light: #332B15;
 }
 
@@ -50,6 +52,7 @@ body, html, #root {
   min-height: 100vh;
   background-color: var(--yj-bg);
   color: var(--yj-text-main);
+  text-shadow: var(--yj-text-glow);
   font-family: var(--yj-font-sans);
   display: flex;
   flex-direction: column;
@@ -213,7 +216,7 @@ body, html, #root {
 }
 
 .yj-btn-action {
-  background-color: #FFFFFF;
+  background-color: var(--yj-card-bg);
   color: var(--yj-text-dim);
   font-family: var(--yj-font-mono);
   font-size: 13px;
@@ -239,7 +242,7 @@ body, html, #root {
 
 /* Editor Box */
 .yj-editor-box {
-  background-color: #FFFFFF;
+  background-color: var(--yj-card-bg);
   border: 1px solid var(--yj-border);
   border-radius: 4px;
   box-shadow: var(--yj-shadow-card);
@@ -257,7 +260,7 @@ body, html, #root {
 
 .yj-line-gutter {
   width: 44px;
-  background-color: #F7F7F7;
+  background-color: var(--yj-bg);
   border-right: 1px solid var(--yj-border);
   padding: 12px 0;
   display: flex;
@@ -276,7 +279,7 @@ body, html, #root {
 }
 
 .yj-line-no.active-line {
-  background-color: #E8E8E8;
+  background-color: var(--yj-border);
   color: var(--yj-gold);
   font-weight: bold;
 }
@@ -290,7 +293,8 @@ body, html, #root {
   font-family: var(--yj-font-mono);
   font-size: 14px;
   line-height: 22px;
-  color: #222222;
+  color: var(--yj-text-main);
+  text-shadow: var(--yj-text-glow);
   resize: none;
   tab-size: 4;
 }
@@ -299,7 +303,7 @@ body, html, #root {
 .yj-editor-side-tools {
   width: 40px;
   border-left: 1px solid var(--yj-border);
-  background-color: #FAFAFA;
+  background-color: var(--yj-bg);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -319,7 +323,7 @@ body, html, #root {
 
 .yj-side-icon-btn:hover {
   color: var(--yj-text-main);
-  background-color: #EFEFEF;
+  background-color: var(--yj-border);
 }
 
 /* Example Banner */
@@ -358,7 +362,7 @@ body, html, #root {
 .yj-input-box-wrapper {
   display: flex;
   align-items: center;
-  background-color: #FFFFFF;
+  background-color: var(--yj-card-bg);
   border: 1px solid var(--yj-border);
   border-radius: 4px;
   padding: 4px 8px;
@@ -372,6 +376,7 @@ body, html, #root {
   font-family: var(--yj-font-mono);
   font-size: 13px;
   color: var(--yj-text-main);
+  text-shadow: var(--yj-text-glow);
   padding: 4px;
 }
 
@@ -403,7 +408,7 @@ body, html, #root {
 }
 
 .yj-output-box {
-  background-color: #FFFFFF;
+  background-color: var(--yj-card-bg);
   border: 1px solid var(--yj-border);
   border-radius: 4px;
   height: 70px;
@@ -496,6 +501,7 @@ body, html, #root {
 
 .yj-ip-row .yj-cell-val {
   color: var(--yj-gold);
+  text-shadow: 0 0 5px rgba(244, 196, 48, 0.4);
   font-weight: 700;
 }
 
@@ -596,7 +602,7 @@ body, html, #root {
 }
 
 .yj-btn-set {
-  background-color: #FFFFFF;
+  background-color: var(--yj-card-bg);
   border: 1px solid var(--yj-border-dark);
   border-radius: 4px;
   font-family: var(--yj-font-mono);
@@ -618,7 +624,7 @@ body, html, #root {
   gap: 4px;
   font-family: var(--yj-font-mono);
   font-size: 12px;
-  background-color: #FAFAFA;
+  background-color: var(--yj-bg);
   padding: 8px;
   border: 1px solid var(--yj-border);
   border-radius: 4px;
@@ -846,4 +852,26 @@ body, html, #root {
   .yj-features-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--yj-bg);
+  border-left: 1px solid var(--yj-border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--yj-border-dark);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--yj-text-dim);
 }
