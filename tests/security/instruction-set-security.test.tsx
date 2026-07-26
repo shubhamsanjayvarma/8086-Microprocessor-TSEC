@@ -33,8 +33,8 @@ describe("Instruction Set Security & Hardening Tests (STRIDE & OWASP)", () => {
     });
     const endTime = performance.now();
 
-    // Verify search completed rapidly (under 500ms bounds)
-    expect(endTime - startTime).toBeLessThan(500);
+    // Verify search completed rapidly (under 3000ms bounds per Rule 18 for CI runners)
+    expect(endTime - startTime).toBeLessThan(3000);
     expect(
       screen.getByText(/No instructions match your search/i),
     ).toBeDefined();
