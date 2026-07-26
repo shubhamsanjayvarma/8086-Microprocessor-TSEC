@@ -12,6 +12,11 @@ import {
   Check,
   Accessibility,
   Cpu,
+  Play,
+  Pause,
+  SkipForward,
+  Code2,
+  Square,
 } from "lucide-react";
 import { compile8086 } from "./utils/compiler";
 import type { CompilerResult, ParsedInstruction } from "./utils/compiler";
@@ -64,16 +69,43 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
   // Copy success notification
   const [copied, setCopied] = useState<boolean>(false);
 
+  const [editorScrollTop, setEditorScrollTop] = useState<number>(0);
+
   const emulatorRef = useRef<Emulator | null>(null);
   const timerRef = useRef<number | null>(null);
   const highlightLayerRef = useRef<HTMLPreElement | null>(null);
+  const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
   const handleEditorScroll = (e: React.UIEvent<HTMLTextAreaElement>) => {
     const target = e.currentTarget;
+    setEditorScrollTop(target.scrollTop);
     if (highlightLayerRef.current) {
       highlightLayerRef.current.scrollTop = target.scrollTop;
       highlightLayerRef.current.scrollLeft = target.scrollLeft;
     }
+  };
+
+  const updateActiveLineFromTextarea = (textarea: HTMLTextAreaElement) => {
+    const textBeforeCursor = textarea.value.substring(
+      0,
+      textarea.selectionStart,
+    );
+    const lineNo = textBeforeCursor.split("\n").length - 1;
+    setCurrentLineIndex(lineNo);
+  };
+
+  const handleLineClick = (lineIndex: number) => {
+    if (!textareaRef.current) return;
+    const lines = code.split("\n");
+    let startOffset = 0;
+    for (let i = 0; i < lineIndex; i++) {
+      startOffset += lines[i].length + 1;
+    }
+    const endOffset = startOffset + lines[lineIndex].length;
+
+    textareaRef.current.focus();
+    textareaRef.current.setSelectionRange(startOffset, endOffset);
+    setCurrentLineIndex(lineIndex);
   };
 
   // Keyboard shortcut listener: Alt+Shift+E to focus editor
@@ -91,6 +123,13 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const [spotlightRect, setSpotlightRect] = useState<{
+    top: number;
+    left: number;
+    width: number;
+    height: number;
+  } | null>(null);
+
   const handleStartTutorial = () => {
     setViewMode("compiler");
     setTutorialStep(1);
@@ -104,6 +143,61 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
       setTutorialStep(tutorialStep + 1);
     }
   };
+
+  // Keyboard shortcut listener for tutorial & editor focus
+  useEffect(() => {
+    if (tutorialStep !== null) {
+      const handleTutorialKeyDown = (e: KeyboardEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.key === "Escape" || e.key === "Esc") {
+          setTutorialStep(null);
+        } else {
+          handleNextTutorialStep();
+        }
+      };
+      window.addEventListener("keydown", handleTutorialKeyDown, true);
+      return () =>
+        window.removeEventListener("keydown", handleTutorialKeyDown, true);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tutorialStep]);
+
+  // Spotlight position updater
+  useEffect(() => {
+    if (tutorialStep === null) {
+      setSpotlightRect(null);
+      return;
+    }
+
+    const updateSpotlight = () => {
+      const selectors: Record<number, string> = {
+        1: ".yj-editor-workspace",
+        2: ".yj-tutorial-step-compile",
+        3: ".yj-tutorial-step-run",
+        4: ".yj-tutorial-step-step",
+        5: ".yj-tutorial-step-stop",
+        6: ".yj-top-tables-row",
+        7: ".yj-flags-card",
+        8: ".yj-memory-card",
+        9: ".yj-editor-side-tools",
+      };
+      const targetEl = document.querySelector(selectors[tutorialStep]);
+      if (targetEl) {
+        const rect = targetEl.getBoundingClientRect();
+        setSpotlightRect({
+          top: rect.top + window.scrollY,
+          left: rect.left + window.scrollX,
+          width: rect.width,
+          height: rect.height,
+        });
+      }
+    };
+
+    updateSpotlight();
+    window.addEventListener("resize", updateSpotlight);
+    return () => window.removeEventListener("resize", updateSpotlight);
+  }, [tutorialStep, viewMode]);
 
   // Auto-compile on mount
   useEffect(() => {
@@ -355,7 +449,7 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
               setViewMode(viewMode === "compiler" ? "landing" : "compiler")
             }
           >
-            TSEC 8086 Compiler
+            TSEC 8086 COMPILER
           </span>
         </div>
 
@@ -556,48 +650,63 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
           <div className="yj-compiler-grid">
             {/* LEFT COLUMN: CODE EDITOR & INPUT / OUTPUT */}
             <div className="yj-col-left">
-              {/* Header row: Code Editor title + Accessibility Mode Toggle */}
+              {/* Header row: Code Editor title + Actions & Accessibility Mode Toggle */}
               <div className="yj-editor-header">
-                <h2 className="yj-section-title">Code Editor</h2>
-                <div className="yj-accessibility-toggle">
-                  <Accessibility size={16} />
-                  <span className="yj-toggle-label">Accessibility Mode</span>
-                  <button
-                    className={`yj-switch ${accessibilityMode ? "on" : "off"}`}
-                    onClick={() => setAccessibilityMode(!accessibilityMode)}
-                  >
-                    <span className="yj-switch-knob"></span>
-                  </button>
+                <div className="yj-editor-header-left">
+                  <h2 className="yj-section-title">Code Editor</h2>
                 </div>
-              </div>
 
-              {/* Action Buttons Row */}
-              <div className="yj-action-row">
-                <button
-                  className="yj-btn-compile-primary"
-                  onClick={handleCompile}
-                >
-                  COMPILE
-                </button>
-                <button
-                  className={`yj-btn-action ${isRunning ? "active" : ""}`}
-                  onClick={() => setIsRunning(!isRunning)}
-                  disabled={compilerResult?.errors.length ? true : false}
-                >
-                  {isRunning ? "PAUSE" : "RUN"}
-                </button>
-                <button
-                  className="yj-btn-action"
-                  onClick={handleStep}
-                  disabled={
-                    isRunning || (compilerResult?.errors.length ? true : false)
-                  }
-                >
-                  NEXT
-                </button>
-                <button className="yj-btn-action" onClick={handleReset}>
-                  STOP
-                </button>
+                <div className="yj-editor-header-right">
+                  {/* Action Buttons Row */}
+                  <div className="yj-action-row">
+                    <button
+                      className="yj-btn-compile-primary yj-tutorial-step-compile"
+                      onClick={handleCompile}
+                      title="Compile Code"
+                    >
+                      <Code2 size={18} />
+                    </button>
+                    <button
+                      className={`yj-btn-action yj-tutorial-step-run ${isRunning ? "active" : ""}`}
+                      onClick={() => setIsRunning(!isRunning)}
+                      disabled={compilerResult?.errors.length ? true : false}
+                      title={isRunning ? "Pause Execution" : "Run Code"}
+                    >
+                      {isRunning ? <Pause size={18} /> : <Play size={18} />}
+                    </button>
+                    <button
+                      className="yj-btn-action yj-tutorial-step-step"
+                      onClick={handleStep}
+                      disabled={
+                        isRunning ||
+                        (compilerResult?.errors.length ? true : false)
+                      }
+                      title="Next Instruction (Step)"
+                    >
+                      <SkipForward size={18} />
+                    </button>
+                    <button
+                      className="yj-btn-action yj-tutorial-step-stop"
+                      onClick={handleReset}
+                      title="Stop Execution / Reset"
+                    >
+                      <Square size={18} />
+                    </button>
+                  </div>
+
+                  <div className="yj-header-divider" />
+
+                  <div className="yj-accessibility-toggle">
+                    <Accessibility size={16} />
+                    <span className="yj-toggle-label">Accessibility</span>
+                    <button
+                      className={`yj-switch ${accessibilityMode ? "on" : "off"}`}
+                      onClick={() => setAccessibilityMode(!accessibilityMode)}
+                    >
+                      <span className="yj-switch-knob"></span>
+                    </button>
+                  </div>
+                </div>
               </div>
 
               {/* Code Editor Box with sidebar action tools */}
@@ -609,6 +718,8 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
                       <div
                         key={idx}
                         className={`yj-line-no ${currentLineIndex === idx ? "active-line" : ""}`}
+                        onClick={() => handleLineClick(idx)}
+                        title={`Click to select line ${idx + 1}`}
                       >
                         {idx + 1}
                       </div>
@@ -617,6 +728,14 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
 
                   {/* Main Syntax Highlighted Workspace */}
                   <div className="yj-editor-workspace">
+                    {currentLineIndex >= 0 && (
+                      <div
+                        className="yj-active-line-highlight"
+                        style={{
+                          top: `${currentLineIndex * 22 + 12 - editorScrollTop}px`,
+                        }}
+                      />
+                    )}
                     <pre
                       ref={highlightLayerRef}
                       className="yj-code-highlight-layer"
@@ -625,9 +744,22 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
                       }}
                     />
                     <textarea
+                      ref={textareaRef}
                       className="yj-code-textarea yj-code-textarea-overlay"
                       value={code}
-                      onChange={(e) => setCode(e.target.value)}
+                      onChange={(e) => {
+                        setCode(e.target.value);
+                        updateActiveLineFromTextarea(e.target);
+                      }}
+                      onKeyUp={(e) =>
+                        updateActiveLineFromTextarea(e.currentTarget)
+                      }
+                      onClick={(e) =>
+                        updateActiveLineFromTextarea(e.currentTarget)
+                      }
+                      onSelect={(e) =>
+                        updateActiveLineFromTextarea(e.currentTarget)
+                      }
                       onScroll={handleEditorScroll}
                       placeholder="; Write 8086 Assembly code here..."
                       spellCheck={false}
@@ -665,64 +797,6 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
                 </div>
               </div>
 
-              {/* GitHub example link banner */}
-              <div className="yj-example-banner">
-                <span className="text-dim">Example: </span>
-                <select
-                  value={selectedExampleIndex}
-                  onChange={(e) => {
-                    const idx = Number(e.target.value);
-                    setSelectedExampleIndex(idx);
-                    setCode(examples[idx].code);
-                    setIsRunning(false);
-                  }}
-                  className="yj-example-select"
-                >
-                  {examples.map((ex, idx) => (
-                    <option key={idx} value={idx}>
-                      {ex.name}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              {/* Input Section */}
-              <div className="yj-input-section">
-                <span className="yj-input-label">Input</span>
-                <div className="yj-input-box-wrapper">
-                  <input
-                    className="yj-input-field"
-                    value={runtimeInput}
-                    onChange={(e) => setRuntimeInput(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && handleInputSubmit()}
-                    placeholder="Enter input string or values..."
-                  />
-                  <button
-                    className="yj-input-submit-btn"
-                    onClick={handleInputSubmit}
-                    title="Submit Input"
-                  >
-                    ✓
-                  </button>
-                </div>
-              </div>
-
-              {/* Output Section */}
-              <div className="yj-output-section">
-                <span className="yj-output-label">Output</span>
-                <div className="yj-output-box">
-                  {cpuState.consoleOutput ? (
-                    <pre className="yj-output-text">
-                      {cpuState.consoleOutput}
-                    </pre>
-                  ) : (
-                    <span className="text-dim italic">
-                      Runtime output will appear here...
-                    </span>
-                  )}
-                </div>
-              </div>
-
               {/* Assembler Listing section if errors exist */}
               {compilerResult && compilerResult.errors.length > 0 && (
                 <div className="yj-error-box">
@@ -735,9 +809,160 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
               )}
             </div>
 
-            {/* RIGHT COLUMN: REGISTERS, SEGMENTS, POINTERS, FLAGS, MEMORY */}
+            {/* RIGHT COLUMN: EXAMPLE, INPUT, OUTPUT, FLAGS, MEMORY, REGISTERS */}
             <div className="yj-col-right">
-              {/* TOP ROW OF 3 TABLES: REG, SEGMENTS, POINTERS */}
+              {/* 1. EXECUTION & CONSOLE CARD */}
+              <div className="yj-io-card">
+                <div className="yj-card-table-header">
+                  <span>Execution & Console</span>
+                  <div className="yj-example-inline">
+                    <span className="text-dim">Example: </span>
+                    <select
+                      value={selectedExampleIndex}
+                      onChange={(e) => {
+                        const idx = Number(e.target.value);
+                        setSelectedExampleIndex(idx);
+                        setCode(examples[idx].code);
+                        setIsRunning(false);
+                      }}
+                      className="yj-example-select"
+                    >
+                      {examples.map((ex, idx) => (
+                        <option key={idx} value={idx}>
+                          {ex.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="yj-io-card-body">
+                  {/* Input Section */}
+                  <div className="yj-input-section">
+                    <span className="yj-input-label">Input</span>
+                    <div className="yj-input-box-wrapper">
+                      <input
+                        className="yj-input-field"
+                        value={runtimeInput}
+                        onChange={(e) => setRuntimeInput(e.target.value)}
+                        onKeyDown={(e) =>
+                          e.key === "Enter" && handleInputSubmit()
+                        }
+                        placeholder="Enter input string or values..."
+                      />
+                      <button
+                        className="yj-input-submit-btn"
+                        onClick={handleInputSubmit}
+                        title="Submit Input"
+                      >
+                        ✓
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Output Section */}
+                  <div className="yj-output-section">
+                    <span className="yj-output-label">Output</span>
+                    <div className="yj-output-box">
+                      {cpuState.consoleOutput ? (
+                        <pre className="yj-output-text">
+                          {cpuState.consoleOutput}
+                        </pre>
+                      ) : (
+                        <span className="text-dim italic">
+                          Runtime output will appear here...
+                        </span>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 2. FLAGS CARD ROW */}
+              <div className="yj-flags-card">
+                <div className="yj-flags-header">
+                  <span>Flags</span>
+                </div>
+                <div className="yj-flags-table">
+                  <div className="yj-flags-head-row">
+                    <span>OF</span>
+                    <span>DF</span>
+                    <span>IF</span>
+                    <span>TF</span>
+                    <span>SF</span>
+                    <span>ZF</span>
+                    <span>AF</span>
+                    <span>PF</span>
+                    <span>CF</span>
+                  </div>
+                  <div className="yj-flags-val-row">
+                    <span className={cpuState.flags.OF ? "flag-on" : ""}>
+                      {cpuState.flags.OF ? 1 : 0}
+                    </span>
+                    <span className={cpuState.flags.DF ? "flag-on" : ""}>
+                      {cpuState.flags.DF ? 1 : 0}
+                    </span>
+                    <span className={cpuState.flags.IF ? "flag-on" : ""}>
+                      {cpuState.flags.IF ? 1 : 0}
+                    </span>
+                    <span className="flag-off">0</span>
+                    <span className={cpuState.flags.SF ? "flag-on" : ""}>
+                      {cpuState.flags.SF ? 1 : 0}
+                    </span>
+                    <span className={cpuState.flags.ZF ? "flag-on" : ""}>
+                      {cpuState.flags.ZF ? 1 : 0}
+                    </span>
+                    <span className={cpuState.flags.AF ? "flag-on" : ""}>
+                      {cpuState.flags.AF ? 1 : 0}
+                    </span>
+                    <span className={cpuState.flags.PF ? "flag-on" : ""}>
+                      {cpuState.flags.PF ? 1 : 0}
+                    </span>
+                    <span className={cpuState.flags.CF ? "flag-on" : ""}>
+                      {cpuState.flags.CF ? 1 : 0}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* 3. MEMORY CARD */}
+              <div className="yj-memory-card">
+                <div className="yj-card-table-header">
+                  <span>Memory Matrix</span>
+                  <div className="yj-start-addr-wrapper">
+                    <span className="yj-addr-lbl">Start Addr</span>
+                    <input
+                      className="yj-start-addr-input"
+                      value={memStartAddressHex}
+                      onChange={(e) =>
+                        setMemStartAddressHex(
+                          e.target.value
+                            .replace(/[^0-9a-fA-F]/g, "")
+                            .slice(0, 5),
+                        )
+                      }
+                      maxLength={5}
+                    />
+                    <button
+                      className="yj-btn-set"
+                      onClick={() =>
+                        setMemStartAddressHex(
+                          memStartAddressHex.padStart(5, "0"),
+                        )
+                      }
+                    >
+                      SET
+                    </button>
+                  </div>
+                </div>
+                <div className="yj-memory-card-body">
+                  <div className="yj-mem-matrix">
+                    {render16ColMemoryCells()}
+                  </div>
+                </div>
+              </div>
+
+              {/* BOTTOM ROW OF 3 TABLES: REG, SEGMENTS, POINTERS */}
               <div className="yj-top-tables-row">
                 {/* 1. REG TABLE (Reg / H / L) */}
                 <div className="yj-card-table">
@@ -858,94 +1083,7 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
                   </div>
                 </div>
               </div>
-
-              {/* FLAGS CARD ROW */}
-              <div className="yj-flags-card">
-                <div className="yj-flags-header">
-                  <span>Flags:</span>
-                </div>
-                <div className="yj-flags-table">
-                  <div className="yj-flags-head-row">
-                    <span>OF</span>
-                    <span>DF</span>
-                    <span>IF</span>
-                    <span>TF</span>
-                    <span>SF</span>
-                    <span>ZF</span>
-                    <span>AF</span>
-                    <span>PF</span>
-                    <span>CF</span>
-                  </div>
-                  <div className="yj-flags-val-row">
-                    <span className={cpuState.flags.OF ? "flag-on" : ""}>
-                      {cpuState.flags.OF ? 1 : 0}
-                    </span>
-                    <span className={cpuState.flags.DF ? "flag-on" : ""}>
-                      {cpuState.flags.DF ? 1 : 0}
-                    </span>
-                    <span className={cpuState.flags.IF ? "flag-on" : ""}>
-                      {cpuState.flags.IF ? 1 : 0}
-                    </span>
-                    <span className="flag-off">0</span>
-                    <span className={cpuState.flags.SF ? "flag-on" : ""}>
-                      {cpuState.flags.SF ? 1 : 0}
-                    </span>
-                    <span className={cpuState.flags.ZF ? "flag-on" : ""}>
-                      {cpuState.flags.ZF ? 1 : 0}
-                    </span>
-                    <span className={cpuState.flags.AF ? "flag-on" : ""}>
-                      {cpuState.flags.AF ? 1 : 0}
-                    </span>
-                    <span className={cpuState.flags.PF ? "flag-on" : ""}>
-                      {cpuState.flags.PF ? 1 : 0}
-                    </span>
-                    <span className={cpuState.flags.CF ? "flag-on" : ""}>
-                      {cpuState.flags.CF ? 1 : 0}
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* MEMORY CARD */}
-              <div className="yj-memory-card">
-                <div className="yj-memory-header-line">
-                  <h2>Memory</h2>
-                  <div className="yj-start-addr-wrapper">
-                    <span className="yj-addr-lbl">Start Address</span>
-                    <input
-                      className="yj-start-addr-input"
-                      value={memStartAddressHex}
-                      onChange={(e) =>
-                        setMemStartAddressHex(
-                          e.target.value
-                            .replace(/[^0-9a-fA-F]/g, "")
-                            .slice(0, 5),
-                        )
-                      }
-                      maxLength={5}
-                    />
-                    <button
-                      className="yj-btn-set"
-                      onClick={() =>
-                        setMemStartAddressHex(
-                          memStartAddressHex.padStart(5, "0"),
-                        )
-                      }
-                    >
-                      SET
-                    </button>
-                  </div>
-                </div>
-
-                {/* 16-Column Hex Memory Matrix */}
-                <div className="yj-mem-matrix">{render16ColMemoryCells()}</div>
-              </div>
             </div>
-          </div>
-
-          {/* Floating chatbot widget button */}
-          <div className="yj-floating-chat-widget" title="Ask Questions / Chat">
-            <div className="yj-chat-icon-hexagon">💬</div>
           </div>
 
           {/* FOOTER */}
@@ -964,42 +1102,107 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
       {/* INTERACTIVE GUIDED TUTORIAL OVERLAY */}
       {tutorialStep !== null && (
         <div className="yj-tutorial-overlay" onClick={handleNextTutorialStep}>
+          {spotlightRect && (
+            <div
+              className="yj-tutorial-spotlight"
+              style={{
+                top: spotlightRect.top - 6,
+                left: spotlightRect.left - 6,
+                width: spotlightRect.width + 12,
+                height: spotlightRect.height + 12,
+              }}
+            />
+          )}
           <div
             className={`yj-tutorial-popover step-${tutorialStep}`}
-            onClick={(e) => {
-              e.stopPropagation();
-              handleNextTutorialStep();
-            }}
+            onClick={handleNextTutorialStep}
           >
             <div className="yj-tutorial-header">
-              <span className="yj-tutorial-title">Step {tutorialStep}</span>
+              <span className="yj-tutorial-title">
+                Step {tutorialStep} of 9
+              </span>
+              <div className="yj-tutorial-header-actions">
+                <span className="yj-tutorial-step-hint">Press Any Key →</span>
+                <button
+                  className="yj-tutorial-close-btn"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setTutorialStep(null);
+                  }}
+                  title="Close Tutorial (Esc)"
+                >
+                  ✕
+                </button>
+              </div>
             </div>
             <div className="yj-tutorial-divider" />
             <div className="yj-tutorial-body">
               {tutorialStep === 1 && (
                 <>
-                  <p>Write your Code in the editor.</p>
+                  <p>
+                    <strong>Code Editor:</strong> Write & edit 8086 Assembly
+                    code here.
+                  </p>
                   <div className="yj-hotkey-badge">
-                    <span className="yj-kbd">Alt+Shift+e</span> to focus on
-                    editor.
+                    <span className="yj-kbd">Alt+Shift+E</span> to focus editor.
                   </div>
                 </>
               )}
-              {tutorialStep === 2 && <p>Next, Compile the code.</p>}
-              {tutorialStep === 3 && <p>Run the compiled code.</p>}
-              {tutorialStep === 4 && (
-                <p>Execute the next line of the instruction.</p>
-              )}
-              {tutorialStep === 5 && <p>Halt the execution.</p>}
-              {tutorialStep === 6 && <p>Check Registers values here.</p>}
-              {tutorialStep === 7 && <p>Check flags here</p>}
-              {tutorialStep === 8 && (
+              {tutorialStep === 2 && (
                 <p>
-                  Check RAM Memory here. You can also adjust the memory
-                  locations with the text field
+                  <strong>Compile Button:</strong> Assembles code and checks for
+                  syntax errors.
                 </p>
               )}
-              {tutorialStep === 9 && <p>Download Code from here</p>}
+              {tutorialStep === 3 && (
+                <p>
+                  <strong>Run / Pause Button:</strong> Executes assembly code
+                  continuously.
+                </p>
+              )}
+              {tutorialStep === 4 && (
+                <p>
+                  <strong>Step Button:</strong> Executes code line-by-line for
+                  step debugging.
+                </p>
+              )}
+              {tutorialStep === 5 && (
+                <p>
+                  <strong>Stop Button:</strong> Halts execution & resets CPU
+                  register state.
+                </p>
+              )}
+              {tutorialStep === 6 && (
+                <p>
+                  <strong>Registers & Pointers:</strong> Displays real-time AX,
+                  BX, CX, DX, IP, SP, BP, SI, DI values.
+                </p>
+              )}
+              {tutorialStep === 7 && (
+                <p>
+                  <strong>CPU Flags:</strong> Tracks Overflow, Direction,
+                  Interrupt, Sign, Zero, Carry flags.
+                </p>
+              )}
+              {tutorialStep === 8 && (
+                <p>
+                  <strong>RAM Memory Matrix:</strong> Inspect and edit 16-column
+                  memory hex bytes.
+                </p>
+              )}
+              {tutorialStep === 9 && (
+                <p>
+                  <strong>Download & Tools:</strong> Download assembly code or
+                  copy workspace snippet.
+                </p>
+              )}
+            </div>
+            <div className="yj-tutorial-footer">
+              <span>
+                Press <strong>ANY key</strong> or{" "}
+                <strong>click anywhere</strong> to continue • Press{" "}
+                <strong>ESC</strong> to exit
+              </span>
             </div>
           </div>
         </div>

@@ -4,7 +4,7 @@ import {
   fireEvent,
   screen,
   act,
-  getByText,
+  getByTitle,
 } from "@testing-library/react";
 import App from "../../src/App";
 import * as React from "react";
@@ -21,12 +21,18 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
       fireEvent.change(textarea, { target: { value: "MOV AX, 1" } });
     });
 
-    const compileBtn = getByText(container, "COMPILE") as HTMLButtonElement;
+    const compileBtn = getByTitle(
+      container,
+      "Compile Code",
+    ) as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(compileBtn);
     });
 
-    const stepBtn = getByText(container, "NEXT") as HTMLButtonElement;
+    const stepBtn = getByTitle(
+      container,
+      "Next Instruction (Step)",
+    ) as HTMLButtonElement;
 
     const start = performance.now();
 
@@ -61,13 +67,19 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
       });
     });
 
-    const compileBtn = getByText(container, "COMPILE") as HTMLButtonElement;
+    const compileBtn = getByTitle(
+      container,
+      "Compile Code",
+    ) as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(compileBtn);
     });
 
     // Run multiple steps. If the memory deep clone creates 1MB nested arrays it would fail.
-    const stepBtn = getByText(container, "NEXT") as HTMLButtonElement;
+    const stepBtn = getByTitle(
+      container,
+      "Next Instruction (Step)",
+    ) as HTMLButtonElement;
     await act(async () => {
       for (let i = 0; i < 50; i++) {
         fireEvent.click(stepBtn);
@@ -92,7 +104,10 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
       });
     });
 
-    const compileBtn = getByText(container, "COMPILE") as HTMLButtonElement;
+    const compileBtn = getByTitle(
+      container,
+      "Compile Code",
+    ) as HTMLButtonElement;
     await act(async () => {
       fireEvent.click(compileBtn);
     });

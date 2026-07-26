@@ -1,5 +1,4 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+export PATH="$USERPROFILE/node-v22.14.0-win-x64:$HOME/node-v22.14.0-win-x64:$PATH"
 
 echo "=== Running Pre-Commit Hooks (Strict Mode) ==="
 

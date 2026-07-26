@@ -20,7 +20,7 @@ describe("Interactive Tutorial Flow & Hotkey Shortcut", () => {
     expect(step1Title?.textContent).toContain("Step 1");
 
     const step1Text = container.querySelector(".yj-tutorial-body");
-    expect(step1Text?.textContent).toContain("Write your Code in the editor.");
+    expect(step1Text?.textContent).toContain("Code Editor");
   });
 
   it("advances through tutorial steps 1 to 9 on click", async () => {

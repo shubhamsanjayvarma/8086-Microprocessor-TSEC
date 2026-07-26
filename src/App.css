@@ -2,65 +2,71 @@
    8086 Compiler & Emulator — Exact yjdoc2 Replication
    ============================================ */
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Roboto:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
 
 :root {
-  --yj-bg: #f5f7fa;
-  --yj-card-bg: #ffffff;
-  --yj-navbar-bg: #ffffff;
-  --yj-border: #e0e0e0;
-  --yj-border-dark: #d0d0d0;
-  --yj-text-main: #333333;
-  --yj-text-dim: #777777;
+  --yj-bg: #f4efe4;
+  --yj-card-bg: #faf6ed;
+  --yj-navbar-bg: #faf6ed;
+  --yj-border: #e2d9c8;
+  --yj-border-dark: #d4c7b2;
+  --yj-text-main: #0f172a;
+  --yj-text-dim: #475569;
 
-  --yj-primary: #19569b;
-  --yj-primary-hover: #124378;
-  --yj-primary-light: #e8f0fe;
-  --yj-secondary: #c01e2e;
+  --yj-primary: #2563eb;
+  --yj-primary-hover: #1d4ed8;
+  --yj-primary-light: #eff6ff;
+  --yj-secondary: #dc2626;
 
-  --yj-input-bg: #ffffff;
-  --yj-gutter-bg: #f7f7f7;
-  --yj-sidebar-bg: #fafafa;
-  --yj-error-bg: #fff0f0;
-  --yj-error-border: #ffcdcd;
-  --yj-error-text: #cc0000;
+  --yj-input-bg: #fffcf5;
+  --yj-gutter-bg: #eae3d2;
+  --yj-sidebar-bg: #f4efe4;
+  --yj-error-bg: #fef2f2;
+  --yj-error-border: #fecaca;
+  --yj-error-text: #991b1b;
 
-  --yj-scrollbar-bg: #f5f5f5;
-  --yj-scrollbar-thumb: #cccccc;
-  --yj-scrollbar-thumb-hover: #aaaaaa;
+  --yj-scrollbar-bg: #f1f5f9;
+  --yj-scrollbar-thumb: #cbd5e1;
+  --yj-scrollbar-thumb-hover: #94a3b8;
 
   --yj-text-glow: none;
 
-  --yj-font-mono: "JetBrains Mono", "Courier Prime", "Courier New", monospace;
-  --yj-font-sans: "Roboto", -apple-system, BlinkMacSystemFont, sans-serif;
+  --yj-font-mono: "JetBrains Mono", monospace;
+  --yj-font-sans:
+    "Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
 
-  --yj-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
-  --yj-shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --yj-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --yj-shadow-card:
+    0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.03);
 }
 
 .dark-theme {
-  --yj-bg: #0b132b;
-  --yj-card-bg: #151e32;
-  --yj-navbar-bg: #111a2f;
-  --yj-border: #3e3e42;
-  --yj-border-dark: #454545;
-  --yj-text-main: #cccccc;
-  --yj-text-dim: #888888;
-  --yj-primary-light: #16243b;
-  --yj-secondary: #a31725;
+  --yj-bg: #121214;
+  --yj-card-bg: #1e1e24;
+  --yj-navbar-bg: #18181c;
+  --yj-border: #2e2e38;
+  --yj-border-dark: #3e3e4a;
+  --yj-text-main: #e4e4e7;
+  --yj-text-dim: #a1a1aa;
+  --yj-primary: #16a34a;
+  --yj-primary-hover: #15803d;
+  --yj-primary-light: #162e21;
+  --yj-secondary: #dc2626;
 
-  --yj-input-bg: #1e1e1e;
-  --yj-gutter-bg: #252526;
-  --yj-sidebar-bg: #2d2d2d;
-  --yj-error-bg: #3a1c1c;
-  --yj-error-border: #662222;
-  --yj-error-text: #ff6666;
+  --yj-input-bg: #18181c;
+  --yj-gutter-bg: #141418;
+  --yj-sidebar-bg: #1a1a1e;
+  --yj-error-bg: #2a1215;
+  --yj-error-border: #5c1d24;
+  --yj-error-text: #fca5a5;
 
-  --yj-scrollbar-bg: #1e1e1e;
-  --yj-scrollbar-thumb: #454545;
-  --yj-scrollbar-thumb-hover: #666666;
+  --yj-scrollbar-bg: #121214;
+  --yj-scrollbar-thumb: #2e2e38;
+  --yj-scrollbar-thumb-hover: #3e3e4a;
 
-  --yj-text-glow: 0 0 2px rgba(255, 255, 255, 0.4);
+  --yj-text-glow: none;
+  --yj-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --yj-shadow-card: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 * {
@@ -120,12 +126,13 @@ html,
 }
 
 .yj-logo-text {
-  font-family: var(--yj-font-mono);
-  font-size: 24px;
+  font-family: var(--yj-font-sans);
+  font-size: 20px;
   font-weight: 700;
   color: var(--yj-primary);
   cursor: pointer;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  transition: color 0.15s ease;
 }
 
 .yj-logo-text:hover {
@@ -191,6 +198,18 @@ html,
   justify-content: space-between;
 }
 
+.yj-editor-header-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.yj-header-divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--yj-border);
+}
+
 .yj-section-title {
   font-family: var(--yj-font-mono);
   font-size: 20px;
@@ -246,42 +265,46 @@ html,
 
 .yj-btn-compile-primary {
   background-color: var(--yj-primary);
-  color: #000000;
-  font-family: var(--yj-font-mono);
-  font-size: 13px;
-  font-weight: 700;
+  color: #ffffff;
   border: none;
-  padding: 10px 32px;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
-  transition: all 0.15s;
-  letter-spacing: 0.05em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .yj-btn-compile-primary:hover {
   background-color: var(--yj-primary-hover);
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.18);
+  transform: translateY(-1px);
 }
 
 .yj-btn-action {
   background-color: var(--yj-card-bg);
-  color: var(--yj-text-dim);
-  font-family: var(--yj-font-mono);
-  font-size: 13px;
-  font-weight: 700;
-  border: 1px solid var(--yj-border-dark);
-  padding: 10px 24px;
-  border-radius: 8px;
+  color: var(--yj-text-main);
+  border: 1px solid var(--yj-border);
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.15s;
-  letter-spacing: 0.05em;
+  transition: all 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .yj-btn-action:hover:not(:disabled) {
-  border-color: var(--yj-primary);
-  color: var(--yj-text-main);
-  background-color: var(--yj-primary-light);
+  border-color: var(--yj-border-dark);
+  background-color: var(--yj-gutter-bg);
+  transform: translateY(-1px);
 }
 
 .yj-btn-action:disabled {
@@ -296,7 +319,8 @@ html,
   border-radius: 8px;
   box-shadow: var(--yj-shadow-card);
   display: flex;
-  height: 380px;
+  min-height: 600px;
+  flex: 1;
   overflow: hidden;
   position: relative;
 }
@@ -325,12 +349,23 @@ html,
   line-height: 22px;
   text-align: right;
   padding-right: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition:
+    color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.yj-line-no:hover {
+  color: var(--yj-primary);
+  background-color: var(--yj-primary-light);
 }
 
 .yj-line-no.active-line {
-  background-color: var(--yj-border);
+  background-color: var(--yj-primary-light);
   color: var(--yj-primary);
-  font-weight: bold;
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--yj-primary);
 }
 
 .yj-code-textarea {
@@ -356,6 +391,25 @@ html,
   flex: 1;
   overflow: hidden;
   display: flex;
+}
+
+.yj-active-line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  pointer-events: none;
+  z-index: 0;
+  transition: none;
+}
+
+.light-theme .yj-active-line-highlight {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .yj-code-highlight-layer {
@@ -404,12 +458,14 @@ html,
   font-weight: 600;
 }
 
-/* Light Theme Overrides for VS Code Light+ */
+/* Light Theme Overrides for Parchment Palette */
 .light-theme .hl-mnemonic {
-  color: #0000ff;
+  color: #1d4ed8;
+  font-weight: 700;
 }
 .light-theme .hl-register {
-  color: #001080;
+  color: #0369a1;
+  font-weight: 600;
 }
 .light-theme .hl-number {
   color: #098658;
@@ -474,21 +530,35 @@ html,
   background-color: var(--yj-border);
 }
 
-/* Example Banner */
-.yj-example-banner {
+/* I/O Card Container */
+.yj-io-card {
+  background-color: var(--yj-card-bg);
+  border: 1px solid var(--yj-border);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--yj-shadow-sm);
+}
+
+.yj-io-card-body {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.yj-example-inline {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 13px;
+  gap: 6px;
 }
 
 .yj-example-select {
-  background: var(--yj-card-bg);
+  background: var(--yj-input-bg);
   border: 1px solid var(--yj-border);
-  border-radius: 8px;
-  padding: 4px 8px;
-  font-family: var(--yj-font-mono);
-  font-size: 13px;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-family: var(--yj-font-sans);
+  font-size: 12px;
   color: var(--yj-text-main);
   outline: none;
 }
@@ -607,14 +677,22 @@ html,
 }
 
 .yj-card-table-header {
-  background-color: #000000;
-  color: #ffffff;
-  font-family: var(--yj-font-mono);
-  font-size: 13px;
+  background-color: var(--yj-gutter-bg);
+  color: var(--yj-text-main);
+  font-family: var(--yj-font-sans);
+  font-size: 12px;
   font-weight: 700;
-  padding: 6px 12px;
+  letter-spacing: 0.04em;
+  padding: 8px 12px;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid var(--yj-border);
+}
+
+.dark-theme .yj-card-table-header {
+  background-color: #26262e;
+  color: #f4f4f5;
+  border-bottom: 1px solid var(--yj-border);
 }
 
 .yj-card-table-body {
@@ -663,12 +741,20 @@ html,
 }
 
 .yj-flags-header {
-  background-color: #000000;
-  color: #ffffff;
-  font-family: var(--yj-font-mono);
-  font-size: 13px;
+  background-color: var(--yj-gutter-bg);
+  color: var(--yj-text-main);
+  font-family: var(--yj-font-sans);
+  font-size: 12px;
   font-weight: 700;
-  padding: 6px 12px;
+  letter-spacing: 0.04em;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--yj-border);
+}
+
+.dark-theme .yj-flags-header {
+  background-color: #26262e;
+  color: #f4f4f5;
+  border-bottom: 1px solid var(--yj-border);
 }
 
 .yj-flags-table {
@@ -706,17 +792,12 @@ html,
   background-color: var(--yj-card-bg);
   border: 1px solid var(--yj-border);
   border-radius: 10px;
-  padding: 12px;
+  overflow: hidden;
   box-shadow: var(--yj-shadow-sm);
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
 }
 
-.yj-memory-header-line {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.yj-memory-card-body {
+  padding: 12px;
 }
 
 .yj-memory-header-line h2 {
@@ -729,41 +810,51 @@ html,
 .yj-start-addr-wrapper {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .yj-addr-lbl {
-  font-family: var(--yj-font-mono);
-  font-size: 12px;
+  font-family: var(--yj-font-sans);
+  font-size: 11px;
+  font-weight: 600;
   color: var(--yj-text-dim);
 }
 
 .yj-start-addr-input {
-  width: 60px;
-  border: none;
-  border-bottom: 1px solid var(--yj-border-dark);
-  font-family: var(--yj-font-mono);
-  font-size: 13px;
-  text-align: center;
-  outline: none;
-  background: transparent;
-  color: var(--yj-text-main);
-}
-
-.yj-btn-set {
+  width: 58px;
   background-color: var(--yj-card-bg);
-  border: 1px solid var(--yj-border-dark);
-  border-radius: 8px;
+  border: 1px solid var(--yj-border);
+  border-radius: 4px;
   font-family: var(--yj-font-mono);
   font-size: 12px;
   font-weight: 700;
-  padding: 4px 12px;
+  text-align: center;
+  outline: none;
+  color: var(--yj-text-main);
+  padding: 3px 4px;
+}
+
+.dark-theme .yj-start-addr-input {
+  background-color: #111827;
+  border: 1px solid #3e3e4a;
+  color: #ffffff !important;
+}
+
+.yj-btn-set {
+  background-color: var(--yj-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--yj-font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
   cursor: pointer;
+  transition: background-color 0.15s ease;
 }
 
 .yj-btn-set:hover {
-  background-color: var(--yj-primary-light);
-  border-color: var(--yj-primary);
+  background-color: var(--yj-primary-hover);
 }
 
 /* 16-Column Hex Memory Matrix */
@@ -911,37 +1002,37 @@ html,
 
 .yj-btn-primary {
   background-color: var(--yj-primary);
-  color: #000000;
+  color: #ffffff;
   border: none;
-  font-family: var(--yj-font-mono);
-  font-size: 13px;
-  font-weight: 700;
-  padding: 12px 24px;
-  border-radius: 8px;
+  font-family: var(--yj-font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: all 0.15s;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.15s ease;
 }
 
 .yj-btn-primary:hover {
-  background-color: #e5b800;
+  background-color: var(--yj-primary-hover);
 }
 
 .yj-btn-outlined {
-  background: #ffffff;
+  background: var(--yj-card-bg);
   color: var(--yj-primary);
   border: 1px solid var(--yj-primary);
-  font-family: var(--yj-font-mono);
-  font-size: 13px;
-  font-weight: 700;
-  padding: 12px 24px;
-  border-radius: 8px;
+  font-family: var(--yj-font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.15s ease;
 }
 
 .yj-btn-outlined:hover {
-  background-color: #fff9e6;
+  background-color: var(--yj-primary-light);
 }
 
 .yj-features-grid {
@@ -1050,13 +1141,39 @@ html,
 /* ============================================
    INTERACTIVE GUIDED TUTORIAL OVERLAY & POPOVERS
    ============================================ */
+.yj-tutorial-spotlight {
+  position: absolute;
+  border: 2px solid var(--yj-primary);
+  border-radius: 10px;
+  box-shadow:
+    0 0 0 9999px rgba(0, 0, 0, 0.55),
+    0 0 20px var(--yj-primary);
+  z-index: 9998;
+  pointer-events: none;
+  transition: all 0.25s ease-out;
+  animation: spotlightPulse 2s infinite alternate;
+}
+
+@keyframes spotlightPulse {
+  0% {
+    box-shadow:
+      0 0 0 9999px rgba(0, 0, 0, 0.55),
+      0 0 10px var(--yj-primary);
+  }
+  100% {
+    box-shadow:
+      0 0 0 9999px rgba(0, 0, 0, 0.6),
+      0 0 24px var(--yj-primary);
+  }
+}
+
 .yj-tutorial-overlay {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: transparent;
   z-index: 10000;
   cursor: pointer;
   animation: fadeIn 0.2s ease-out;
@@ -1064,86 +1181,126 @@ html,
 
 .yj-tutorial-popover {
   position: absolute;
-  background-color: #ffffff;
-  color: #222222;
-  border-radius: 10px;
+  background-color: var(--yj-card-bg);
+  color: var(--yj-text-main);
+  border: 1px solid var(--yj-border);
+  border-radius: 12px;
   padding: 18px 24px;
   min-width: 320px;
   max-width: 440px;
   box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35);
-  font-family: var(--yj-font-mono);
+  font-family: var(--yj-font-sans);
   z-index: 10001;
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   animation: popIn 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .yj-tutorial-popover.step-1 {
-  top: 60%;
-  left: 20%;
+  top: 45%;
+  left: 18%;
 }
 
 .yj-tutorial-popover.step-2 {
   top: 22%;
-  left: 27%;
+  left: 24%;
 }
 
 .yj-tutorial-popover.step-3 {
   top: 22%;
-  left: 34%;
+  left: 27%;
 }
 
 .yj-tutorial-popover.step-4 {
   top: 22%;
-  left: 40%;
+  left: 30%;
 }
 
 .yj-tutorial-popover.step-5 {
   top: 22%;
-  left: 47%;
+  left: 33%;
 }
 
 .yj-tutorial-popover.step-6 {
   top: 36%;
-  left: 64%;
+  left: 50%;
 }
 
 .yj-tutorial-popover.step-7 {
-  top: 54%;
-  left: 66%;
+  top: 48%;
+  left: 50%;
 }
 
 .yj-tutorial-popover.step-8 {
-  top: 76%;
-  left: 45%;
+  top: 60%;
+  left: 50%;
 }
 
 .yj-tutorial-popover.step-9 {
   top: 30%;
-  left: 47%;
+  left: 20%;
 }
 
 .yj-tutorial-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
+}
+
+.yj-tutorial-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.yj-tutorial-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--yj-text-dim);
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.yj-tutorial-close-btn:hover {
+  color: var(--yj-secondary);
+  background-color: rgba(220, 38, 38, 0.1);
 }
 
 .yj-tutorial-title {
   font-size: 15px;
   font-weight: 700;
-  color: #111111;
+  color: var(--yj-primary);
+}
+
+.yj-tutorial-step-hint {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--yj-text-dim);
 }
 
 .yj-tutorial-divider {
   height: 1px;
-  background-color: #e0e0e0;
+  background-color: var(--yj-border);
   margin: 10px 0 12px 0;
 }
 
 .yj-tutorial-body {
   font-size: 13.5px;
-  color: #333333;
+  color: var(--yj-text-main);
   line-height: 1.5;
+}
+
+.yj-tutorial-footer {
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--yj-border);
+  font-size: 11.5px;
+  color: var(--yj-text-dim);
+  text-align: center;
 }
 
 .yj-hotkey-badge {

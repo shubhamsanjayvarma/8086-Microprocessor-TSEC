@@ -1,5 +1,11 @@
 import { describe, it, expect } from "vitest";
-import { render, fireEvent, act, getByText } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  act,
+  getByText,
+  getByTitle,
+} from "@testing-library/react";
 import App from "../../src/App";
 import * as React from "react";
 
@@ -19,7 +25,10 @@ describe("Milestone 5: Inter-Module Contract Testing", () => {
       });
 
       // Click compile
-      const compileBtn = getByText(container, "COMPILE") as HTMLButtonElement;
+      const compileBtn = getByTitle(
+        container,
+        "Compile Code",
+      ) as HTMLButtonElement;
       await act(async () => {
         fireEvent.click(compileBtn);
       });
@@ -42,13 +51,19 @@ describe("Milestone 5: Inter-Module Contract Testing", () => {
         fireEvent.change(textarea, { target: { value: "MOV AX, 0x1234" } });
       });
 
-      const compileBtn = getByText(container, "COMPILE") as HTMLButtonElement;
+      const compileBtn = getByTitle(
+        container,
+        "Compile Code",
+      ) as HTMLButtonElement;
       await act(async () => {
         fireEvent.click(compileBtn);
       });
 
       // Step once
-      const stepBtn = getByText(container, "NEXT") as HTMLButtonElement;
+      const stepBtn = getByTitle(
+        container,
+        "Next Instruction (Step)",
+      ) as HTMLButtonElement;
       await act(async () => {
         fireEvent.click(stepBtn);
       });
