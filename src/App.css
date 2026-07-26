@@ -668,45 +668,61 @@ html,
 .yj-mem-matrix {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
   font-family: var(--yj-font-mono);
-  font-size: 12px;
+  font-size: 13px;
   background-color: var(--yj-sidebar-bg);
-  padding: 8px;
+  padding: 12px;
   border: 1px solid var(--yj-border);
-  border-radius: 4px;
+  border-radius: 6px;
+  overflow-x: auto;
 }
 
 .yj-mem-matrix-row {
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
+  grid-template-columns: repeat(16, minmax(26px, 1fr));
+  gap: 6px 8px;
   text-align: center;
+  align-items: center;
 }
 
 .mem-matrix-cell {
-  padding: 2px 0;
+  padding: 4px 6px;
   color: var(--yj-text-main);
   cursor: cell;
-  border-radius: 2px;
+  border-radius: 4px;
+  background: var(--yj-card-bg, #ffffff);
+  border: 1px solid var(--yj-border);
+  font-family: var(--yj-font-mono);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.15s ease;
+  user-select: none;
 }
 
 .mem-matrix-cell:hover {
   background-color: var(--yj-gold);
+  border-color: var(--yj-gold-hover);
   color: #000000;
 }
 
 .mem-matrix-cell.editing {
   background-color: var(--yj-gold-light);
+  border-color: var(--yj-gold);
 }
 
 .mem-matrix-input {
   width: 100%;
   border: 1px solid var(--yj-gold);
+  border-radius: 2px;
   font-family: var(--yj-font-mono);
-  font-size: 11px;
+  font-size: 12px;
+  font-weight: 700;
   text-align: center;
   outline: none;
-  text-shadow: var(--yj-text-glow);
+  background: var(--yj-input-bg);
+  color: var(--yj-text-main);
 }
 
 /* Floating Chatbot Widget */
