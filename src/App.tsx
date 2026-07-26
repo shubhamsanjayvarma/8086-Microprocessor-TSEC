@@ -19,6 +19,7 @@ import { Emulator, initialCPUState, cloneCPUState } from "./utils/emulator";
 import type { CPUState } from "./utils/emulator";
 import { examples } from "./utils/examples";
 import { Logger } from "./utils/logger";
+import { highlight8086Assembly } from "./utils/syntaxHighlighter";
 import "./App.css";
 
 export type ViewMode = "compiler" | "landing";
@@ -61,6 +62,15 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
 
   const emulatorRef = useRef<Emulator | null>(null);
   const timerRef = useRef<number | null>(null);
+  const highlightLayerRef = useRef<HTMLPreElement | null>(null);
+
+  const handleEditorScroll = (e: React.UIEvent<HTMLTextAreaElement>) => {
+    const target = e.currentTarget;
+    if (highlightLayerRef.current) {
+      highlightLayerRef.current.scrollTop = target.scrollTop;
+      highlightLayerRef.current.scrollLeft = target.scrollLeft;
+    }
+  };
 
   // Keyboard shortcut listener: Alt+Shift+E to focus editor
   useEffect(() => {
@@ -614,14 +624,24 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
                     ))}
                   </div>
 
-                  {/* Main textarea */}
-                  <textarea
-                    className="yj-code-textarea"
-                    value={code}
-                    onChange={(e) => setCode(e.target.value)}
-                    placeholder="; Write 8086 Assembly code here..."
-                    spellCheck={false}
-                  />
+                  {/* Main Syntax Highlighted Workspace */}
+                  <div className="yj-editor-workspace">
+                    <pre
+                      ref={highlightLayerRef}
+                      className="yj-code-highlight-layer"
+                      dangerouslySetInnerHTML={{
+                        __html: highlight8086Assembly(code) || " ",
+                      }}
+                    />
+                    <textarea
+                      className="yj-code-textarea yj-code-textarea-overlay"
+                      value={code}
+                      onChange={(e) => setCode(e.target.value)}
+                      onScroll={handleEditorScroll}
+                      placeholder="; Write 8086 Assembly code here..."
+                      spellCheck={false}
+                    />
+                  </div>
                 </div>
 
                 {/* Right-side icon bar inside editor box */}

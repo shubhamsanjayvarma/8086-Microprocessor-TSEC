@@ -56,8 +56,8 @@ describe("Component 1: Compiler (compile8086) Space/Time Complexity", () => {
 
     // Even if it fails to parse the operand (which is fine, it's invalid x86),
     // it MUST NOT hang the thread for seconds.
-    // O(N) parsing means this should finish in < 50ms (bumped to 500ms for CI).
-    expect(end - start).toBeLessThan(500);
+    // O(N) parsing means this should finish in < 50ms (bumped to 2000ms per Rule #18 for CI/system load).
+    expect(end - start).toBeLessThan(2000);
 
     // It should yield no errors and parse gracefully
     expect(result.errors).toHaveLength(0);

@@ -300,6 +300,105 @@ html,
   tab-size: 4;
 }
 
+/* ============================================
+   VS CODE SYNTAX HIGHLIGHTING & EDITOR OVERLAY
+   ============================================ */
+.yj-editor-workspace {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+}
+
+.yj-code-highlight-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 12px 16px;
+  font-family: var(--yj-font-mono);
+  font-size: 14px;
+  line-height: 22px;
+  white-space: pre;
+  pointer-events: none;
+  overflow: hidden;
+  color: var(--yj-text-main);
+  background: transparent;
+}
+
+/* VS Code Dark+ / Light+ Theme Tokens */
+.hl-mnemonic {
+  color: #569cd6;
+  font-weight: 600;
+}
+.hl-register {
+  color: #9cdcfe;
+  font-weight: 500;
+}
+.hl-number {
+  color: #b5cea8;
+}
+.hl-comment {
+  color: #6a9955;
+  font-style: italic;
+}
+.hl-string {
+  color: #ce9178;
+}
+.hl-directive {
+  color: #c586c0;
+  font-weight: 600;
+}
+.hl-label {
+  color: #dcdcaa;
+  font-weight: 600;
+}
+
+/* Light Theme Overrides for VS Code Light+ */
+.light-theme .hl-mnemonic {
+  color: #0000ff;
+}
+.light-theme .hl-register {
+  color: #001080;
+}
+.light-theme .hl-number {
+  color: #098658;
+}
+.light-theme .hl-comment {
+  color: #008000;
+}
+.light-theme .hl-string {
+  color: #a31515;
+}
+.light-theme .hl-directive {
+  color: #af00db;
+}
+.light-theme .hl-label {
+  color: #795e26;
+}
+
+.yj-code-textarea-overlay {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  color: transparent;
+  caret-color: var(--yj-primary);
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  font-family: var(--yj-font-mono);
+  font-size: 14px;
+  line-height: 22px;
+  resize: none;
+  tab-size: 4;
+  white-space: pre;
+  overflow-y: auto;
+  position: relative;
+  z-index: 2;
+}
+
 /* Sidebar action tools inside Editor */
 .yj-editor-side-tools {
   width: 40px;
