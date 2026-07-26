@@ -670,36 +670,43 @@ html,
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
   font-family: var(--yj-font-mono);
   font-size: 13px;
   background-color: var(--yj-sidebar-bg);
-  padding: 16px;
+  padding: 14px;
   border: 1px solid var(--yj-border);
   border-radius: 8px;
-  overflow-x: auto;
+  box-sizing: border-box;
 }
 
 .yj-mem-matrix-row {
   display: grid;
-  grid-template-columns: repeat(16, minmax(32px, 1fr));
-  gap: 8px 12px;
+  grid-template-columns: repeat(16, 1fr);
+  width: 100%;
+  gap: 8px 6px;
   text-align: center;
   align-items: center;
 }
 
 .mem-matrix-cell {
-  padding: 6px 8px;
+  width: 100%;
+  padding: 6px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: var(--yj-text-main);
   cursor: cell;
   border-radius: 4px;
   background: var(--yj-card-bg, #ffffff);
   border: 1px solid var(--yj-border);
   font-family: var(--yj-font-mono);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: all 0.15s ease;
   user-select: none;
+  box-sizing: border-box;
 }
 
 .mem-matrix-cell:hover {
