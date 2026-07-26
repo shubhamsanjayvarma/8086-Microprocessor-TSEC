@@ -18,6 +18,9 @@
   --yj-primary-light: #eff6ff;
   --yj-secondary: #dc2626;
 
+  --yj-header-bg: #eae3d2;
+  --yj-header-text: #0f172a;
+
   --yj-input-bg: #fffcf5;
   --yj-gutter-bg: #eae3d2;
   --yj-sidebar-bg: #f4efe4;
@@ -52,6 +55,9 @@
   --yj-primary-hover: #15803d;
   --yj-primary-light: #162e21;
   --yj-secondary: #dc2626;
+
+  --yj-header-bg: #18181c;
+  --yj-header-text: #e4e4e7;
 
   --yj-input-bg: #18181c;
   --yj-gutter-bg: #141418;
@@ -423,11 +429,16 @@ html,
   font-family: var(--yj-font-mono);
   font-size: 14px;
   line-height: 22px;
+  letter-spacing: normal;
+  word-break: normal;
+  tab-size: 4;
+  -moz-tab-size: 4;
   white-space: pre;
   pointer-events: none;
   overflow: hidden;
   color: var(--yj-text-main);
   background: transparent;
+  box-sizing: border-box;
 }
 
 /* VS Code Dark+ / Light+ Theme Tokens */
@@ -487,7 +498,8 @@ html,
   width: 100%;
   height: 100%;
   background: transparent;
-  color: transparent;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
   caret-color: var(--yj-primary);
   border: none;
   outline: none;
@@ -495,12 +507,23 @@ html,
   font-family: var(--yj-font-mono);
   font-size: 14px;
   line-height: 22px;
+  letter-spacing: normal;
+  word-break: normal;
   resize: none;
   tab-size: 4;
+  -moz-tab-size: 4;
   white-space: pre;
-  overflow-y: auto;
+  overflow: auto;
   position: relative;
   z-index: 2;
+  text-shadow: none !important;
+  box-sizing: border-box;
+}
+
+.yj-code-textarea.yj-code-textarea-overlay {
+  text-shadow: none !important;
+  color: transparent !important;
+  -webkit-text-fill-color: transparent !important;
 }
 
 /* Sidebar action tools inside Editor */
@@ -677,8 +700,8 @@ html,
 }
 
 .yj-card-table-header {
-  background-color: var(--yj-gutter-bg);
-  color: var(--yj-text-main);
+  background-color: var(--yj-header-bg);
+  color: var(--yj-header-text);
   font-family: var(--yj-font-sans);
   font-size: 12px;
   font-weight: 700;
@@ -686,12 +709,6 @@ html,
   padding: 8px 12px;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid var(--yj-border);
-}
-
-.dark-theme .yj-card-table-header {
-  background-color: #26262e;
-  color: #f4f4f5;
   border-bottom: 1px solid var(--yj-border);
 }
 
@@ -741,19 +758,13 @@ html,
 }
 
 .yj-flags-header {
-  background-color: var(--yj-gutter-bg);
-  color: var(--yj-text-main);
+  background-color: var(--yj-header-bg);
+  color: var(--yj-header-text);
   font-family: var(--yj-font-sans);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
   padding: 8px 12px;
-  border-bottom: 1px solid var(--yj-border);
-}
-
-.dark-theme .yj-flags-header {
-  background-color: #26262e;
-  color: #f4f4f5;
   border-bottom: 1px solid var(--yj-border);
 }
 
@@ -942,19 +953,19 @@ html,
 
 .yj-hero-card {
   background-color: var(--yj-card-bg);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--yj-border);
   border-radius: 12px;
   padding: 0;
   display: flex;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--yj-shadow-card);
   align-items: stretch;
 }
 
 .yj-hero-img-col {
   width: 40%;
   min-width: 320px;
-  background-color: #f0f0f0;
+  background-color: var(--yj-gutter-bg);
 }
 
 .yj-hero-img {
@@ -984,13 +995,13 @@ html,
 .yj-hero-text-col p {
   font-family: var(--yj-font-mono);
   font-size: 13.5px;
-  color: #666666;
+  color: var(--yj-text-dim);
   margin-bottom: 6px;
   line-height: 1.5;
 }
 
 .yj-hero-text-col p a {
-  color: #333333;
+  color: var(--yj-primary);
   text-decoration: underline;
 }
 
@@ -1043,10 +1054,10 @@ html,
 
 .yj-feature-box {
   background-color: var(--yj-card-bg);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--yj-border);
   border-radius: 20px;
   padding: 28px 24px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  box-shadow: var(--yj-shadow-card);
 }
 
 .yj-feature-box h3 {
@@ -1060,7 +1071,7 @@ html,
 .yj-feature-box p {
   font-family: var(--yj-font-mono);
   font-size: 13px;
-  color: #666666;
+  color: var(--yj-text-dim);
   line-height: 1.65;
 }
 
@@ -1306,12 +1317,13 @@ html,
 .yj-hotkey-badge {
   margin-top: 10px;
   font-size: 13px;
-  color: #333333;
+  color: var(--yj-text-dim);
 }
 
 .yj-kbd {
-  background-color: #555555;
-  color: #ffffff;
+  background-color: var(--yj-sidebar-bg);
+  color: var(--yj-text-main);
+  border: 1px solid var(--yj-border);
   padding: 3px 8px;
   border-radius: 8px;
   font-weight: 700;
@@ -1702,34 +1714,34 @@ html,
 
 /* Dark Mode Overrides */
 .dark-theme .yj-modal-content {
-  background: var(--yj-card-bg, #252526);
-  border-color: var(--yj-border, #3e3e42);
+  background: var(--yj-card-bg, #111827);
+  border-color: var(--yj-border, #1e293b);
 }
 
 .dark-theme .yj-modal-header {
-  background: var(--yj-sidebar-bg, #2d2d2d);
-  border-bottom-color: var(--yj-border, #3e3e42);
+  background: var(--yj-sidebar-bg, #1e293b);
+  border-bottom-color: var(--yj-border, #1e293b);
 }
 
 .dark-theme .yj-instruction-toolbar {
-  background: var(--yj-card-bg, #252526);
-  border-bottom-color: var(--yj-border, #3e3e42);
+  background: var(--yj-card-bg, #111827);
+  border-bottom-color: var(--yj-border, #1e293b);
 }
 
 .dark-theme .yj-instruction-search {
-  background: var(--yj-input-bg, #1e1e1e);
-  border-color: var(--yj-border, #3e3e42);
-  color: var(--yj-text-main, #cccccc);
+  background: var(--yj-input-bg, #0f172a);
+  border-color: var(--yj-border, #1e293b);
+  color: var(--yj-text-main, #f1f5f9);
 }
 
 .dark-theme .yj-category-tab {
-  background: var(--yj-gutter-bg, #252526);
-  border-color: var(--yj-border, #3e3e42);
-  color: var(--yj-text-dim, #888888);
+  background: var(--yj-gutter-bg, #0b1120);
+  border-color: var(--yj-border, #1e293b);
+  color: var(--yj-text-dim, #94a3b8);
 }
 
 .dark-theme .yj-category-tab:hover {
-  color: var(--yj-text-main, #cccccc);
+  color: var(--yj-text-main, #f1f5f9);
 }
 
 .dark-theme .yj-category-tab.active {
@@ -1739,12 +1751,12 @@ html,
 }
 
 .dark-theme .yj-instruction-body {
-  background: var(--yj-bg, #1e1e1e);
+  background: var(--yj-bg, #0a0f1d);
 }
 
 .dark-theme .yj-instruction-card {
-  background: var(--yj-card-bg, #252526);
-  border-color: var(--yj-border, #3e3e42);
+  background: var(--yj-card-bg, #111827);
+  border-color: var(--yj-border, #1e293b);
 }
 
 .dark-theme .yj-syntax-code {
@@ -1753,12 +1765,12 @@ html,
 }
 
 .dark-theme .yj-example-box {
-  background: #1e1e1e;
-  border-color: var(--yj-border, #3e3e42);
+  background: var(--yj-gutter-bg, #0b1120);
+  border-color: var(--yj-border, #1e293b);
 }
 
 .dark-theme .yj-example-code {
-  color: #cccccc;
+  color: var(--yj-text-main, #f1f5f9);
 }
 
 .yj-instruction-empty {

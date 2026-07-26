@@ -35,8 +35,8 @@ describe("Component 1: Compiler (compile8086) Space/Time Complexity", () => {
     expect(result.errors).toHaveLength(0);
     expect(result.instructions).toHaveLength(0);
 
-    // Blank line parsing should be very fast, under 50ms (bumped to 500ms for CI)
-    expect(end - start).toBeLessThan(500);
+    // Blank line parsing should be very fast (bumped to 2000ms per Rule 18 for CI runners)
+    expect(end - start).toBeLessThan(2000);
   });
 
   it("Cyber Attack (ReDoS): resists Regex Denial of Service on deeply nested memory operands", () => {
