@@ -678,17 +678,21 @@ html,
   border-radius: 4px;
 }
 
-.yj-mem-matrix-row {
+.mem-matrix-row {
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   text-align: center;
+  gap: 0 4px;
 }
 
 .mem-matrix-cell {
-  padding: 2px 0;
+  padding: 2px 4px;
   color: var(--yj-text-main);
   cursor: cell;
   border-radius: 2px;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .mem-matrix-cell:hover {
