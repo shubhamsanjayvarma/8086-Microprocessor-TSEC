@@ -17,10 +17,6 @@
   --yj-primary-hover: #1d4ed8;
   --yj-primary-light: #eff6ff;
   --yj-secondary: #dc2626;
-
-  --yj-header-bg: #eae3d2;
-  --yj-header-text: #0f172a;
-
   --yj-input-bg: #fffcf5;
   --yj-gutter-bg: #eae3d2;
   --yj-sidebar-bg: #f4efe4;
@@ -55,9 +51,6 @@
   --yj-primary-hover: #15803d;
   --yj-primary-light: #162e21;
   --yj-secondary: #dc2626;
-
-  --yj-header-bg: #18181c;
-  --yj-header-text: #e4e4e7;
 
   --yj-input-bg: #18181c;
   --yj-gutter-bg: #141418;
@@ -700,8 +693,8 @@ html,
 }
 
 .yj-card-table-header {
-  background-color: var(--yj-header-bg);
-  color: var(--yj-header-text);
+  background-color: var(--yj-gutter-bg);
+  color: var(--yj-text-main);
   font-family: var(--yj-font-sans);
   font-size: 12px;
   font-weight: 700;
@@ -709,6 +702,12 @@ html,
   padding: 8px 12px;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid var(--yj-border);
+}
+
+.dark-theme .yj-card-table-header {
+  background-color: #26262e;
+  color: #f4f4f5;
   border-bottom: 1px solid var(--yj-border);
 }
 
@@ -758,13 +757,19 @@ html,
 }
 
 .yj-flags-header {
-  background-color: var(--yj-header-bg);
-  color: var(--yj-header-text);
+  background-color: var(--yj-gutter-bg);
+  color: var(--yj-text-main);
   font-family: var(--yj-font-sans);
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.04em;
   padding: 8px 12px;
+  border-bottom: 1px solid var(--yj-border);
+}
+
+.dark-theme .yj-flags-header {
+  background-color: #26262e;
+  color: #f4f4f5;
   border-bottom: 1px solid var(--yj-border);
 }
 
