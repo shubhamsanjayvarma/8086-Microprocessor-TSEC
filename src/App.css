@@ -669,35 +669,35 @@ html,
 .yj-mem-matrix {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   font-family: var(--yj-font-mono);
   font-size: 13px;
   background-color: var(--yj-sidebar-bg);
-  padding: 16px;
+  padding: 12px;
   border: 1px solid var(--yj-border);
-  border-radius: 8px;
+  border-radius: 6px;
   overflow-x: auto;
 }
 
 .yj-mem-matrix-row {
   display: grid;
-  grid-template-columns: repeat(16, minmax(32px, 1fr));
-  gap: 8px 12px;
+  grid-template-columns: repeat(16, minmax(26px, 1fr));
+  gap: 6px 8px;
   text-align: center;
   align-items: center;
 }
 
 .mem-matrix-cell {
-  padding: 6px 8px;
+  padding: 4px 6px;
   color: var(--yj-text-main);
   cursor: cell;
   border-radius: 4px;
   background: var(--yj-card-bg, #ffffff);
   border: 1px solid var(--yj-border);
   font-family: var(--yj-font-mono);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: all 0.15s ease;
   user-select: none;
 }
