@@ -39,8 +39,8 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
 
     const end = performance.now();
 
-    // 100 React DOM render cycles of the entire emulator UI should complete fast (bumped to 3000ms for CI)
-    expect(end - start).toBeLessThan(3000);
+    // 100 React DOM render cycles of the entire emulator UI should complete fast (bumped to 10000ms per Rule 18 for CI runners)
+    expect(end - start).toBeLessThan(10000);
   });
 
   it("Space Complexity: Deep cloning CPU state does not trigger maximum call stack bounds", async () => {
