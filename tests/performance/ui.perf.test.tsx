@@ -98,7 +98,7 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
     });
 
     // Check if the script tag literally exists in the DOM as safe text, not an actual element.
-    screen.queryByText(/<script>alert\("XSS"\)<\/script>/);
+    screen.queryAllByText(/<script>alert\("XSS"\)<\/script>/);
     // Even if it's not displayed as text anywhere in the DOM (e.g. stored only in memory),
     // we verify the DOM doesn't contain a real <script> node inside the app root.
     const scripts = container.querySelectorAll("script");
