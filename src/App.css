@@ -669,14 +669,14 @@ html,
 .yj-mem-matrix {
   display: flex;
   flex-direction: column;
-  gap: 8px;
   width: 100%;
   font-family: var(--yj-font-mono);
   font-size: 13px;
-  background-color: var(--yj-sidebar-bg);
-  padding: 14px;
-  border: 1px solid var(--yj-border);
+  background-color: var(--yj-card-bg, #ffffff);
+  border: 1px solid var(--yj-border, #e0e0e0);
   border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -684,40 +684,43 @@ html,
   display: grid;
   grid-template-columns: repeat(16, 1fr);
   width: 100%;
-  gap: 8px 6px;
+  padding: 8px 12px;
   text-align: center;
   align-items: center;
+  border-bottom: 1px solid var(--yj-border, #f0f0f0);
+  box-sizing: border-box;
+}
+
+.yj-mem-matrix-row:last-child {
+  border-bottom: none;
 }
 
 .mem-matrix-cell {
   width: 100%;
-  padding: 6px 0;
+  padding: 4px 0;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--yj-text-main);
   cursor: cell;
-  border-radius: 4px;
-  background: var(--yj-card-bg, #ffffff);
-  border: 1px solid var(--yj-border);
+  border: none;
+  background: transparent;
   font-family: var(--yj-font-mono);
-  font-size: 12.5px;
+  font-size: 13.5px;
   font-weight: 600;
   letter-spacing: 0.5px;
   transition: all 0.15s ease;
   user-select: none;
-  box-sizing: border-box;
+  border-radius: 4px;
 }
 
 .mem-matrix-cell:hover {
-  background-color: var(--yj-gold);
-  border-color: var(--yj-gold-hover);
+  background-color: var(--yj-gold, #f4c430);
   color: #000000;
 }
 
 .mem-matrix-cell.editing {
   background-color: var(--yj-gold-light);
-  border-color: var(--yj-gold);
 }
 
 .mem-matrix-input {
