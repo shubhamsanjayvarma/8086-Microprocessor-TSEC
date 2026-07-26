@@ -426,15 +426,6 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
                 >
                   TRY ONLINE 8086 COMPILER
                 </button>
-                <button
-                  className="yj-btn-outlined"
-                  onClick={() => {
-                    const el = document.querySelector(".yj-features-grid");
-                    el?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                >
-                  INSTRUCTION SET
-                </button>
               </div>
             </div>
           </section>
