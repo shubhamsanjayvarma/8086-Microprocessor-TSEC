@@ -421,7 +421,7 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
               <p>Made Using React, WASM and Rust.</p>
               <div className="yj-hero-btns">
                 <button
-                  className="yj-btn-gold"
+                  className="yj-btn-primary"
                   onClick={() => setViewMode("compiler")}
                 >
                   TRY ONLINE 8086 COMPILER
@@ -572,7 +572,10 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
 
               {/* Action Buttons Row */}
               <div className="yj-action-row">
-                <button className="yj-btn-compile-gold" onClick={handleCompile}>
+                <button
+                  className="yj-btn-compile-primary"
+                  onClick={handleCompile}
+                >
                   COMPILE
                 </button>
                 <button
