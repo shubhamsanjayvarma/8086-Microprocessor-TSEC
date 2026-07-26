@@ -141,8 +141,8 @@ export function highlightLine(line: string): string {
 
   // 3. Highlight labels (e.g. START:)
   escapedCode = escapedCode.replace(
-    /(?:^|\s)([a-zA-Z_][a-zA-Z0-9_]*:)/g,
-    ' <span class="hl-label">$1</span>',
+    /(^|\s)([a-zA-Z_][a-zA-Z0-9_]*:)/g,
+    '$1<span class="hl-label">$2</span>',
   );
 
   // 4. Tokenize word by word outside existing span tags
