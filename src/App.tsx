@@ -19,6 +19,7 @@ import { Emulator, initialCPUState, cloneCPUState } from "./utils/emulator";
 import type { CPUState } from "./utils/emulator";
 import { examples } from "./utils/examples";
 import { Logger } from "./utils/logger";
+import InstructionSetModal from "./components/InstructionSetModal";
 import "./App.css";
 
 export type ViewMode = "compiler" | "landing";
@@ -54,6 +55,9 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
   const [accessibilityMode, setAccessibilityMode] = useState<boolean>(false);
   // Dark mode toggle
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  // Instruction Set Modal toggle
+  const [isInstructionSetOpen, setIsInstructionSetOpen] =
+    useState<boolean>(false);
   // Interactive Tutorial state (Steps 1 to 4)
   const [tutorialStep, setTutorialStep] = useState<number | null>(null);
   // Copy success notification
@@ -371,13 +375,9 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
           </button>
 
           <button
-            className="yj-nav-icon-btn"
-            title="Microprocessor Specs"
-            onClick={() =>
-              alert(
-                "8086 Microprocessor Specifications:\n- 16-bit Architecture\n- 1 MB Physical Memory Address Space\n- 14 Registers (AX, BX, CX, DX, SI, DI, SP, BP, IP, CS, DS, SS, ES, Flags)\n- Clock Speed: 5-10 MHz",
-              )
-            }
+            className={`yj-nav-icon-btn ${isInstructionSetOpen ? "active" : ""}`}
+            title="Instruction Set Options & CPU Reference"
+            onClick={() => setIsInstructionSetOpen(true)}
           >
             <Cpu size={18} />
           </button>
@@ -990,6 +990,15 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
           </div>
         </div>
       )}
+      {/* INSTRUCTION SET MODAL */}
+      <InstructionSetModal
+        isOpen={isInstructionSetOpen}
+        onClose={() => setIsInstructionSetOpen(false)}
+        onSelectExample={(exampleCode) => {
+          setCode(exampleCode);
+          setViewMode("compiler");
+        }}
+      />
     </div>
   );
 }
