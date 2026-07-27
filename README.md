@@ -88,4 +88,4 @@ Thanks to the following team members for their contributions to this project!
 
 ## 📜 License
 
-This project is open-source and available under the [TSEC License](LICENSE).
+This project is open-source and available under the [Harrington License](LICENSE).
