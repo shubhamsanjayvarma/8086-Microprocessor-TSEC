@@ -23,3 +23,14 @@ dist-ssr
 *.sln
 *.sw?
 .vercel/
+
+# Debug scripts and webbridge
+debug_*.js
+debug_*.cjs
+webbridge-req-*.json
+webbridge-res-*.json
+extracted_text.txt
+parse_snap.cjs
+parse_text.cjs
+run-snap.bat
+test_textarea.cjs

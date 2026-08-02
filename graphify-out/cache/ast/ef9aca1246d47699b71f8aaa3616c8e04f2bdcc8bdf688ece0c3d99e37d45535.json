@@ -1,0 +1,93 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_webbridge_res_9_json",
+      "label": "webbridge-res-9.json",
+      "file_type": "code",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_webbridge_res_9_ok",
+      "label": "ok",
+      "file_type": "code",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_webbridge_res_9_data",
+      "label": "data",
+      "file_type": "code",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_webbridge_res_9_data_url",
+      "label": "url",
+      "file_type": "code",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_webbridge_res_9_data_title",
+      "label": "title",
+      "file_type": "code",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_webbridge_res_9_data_tree",
+      "label": "tree",
+      "file_type": "code",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_webbridge_res_9_json",
+      "target": "8086_webbridge_res_9_ok",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "c_8086_webbridge_res_9_json",
+      "target": "8086_webbridge_res_9_data",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_webbridge_res_9_data",
+      "target": "8086_webbridge_res_9_data_url",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_webbridge_res_9_data",
+      "target": "8086_webbridge_res_9_data_title",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_webbridge_res_9_data",
+      "target": "8086_webbridge_res_9_data_tree",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-res-9.json",
+      "source_location": "L1",
+      "weight": 1.0
+    }
+  ]
+}

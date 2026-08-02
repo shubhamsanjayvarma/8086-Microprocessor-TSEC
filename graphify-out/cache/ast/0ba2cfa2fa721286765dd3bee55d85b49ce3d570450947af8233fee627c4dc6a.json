@@ -1,0 +1,93 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_webbridge_req_5_json",
+      "label": "webbridge-req-5.json",
+      "file_type": "code",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_webbridge_req_5_action",
+      "label": "action",
+      "file_type": "code",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "8086_webbridge_req_5_args",
+      "label": "args",
+      "file_type": "code",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "8086_webbridge_req_5_args_selector",
+      "label": "selector",
+      "file_type": "code",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "8086_webbridge_req_5_args_value",
+      "label": "value",
+      "file_type": "code",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "8086_webbridge_req_5_session",
+      "label": "session",
+      "file_type": "code",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L7"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_webbridge_req_5_json",
+      "target": "8086_webbridge_req_5_action",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "c_8086_webbridge_req_5_json",
+      "target": "8086_webbridge_req_5_args",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_webbridge_req_5_args",
+      "target": "8086_webbridge_req_5_args_selector",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_webbridge_req_5_args",
+      "target": "8086_webbridge_req_5_args_value",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "c_8086_webbridge_req_5_json",
+      "target": "8086_webbridge_req_5_session",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-req-5.json",
+      "source_location": "L7",
+      "weight": 1.0
+    }
+  ]
+}
