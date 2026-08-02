@@ -28,6 +28,8 @@ export interface CPUState {
   };
   memory: Uint8Array;
   consoleOutput: string;
+  awaitingInput?: boolean;
+  inputBufferType?: "01" | "0A";
   halted: boolean;
   cycles: number;
 }
@@ -62,6 +64,7 @@ export const initialCPUState = (): CPUState => {
     },
     memory,
     consoleOutput: "",
+    awaitingInput: false,
     halted: false,
     cycles: 0,
   };
@@ -73,6 +76,8 @@ export function cloneCPUState(state: CPUState): CPUState {
     flags: { ...state.flags },
     memory: state.memory.slice(),
     consoleOutput: state.consoleOutput,
+    awaitingInput: state.awaitingInput,
+    inputBufferType: state.inputBufferType,
     halted: state.halted,
     cycles: state.cycles,
   };
@@ -106,6 +111,12 @@ export class Emulator {
       this.instructionMap.set(inst.byteOffset, inst);
     }
 
+    // Friendly fallback: If there are instructions, start IP at the first one
+    // This allows users to define variables at the top without a JMP START.
+    if (instructions.length > 0) {
+      this.state.registers.IP = instructions[0].byteOffset;
+    }
+
     // Load initial variable memory values
     if (initialMemoryValues) {
       initialMemoryValues.forEach((bytes, offset) => {
@@ -123,6 +134,35 @@ export class Emulator {
     const ssBase = this.state.registers.SS * 16;
     this.state.memory[ssBase + this.state.registers.SP] = 0x00;
     this.state.memory[ssBase + this.state.registers.SP + 1] = 0x00;
+  }
+
+  provideInput(input: string) {
+    if (!this.state.awaitingInput) return;
+
+    if (this.state.inputBufferType === "01") {
+      const char = input.length > 0 ? input[0] : "\r";
+      const code = char.charCodeAt(0);
+      this.state.registers.AX =
+        (this.state.registers.AX & 0xff00) | (code & 0xff);
+      this.state.consoleOutput += char;
+      this.state.awaitingInput = false;
+      this.state.inputBufferType = undefined;
+    } else if (this.state.inputBufferType === "0A") {
+      const bufferAddr = this.getPhysicalAddress("DS", this.state.registers.DX);
+      const maxLen = this.state.memory[bufferAddr];
+      const actualMax = maxLen > 0 ? maxLen - 1 : 0; // space for CR
+
+      const toWrite = input.substring(0, actualMax);
+      this.state.memory[bufferAddr + 1] = toWrite.length;
+      for (let i = 0; i < toWrite.length; i++) {
+        this.state.memory[bufferAddr + 2 + i] = toWrite.charCodeAt(i);
+      }
+      this.state.memory[bufferAddr + 2 + toWrite.length] = 0x0d; // CR
+
+      this.state.consoleOutput += toWrite + "\n";
+      this.state.awaitingInput = false;
+      this.state.inputBufferType = undefined;
+    }
   }
 
   // Segment:Offset to Physical Address converter
@@ -303,7 +343,7 @@ export class Emulator {
 
   // Step execute one instruction
   step(): ParsedInstruction | null {
-    if (this.state.halted) return null;
+    if (this.state.halted || this.state.awaitingInput) return null;
 
     if (this.state.cycles >= this.maxCycles) {
       this.state.halted = true;
@@ -493,6 +533,140 @@ export class Emulator {
               (((result >> 8) & 0xff) << 8);
             this.state.flags.CF = this.state.flags.OF =
               ((result >> 8) & 0xff) !== 0;
+          }
+        }
+        break;
+      }
+      case "cld": {
+        this.state.flags.DF = false;
+        break;
+      }
+      case "std": {
+        this.state.flags.DF = true;
+        break;
+      }
+      case "movsb":
+      case "movsw":
+      case "lodsb":
+      case "lodsw":
+      case "stosb":
+      case "stosw":
+      case "cmpsb":
+      case "cmpsw":
+      case "scasb":
+      case "scasw": {
+        const isWord = opLower.endsWith("w");
+        const incStep = isWord ? 2 : 1;
+        const opBase = opLower.substring(0, 4);
+
+        const doStringOp = () => {
+          const srcAddr = this.getPhysicalAddress(
+            "DS",
+            this.state.registers.SI,
+          );
+          const destAddr = this.getPhysicalAddress(
+            "ES",
+            this.state.registers.DI,
+          );
+
+          switch (opBase) {
+            case "movs": {
+              if (isWord) {
+                this.state.memory[destAddr] = this.state.memory[srcAddr];
+                this.state.memory[destAddr + 1] =
+                  this.state.memory[srcAddr + 1];
+              } else {
+                this.state.memory[destAddr] = this.state.memory[srcAddr];
+              }
+              break;
+            }
+            case "lods": {
+              if (isWord) {
+                const val =
+                  this.state.memory[srcAddr] |
+                  (this.state.memory[srcAddr + 1] << 8);
+                this.setRegValue("AX", val);
+              } else {
+                this.setRegValue("AL", this.state.memory[srcAddr]);
+              }
+              break;
+            }
+            case "stos": {
+              if (isWord) {
+                const ax = this.getRegValue("AX");
+                this.state.memory[destAddr] = ax & 0xff;
+                this.state.memory[destAddr + 1] = (ax >> 8) & 0xff;
+              } else {
+                this.state.memory[destAddr] = this.getRegValue("AL");
+              }
+              break;
+            }
+            case "cmps": {
+              let srcVal, destVal;
+              if (isWord) {
+                srcVal =
+                  this.state.memory[srcAddr] |
+                  (this.state.memory[srcAddr + 1] << 8);
+                destVal =
+                  this.state.memory[destAddr] |
+                  (this.state.memory[destAddr + 1] << 8);
+              } else {
+                srcVal = this.state.memory[srcAddr];
+                destVal = this.state.memory[destAddr];
+              }
+              const res = srcVal - destVal;
+              this.updateSZPFlags(res, isWord ? 16 : 8);
+              break;
+            }
+            case "scas": {
+              let accVal, destVal;
+              if (isWord) {
+                accVal = this.getRegValue("AX");
+                destVal =
+                  this.state.memory[destAddr] |
+                  (this.state.memory[destAddr + 1] << 8);
+              } else {
+                accVal = this.getRegValue("AL");
+                destVal = this.state.memory[destAddr];
+              }
+              const res = accVal - destVal;
+              this.updateSZPFlags(res, isWord ? 16 : 8);
+              break;
+            }
+          }
+
+          // Update pointers based on DF
+          const dir = this.state.flags.DF ? -incStep : incStep;
+          if (["movs", "lods", "cmps"].includes(opBase)) {
+            this.setRegValue("SI", (this.state.registers.SI + dir) & 0xffff);
+          }
+          if (["movs", "stos", "cmps", "scas"].includes(opBase)) {
+            this.setRegValue("DI", (this.state.registers.DI + dir) & 0xffff);
+          }
+        };
+
+        if (!inst.prefix) {
+          doStringOp();
+        } else {
+          const prefix = inst.prefix.toUpperCase();
+          while (this.state.registers.CX > 0) {
+            doStringOp();
+            this.setRegValue("CX", (this.state.registers.CX - 1) & 0xffff);
+            this.state.cycles++;
+
+            if (this.state.cycles >= this.maxCycles) {
+              this.state.halted = true;
+              this.state.consoleOutput +=
+                "\n[CPU Execution Terminated: Exceeded Max Cycle Limit inside REP]";
+              break;
+            }
+
+            if (["REPE", "REPZ"].includes(prefix) && !this.state.flags.ZF) {
+              break;
+            }
+            if (["REPNE", "REPNZ"].includes(prefix) && this.state.flags.ZF) {
+              break;
+            }
           }
         }
         break;
@@ -732,7 +906,17 @@ export class Emulator {
         const intNum = inst.dest?.immValue;
         if (intNum === 0x21) {
           const ah = (this.state.registers.AX >> 8) & 0xff;
-          if (ah === 0x02) {
+          if (ah === 0x01) {
+            this.state.awaitingInput = true;
+            this.state.inputBufferType = "01";
+            this.state.registers.IP = nextIP;
+            return inst;
+          } else if (ah === 0x0a) {
+            this.state.awaitingInput = true;
+            this.state.inputBufferType = "0A";
+            this.state.registers.IP = nextIP;
+            return inst;
+          } else if (ah === 0x02) {
             // Write character in DL to console
             const charCode = this.state.registers.DX & 0xff;
             this.state.consoleOutput += String.fromCharCode(charCode);

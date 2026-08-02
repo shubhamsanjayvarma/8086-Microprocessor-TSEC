@@ -114,4 +114,80 @@ describe("InstructionSetModal Component", () => {
     fireEvent.keyDown(window, { key: "Escape" });
     expect(onCloseMock).toHaveBeenCalledTimes(2);
   });
+
+  it("shows no results message when search yields no matches", () => {
+    render(
+      <InstructionSetModal
+        isOpen={true}
+        onClose={vi.fn()}
+        onSelectExample={vi.fn()}
+      />,
+    );
+
+    const searchInput = screen.getByPlaceholderText(
+      /Search instruction, opcode/i,
+    );
+    fireEvent.change(searchInput, { target: { value: "ZZZZZ" } });
+
+    expect(
+      screen.getByText(/No instructions match your search query/i),
+    ).toBeDefined();
+    expect(screen.queryByText("Insert Example")).toBeNull();
+  });
+
+  it("applies both category filter and search query correctly", () => {
+    render(
+      <InstructionSetModal
+        isOpen={true}
+        onClose={vi.fn()}
+        onSelectExample={vi.fn()}
+      />,
+    );
+
+    // Filter to Arithmetic
+    fireEvent.click(screen.getByRole("button", { name: "Arithmetic" }));
+    // Search for INC
+    const searchInput = screen.getByPlaceholderText(
+      /Search instruction, opcode/i,
+    );
+    fireEvent.change(searchInput, { target: { value: "INC" } });
+
+    expect(screen.getByText("INC")).toBeDefined();
+    expect(screen.queryByText("ADD")).toBeNull(); // Add is Arithmetic but doesn't match INC
+
+    // Change category to Logic & Bitwise, INC should disappear
+    fireEvent.click(screen.getByRole("button", { name: "Logic & Bitwise" }));
+    expect(screen.queryByText("INC")).toBeNull();
+  });
+
+  it("triggers onClose when clicking the modal overlay", () => {
+    const onCloseMock = vi.fn();
+    render(
+      <InstructionSetModal
+        isOpen={true}
+        onClose={onCloseMock}
+        onSelectExample={vi.fn()}
+      />,
+    );
+
+    // The first div is the overlay
+    const overlay = document.querySelector(".yj-modal-overlay");
+    expect(overlay).not.toBeNull();
+    fireEvent.click(overlay as Element);
+    expect(onCloseMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+import { INSTRUCTION_SET_DATA } from "../../src/utils/instructionSetData";
+
+describe("InstructionSetData Integrity", () => {
+  it("ensures every instruction has required fields", () => {
+    INSTRUCTION_SET_DATA.forEach((instruction) => {
+      expect(instruction.opcode).toBeDefined();
+      expect(instruction.name).toBeDefined();
+      expect(instruction.syntax).toBeDefined();
+      expect(instruction.description).toBeDefined();
+      expect(instruction.category).toBeDefined();
+    });
+  });
 });
