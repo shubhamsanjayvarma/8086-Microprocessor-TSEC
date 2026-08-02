@@ -1,0 +1,61 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_webbridge_req_12_json",
+      "label": "webbridge-req-12.json",
+      "file_type": "code",
+      "source_file": "webbridge-req-12.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_webbridge_req_12_action",
+      "label": "action",
+      "file_type": "code",
+      "source_file": "webbridge-req-12.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "8086_webbridge_req_12_args",
+      "label": "args",
+      "file_type": "code",
+      "source_file": "webbridge-req-12.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "8086_webbridge_req_12_session",
+      "label": "session",
+      "file_type": "code",
+      "source_file": "webbridge-req-12.json",
+      "source_location": "L4"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_webbridge_req_12_json",
+      "target": "8086_webbridge_req_12_action",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-req-12.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "c_8086_webbridge_req_12_json",
+      "target": "8086_webbridge_req_12_args",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-req-12.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "c_8086_webbridge_req_12_json",
+      "target": "8086_webbridge_req_12_session",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "webbridge-req-12.json",
+      "source_location": "L4",
+      "weight": 1.0
+    }
+  ]
+}

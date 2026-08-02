@@ -1,0 +1,127 @@
+{
+  "nodes": [
+    {
+      "id": "c_8086_readme_md",
+      "label": "README.md",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_readme_8086_microprocessor_simulator_tsec",
+      "label": "\ud83d\udcbb 8086 Microprocessor Simulator (TSEC)",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "8086_readme_features",
+      "label": "\u2728 Features",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L7"
+    },
+    {
+      "id": "8086_readme_getting_started",
+      "label": "\ud83d\ude80 Getting Started",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L17"
+    },
+    {
+      "id": "8086_readme_prerequisites",
+      "label": "Prerequisites",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L19"
+    },
+    {
+      "id": "8086_readme_installation_local_setup",
+      "label": "Installation & Local Setup",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L24"
+    },
+    {
+      "id": "8086_readme_contributors",
+      "label": "\ud83d\udc65 Contributors",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L42"
+    },
+    {
+      "id": "8086_readme_license",
+      "label": "\ud83d\udcdc License",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L89"
+    }
+  ],
+  "edges": [
+    {
+      "source": "c_8086_readme_md",
+      "target": "8086_readme_8086_microprocessor_simulator_tsec",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_readme_8086_microprocessor_simulator_tsec",
+      "target": "8086_readme_features",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_readme_8086_microprocessor_simulator_tsec",
+      "target": "8086_readme_getting_started",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_readme_getting_started",
+      "target": "8086_readme_prerequisites",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_readme_getting_started",
+      "target": "8086_readme_installation_local_setup",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L24",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_readme_8086_microprocessor_simulator_tsec",
+      "target": "8086_readme_contributors",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L42",
+      "weight": 1.0
+    },
+    {
+      "source": "8086_readme_8086_microprocessor_simulator_tsec",
+      "target": "8086_readme_license",
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "README.md",
+      "source_location": "L89",
+      "weight": 1.0
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

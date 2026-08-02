@@ -46,7 +46,7 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
   const [cpuState, setCpuState] = useState<CPUState>(initialCPUState());
   const [currentLineIndex, setCurrentLineIndex] = useState<number>(-1);
   const [isRunning, setIsRunning] = useState<boolean>(false);
-  const [runSpeed] = useState<number>(5); // steps per second
+  const [runSpeed] = useState<number>(1000); // steps per second
   const [, setStatusText] = useState<string>("Ready to Compile");
 
   // Input field state for runtime INT 21H / input
@@ -251,6 +251,13 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
       setCurrentLineIndex(-1);
     }
   };
+  // Expose emulator for testing
+  useEffect(() => {
+    (window as any).emulator = emulatorRef.current;
+    (window as any).forceUpdateCpu = () => {
+      if (emulatorRef.current) setCpuState({ ...emulatorRef.current.state });
+    };
+  }, [compilerResult]);
 
   const handleStep = () => {
     if (
@@ -429,9 +436,8 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
   const handleInputSubmit = () => {
     if (!runtimeInput) return;
     if (emulatorRef.current) {
-      // Append input string to console or memory buffer
-      emulatorRef.current.state.consoleOutput += runtimeInput + "\n";
-      setCpuState(JSON.parse(JSON.stringify(emulatorRef.current.state)));
+      emulatorRef.current.provideInput(runtimeInput);
+      setCpuState(cloneCPUState(emulatorRef.current.state));
     }
     setRuntimeInput("");
   };
@@ -848,7 +854,17 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
                         onKeyDown={(e) =>
                           e.key === "Enter" && handleInputSubmit()
                         }
-                        placeholder="Enter input string or values..."
+                        placeholder={
+                          cpuState?.awaitingInput
+                            ? "Awaiting input..."
+                            : "Enter input string or values..."
+                        }
+                        autoFocus={cpuState?.awaitingInput}
+                        style={
+                          cpuState?.awaitingInput
+                            ? { border: "2px solid var(--accent)" }
+                            : undefined
+                        }
                       />
                       <button
                         className="yj-input-submit-btn"

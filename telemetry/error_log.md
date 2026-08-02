@@ -55,3 +55,7 @@
 - **Error**: `oxlint` still reported the warning despite the `// eslint-disable-next-line` directive.
 - **Cause**: The directive was placed above a regular code comment instead of directly adjacent to the dependency array.
 - **Resolution**: Moved the `eslint-disable-next-line` comment immediately above the closing dependency bracket `}, []);`.
+
+## Kimi WebBridge React Input Injection Error
+
+When trying to fill a React controlled textarea using Kimi WebBridge fill command, it failed due to the extension throwing an Uncaught exception. Fix: used evaluate with nativeInputValueSetter and dispatched an input event.

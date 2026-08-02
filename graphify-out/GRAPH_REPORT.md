@@ -1,19 +1,19 @@
-# Graph Report - 8086 (2026-07-25)
+# Graph Report - 8086 (2026-08-02)
 
 ## Corpus Check
 
-- 105 files · ~89,825 words
+- 143 files · ~117,372 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
 
-- 981 nodes · 1007 edges · 66 communities (58 shown, 8 thin omitted)
+- 1102 nodes · 1156 edges · 84 communities (76 shown, 8 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
 
-- Built from commit: `3658a811`
+- Built from commit: `1257ed16`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -80,14 +80,32 @@
 - [[_COMMUNITY_Community 61|Community 61]]
 - [[_COMMUNITY_Community 64|Community 64]]
 - [[_COMMUNITY_Community 65|Community 65]]
+- [[_COMMUNITY_Community 66|Community 66]]
+- [[_COMMUNITY_Community 67|Community 67]]
+- [[_COMMUNITY_Community 68|Community 68]]
+- [[_COMMUNITY_Community 69|Community 69]]
+- [[_COMMUNITY_Community 70|Community 70]]
+- [[_COMMUNITY_Community 71|Community 71]]
+- [[_COMMUNITY_Community 72|Community 72]]
+- [[_COMMUNITY_Community 73|Community 73]]
+- [[_COMMUNITY_Community 74|Community 74]]
+- [[_COMMUNITY_Community 75|Community 75]]
+- [[_COMMUNITY_Community 76|Community 76]]
+- [[_COMMUNITY_Community 77|Community 77]]
+- [[_COMMUNITY_Community 78|Community 78]]
+- [[_COMMUNITY_Community 79|Community 79]]
+- [[_COMMUNITY_Community 80|Community 80]]
+- [[_COMMUNITY_Community 81|Community 81]]
+- [[_COMMUNITY_Community 82|Community 82]]
+- [[_COMMUNITY_Community 83|Community 83]]
 
 ## God Nodes (most connected - your core abstractions)
 
-1. `Emulator` - 22 edges
-2. `Code Review and Quality` - 19 edges
-3. `compilerOptions` - 18 edges
-4. `compile8086()` - 17 edges
-5. `Logger` - 17 edges
+1. `Emulator` - 29 edges
+2. `compile8086()` - 24 edges
+3. `Logger` - 19 edges
+4. `Code Review and Quality` - 19 edges
+5. `compilerOptions` - 18 edges
 6. `Security and Hardening` - 16 edges
 7. `compilerOptions` - 15 edges
 8. `Git Workflow and Versioning` - 15 edges
@@ -98,6 +116,8 @@
 
 - `App()` --calls--> `initialCPUState()` [EXTRACTED]
   src/App.tsx → src/utils/emulator.ts
+- `App()` --calls--> `highlight8086Assembly()` [EXTRACTED]
+  src/App.tsx → src/utils/syntaxHighlighter.ts
 - `Emulator` --references--> `ParsedInstruction` [EXTRACTED]
   src/utils/emulator.ts → src/utils/compiler.ts
 
@@ -105,17 +125,17 @@
 
 - None detected.
 
-## Communities (66 total, 8 thin omitted)
+## Communities (84 total, 8 thin omitted)
 
 ### Community 0 - "Community 0"
 
-Cohesion: 0.10
-Nodes (20): App(), ViewMode, compile8086(), CompilerResult, encodeInstruction(), Operand, OperandType, ParsedInstruction (+12 more)
+Cohesion: 0.08
+Nodes (21): AppProps, ViewMode, compile8086(), CompilerResult, encodeInstruction(), Operand, OperandType, ParsedInstruction (+13 more)
 
 ### Community 1 - "Community 1"
 
 Cohesion: 0.05
-Nodes (38): husky.sh script, dependencies, lucide-react, react, react-dom, devDependencies, happy-dom, husky (+30 more)
+Nodes (39): husky.sh script, dependencies, lucide-react, react, react-dom, devDependencies, happy-dom, husky (+31 more)
 
 ### Community 2 - "Community 2"
 
@@ -372,9 +392,99 @@ Nodes (7): ErrorBoundary, Props, State, LogEntry, Logger, LogLevel, REDACTED_KEY
 Cohesion: 0.25
 Nodes (7): 1. Objective, 2. Test Execution Details, 3. Conclusion, Milestone 1: Structural UI Sanity, Milestone 2: Pre-Commit Hook Strictness, Milestone 3: CI Performance Scaling (UI Deep Cloning), UI Integration & Layout Testing Report
 
+### Community 66 - "Community 66"
+
+Cohesion: 0.33
+Nodes (5): InstructionSetModalProps, INSTRUCTION_CATEGORIES, INSTRUCTION_SET_DATA, InstructionCategory, InstructionItem
+
+### Community 67 - "Community 67"
+
+Cohesion: 0.50
+Nodes (3): buildCommand, outputDirectory, rewrites
+
+### Community 68 - "Community 68"
+
+Cohesion: 0.26
+Nodes (8): App(), DIRECTIVES, escapeHtml(), highlight8086Assembly(), highlightLine(), MNEMONICS, processCodeTokens(), REGISTERS
+
+### Community 69 - "Community 69"
+
+Cohesion: 0.29
+Nodes (6): action, args, group_title, newTab, url, session
+
+### Community 70 - "Community 70"
+
+Cohesion: 0.33
+Nodes (5): action, args, selector, value, session
+
+### Community 71 - "Community 71"
+
+Cohesion: 0.33
+Nodes (5): action, args, selector, value, session
+
+### Community 72 - "Community 72"
+
+Cohesion: 0.33
+Nodes (5): data, title, tree, url, ok
+
+### Community 73 - "Community 73"
+
+Cohesion: 0.33
+Nodes (5): data, title, tree, url, ok
+
+### Community 74 - "Community 74"
+
+Cohesion: 0.33
+Nodes (5): data, title, tree, url, ok
+
+### Community 75 - "Community 75"
+
+Cohesion: 0.40
+Nodes (4): action, args, selector, session
+
+### Community 76 - "Community 76"
+
+Cohesion: 0.40
+Nodes (4): action, args, selector, session
+
+### Community 77 - "Community 77"
+
+Cohesion: 0.40
+Nodes (4): action, args, code, session
+
+### Community 78 - "Community 78"
+
+Cohesion: 0.40
+Nodes (4): action, args, selector, session
+
+### Community 79 - "Community 79"
+
+Cohesion: 0.40
+Nodes (4): action, args, selector, session
+
+### Community 80 - "Community 80"
+
+Cohesion: 0.50
+Nodes (3): action, args, session
+
+### Community 81 - "Community 81"
+
+Cohesion: 0.50
+Nodes (3): action, args, session
+
+### Community 82 - "Community 82"
+
+Cohesion: 0.50
+Nodes (3): action, args, session
+
+### Community 83 - "Community 83"
+
+Cohesion: 0.50
+Nodes (3): action, args, session
+
 ## Knowledge Gaps
 
-- **699 isolated node(s):** `idea-refine.sh script`, `husky.sh script`, `$schema`, `plugins`, `react/rules-of-hooks` (+694 more)
+- **759 isolated node(s):** `idea-refine.sh script`, `husky.sh script`, `$schema`, `plugins`, `react/rules-of-hooks` (+754 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -383,13 +493,13 @@ Nodes (7): 1. Objective, 2. Test Execution Details, 3. Conclusion, Milestone 1: 
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `Logger` connect `Community 64` to `Community 0`?**
-  _High betweenness centrality (0.002) - this node is a cross-community bridge._
+  _High betweenness centrality (0.003) - this node is a cross-community bridge._
 - **What connects `idea-refine.sh script`, `husky.sh script`, `$schema` to the rest of the system?**
-  _699 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _759 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Community 0` be split into smaller, more focused modules?**
-  _Cohesion score 0.10459183673469388 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08355367530407191 - nodes in this community are weakly interconnected._
 - **Should `Community 1` be split into smaller, more focused modules?**
-  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.04878048780487805 - nodes in this community are weakly interconnected._
 - **Should `Community 2` be split into smaller, more focused modules?**
   _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._
 - **Should `Community 3` be split into smaller, more focused modules?**

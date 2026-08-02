@@ -127,50 +127,64 @@ export function highlightLine(line: string): string {
   const codePart = commentIndex !== -1 ? line.slice(0, commentIndex) : line;
   const commentPart = commentIndex !== -1 ? line.slice(commentIndex) : "";
 
-  // Escape HTML special characters (<, >, &)
-  let escapedCode = escapeHtml(codePart);
+  let escapedCode = "";
+  let currentIndex = 0;
+  const stringRegex = /("[^"]*"|'[^']*')/g;
+  let match;
+
+  while ((match = stringRegex.exec(codePart)) !== null) {
+    // Process text before the string
+    const beforeStr = codePart.slice(currentIndex, match.index);
+    escapedCode += processCodeTokens(beforeStr);
+
+    // Add the highlighted string (escape it first)
+    escapedCode += `<span class="hl-string">${escapeHtml(match[0])}</span>`;
+
+    currentIndex = match.index + match[0].length;
+  }
+
+  // Process remaining text
+  escapedCode += processCodeTokens(codePart.slice(currentIndex));
+
   const escapedComment = commentPart
     ? `<span class="hl-comment">${escapeHtml(commentPart)}</span>`
     : "";
 
-  // 2. Highlight strings
-  escapedCode = escapedCode.replace(
-    /("[^"]*"|'[^']*')/g,
-    '<span class="hl-string">$1</span>',
-  );
+  return escapedCode + escapedComment;
+}
 
-  // 3. Highlight labels (e.g. START:)
-  escapedCode = escapedCode.replace(
+function processCodeTokens(text: string): string {
+  if (!text) return "";
+  let escaped = escapeHtml(text);
+
+  // Highlight labels (e.g. START:)
+  escaped = escaped.replace(
     /(^|\s)([a-zA-Z_][a-zA-Z0-9_]*:)/g,
     '$1<span class="hl-label">$2</span>',
   );
 
-  // 4. Tokenize word by word outside existing span tags
-  // Regex matches words (including starting with dot like .MODEL)
-  escapedCode = escapedCode.replace(
-    /(?:\.[a-zA-Z0-9_]+|[a-zA-Z0-9_]+)/g,
-    (match) => {
-      const upper = match.toUpperCase();
+  // Tokenize word by word
+  escaped = escaped.replace(/(?:\.[a-zA-Z0-9_]+|[a-zA-Z0-9_]+)/g, (match) => {
+    const upper = match.toUpperCase();
 
-      if (DIRECTIVES.has(upper)) {
-        return `<span class="hl-directive">${match}</span>`;
-      }
-      if (MNEMONICS.has(upper)) {
-        return `<span class="hl-mnemonic">${match}</span>`;
-      }
-      if (REGISTERS.has(upper)) {
-        return `<span class="hl-register">${match}</span>`;
-      }
-      // Hex numbers (e.g. 0100H, 0FFH) or numbers (e.g. 1234, 0x12)
-      if (/^(0x[0-9a-fA-F]+|[0-9a-fA-F]+[hH]|\d+)$/.test(match)) {
-        return `<span class="hl-number">${match}</span>`;
-      }
+    if (DIRECTIVES.has(upper)) {
+      return `<span class="hl-directive">${match}</span>`;
+    }
+    if (MNEMONICS.has(upper)) {
+      return `<span class="hl-mnemonic">${match}</span>`;
+    }
+    if (REGISTERS.has(upper)) {
+      return `<span class="hl-register">${match}</span>`;
+    }
+    // Hex numbers (e.g. 0100H, 0FFH) or numbers (e.g. 1234, 0x12)
+    if (/^(0x[0-9a-fA-F]+|[0-9a-fA-F]+[hH]|\d+)$/.test(match)) {
+      return `<span class="hl-number">${match}</span>`;
+    }
 
-      return match;
-    },
-  );
+    return match;
+  });
 
-  return escapedCode + escapedComment;
+  return escaped;
 }
 
 export function highlight8086Assembly(code: string): string {

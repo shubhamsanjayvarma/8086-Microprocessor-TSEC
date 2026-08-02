@@ -1,6 +1,7 @@
 import { render, screen, fireEvent, cleanup } from "@testing-library/react";
 import { describe, it, expect, vi, afterEach } from "vitest";
 import InstructionSetModal from "../../src/components/InstructionSetModal";
+import { INSTRUCTION_SET_DATA } from "../../src/utils/instructionSetData";
 
 describe("Instruction Set Security & Hardening Tests (STRIDE & OWASP)", () => {
   afterEach(() => {
@@ -60,5 +61,26 @@ describe("Instruction Set Security & Hardening Tests (STRIDE & OWASP)", () => {
     expect(searchInput.value).toBe(xssPayload);
     // Verify no unexpected HTML node rendering
     expect(document.querySelector("script")).toBeNull();
+  });
+
+  it("Tampering: INSTRUCTION_SET_DATA remains immutable during filtering", () => {
+    // Import the data to check its state
+    const originalLength = INSTRUCTION_SET_DATA.length;
+
+    render(
+      <InstructionSetModal
+        isOpen={true}
+        onClose={vi.fn()}
+        onSelectExample={vi.fn()}
+      />,
+    );
+
+    const searchInput = screen.getByPlaceholderText(
+      /Search instruction, opcode/i,
+    );
+    fireEvent.change(searchInput, { target: { value: "XYZ_FAKE_INSTR" } });
+
+    // The modal filters its local view, but the global dataset should remain untouched
+    expect(INSTRUCTION_SET_DATA.length).toBe(originalLength);
   });
 });

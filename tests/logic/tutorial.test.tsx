@@ -61,4 +61,65 @@ describe("Interactive Tutorial Flow & Hotkey Shortcut", () => {
       });
     });
   });
+
+  it("dismisses tutorial at any step when Escape key is pressed", async () => {
+    const { container } = render(<App initialViewMode="compiler" />);
+
+    const tutorialBtn = getByTitle(container, "Help / Tutorial");
+    await act(async () => {
+      fireEvent.click(tutorialBtn);
+    });
+
+    expect(container.querySelector(".yj-tutorial-popover")).not.toBeNull();
+
+    // Advance to step 2
+    const overlay = container.querySelector(".yj-tutorial-overlay");
+    await act(async () => {
+      fireEvent.click(overlay!);
+    });
+
+    // Press Escape
+    await act(async () => {
+      fireEvent.keyDown(window, { key: "Escape" });
+    });
+
+    expect(container.querySelector(".yj-tutorial-popover")).toBeNull();
+  });
+
+  it("switches from landing page to compiler mode when starting tutorial", async () => {
+    const { container } = render(<App initialViewMode="landing" />);
+
+    const tutorialBtn = getByTitle(container, "Help / Tutorial");
+    await act(async () => {
+      fireEvent.click(tutorialBtn);
+    });
+
+    // The viewMode should now be "compiler", meaning the editor is visible
+    expect(container.querySelector(".yj-editor-workspace")).not.toBeNull();
+    // And tutorial step 1 should be visible
+    expect(container.querySelector(".yj-tutorial-popover")).not.toBeNull();
+  });
+
+  it("does not skip steps on rapid double clicks", async () => {
+    const { container } = render(<App initialViewMode="compiler" />);
+
+    const tutorialBtn = getByTitle(container, "Help / Tutorial");
+    await act(async () => {
+      fireEvent.click(tutorialBtn);
+    });
+
+    const overlay = container.querySelector(".yj-tutorial-overlay");
+
+    // Fire click twice rapidly
+    await act(async () => {
+      fireEvent.click(overlay!);
+      fireEvent.click(overlay!);
+    });
+
+    // Should only be on Step 2 (since closure captures step 1 if state updates haven't flushed,
+    // or it's handled safely). Actually React 18 batches these acts unless they're split.
+    // If we do it inside one act(), it should be batched.
+    const stepTitle = container.querySelector(".yj-tutorial-title");
+    expect(stepTitle?.textContent).toContain("Step 2");
+  });
 });
