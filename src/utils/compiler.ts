@@ -17,6 +17,7 @@ export interface Operand {
 
 export interface ParsedInstruction {
   op: string;
+  prefix?: string;
   dest?: Operand;
   src?: Operand;
   label?: string;
@@ -450,19 +451,44 @@ export function compile8086(code: string): CompilerResult {
 
       for (const val of rawValues) {
         // String literal in DB e.g. 'hello'
-        if (val.startsWith("'") && val.endsWith("'") && val.length > 2) {
+        if (
+          val.startsWith("'") &&
+          val.endsWith("'") &&
+          val.length > 2 &&
+          !val.toUpperCase().includes("DUP")
+        ) {
           const content = val.slice(1, -1);
           for (let c = 0; c < content.length; c++) {
             values.push(content.charCodeAt(c));
           }
         } else {
-          const num = parseNumber(val);
+          // Check for DUP directive
+          const dupMatch = val.match(/^(\d+)\s+DUP\((.+)\)$/i);
+          let count = 1;
+          let innerVal = val;
+          if (dupMatch) {
+            count = parseInt(dupMatch[1], 10);
+            innerVal = dupMatch[2].trim();
+          }
+
+          let num = parseNumber(innerVal);
+          if (
+            num === null &&
+            innerVal.startsWith("'") &&
+            innerVal.endsWith("'") &&
+            innerVal.length === 3
+          ) {
+            num = innerVal.charCodeAt(1);
+          }
+
           if (num !== null) {
-            if (type === "DW") {
-              values.push(num & 0xff);
-              values.push((num >> 8) & 0xff);
-            } else {
-              values.push(num & 0xff);
+            for (let i = 0; i < count; i++) {
+              if (type === "DW") {
+                values.push(num & 0xff);
+                values.push((num >> 8) & 0xff);
+              } else {
+                values.push(num & 0xff);
+              }
             }
           } else {
             errors.push({
@@ -480,9 +506,17 @@ export function compile8086(code: string): CompilerResult {
         values,
       });
 
-      // Advance offset by size
-      currentOffset += type === "DB" ? values.length : values.length * 2;
+      // Advance offset by size. 'values' already contains individual bytes.
+      currentOffset += values.length;
       continue;
+    }
+
+    // Check for REP prefix
+    let prefix: string | undefined;
+    const prefixMatch = line.match(/^(REPE|REPZ|REPNE|REPNZ|REP)\s+/i);
+    if (prefixMatch) {
+      prefix = prefixMatch[1].toUpperCase();
+      line = line.slice(prefixMatch[0].length).trim();
     }
 
     // Parse Instruction mnemonic & operands
@@ -499,6 +533,29 @@ export function compile8086(code: string): CompilerResult {
     }
 
     const opUpper = op.toUpperCase();
+
+    // Validate REP prefix
+    if (prefix) {
+      const validStringOps = [
+        "MOVSB",
+        "MOVSW",
+        "LODSB",
+        "LODSW",
+        "STOSB",
+        "STOSW",
+        "CMPSB",
+        "CMPSW",
+        "SCASB",
+        "SCASW",
+      ];
+      if (!validStringOps.includes(opUpper)) {
+        errors.push({
+          lineNo,
+          message: `Invalid use of REP prefix with ${opUpper}`,
+        });
+      }
+    }
+
     const parts = operandStr ? operandStr.split(",").map((p) => p.trim()) : [];
 
     let dest: Operand | undefined;
@@ -530,11 +587,8 @@ export function compile8086(code: string): CompilerResult {
 
     // Estimate size
     let byteLength = 1;
-    if (
-      ["mov", "add", "sub", "cmp", "and", "or", "xor"].includes(
-        op.toLowerCase(),
-      )
-    ) {
+    const opLower = op.toLowerCase();
+    if (["mov", "add", "sub", "cmp", "and", "or", "xor"].includes(opLower)) {
       if (
         dest?.type === "register" &&
         (src?.type === "immediate" || src?.type === "label")
@@ -545,19 +599,34 @@ export function compile8086(code: string): CompilerResult {
       } else if (dest?.type === "memory" || src?.type === "memory") {
         byteLength = 4; // approximate
       }
-    } else if (["inc", "dec", "push", "pop"].includes(op.toLowerCase())) {
+    } else if (["inc", "dec", "push", "pop"].includes(opLower)) {
       byteLength = dest?.type === "register" && dest.regSize === 16 ? 1 : 2;
-    } else if (
-      op.toLowerCase().startsWith("j") ||
-      op.toLowerCase() === "loop"
-    ) {
+    } else if (opLower.startsWith("j") || opLower === "loop") {
       byteLength = 2; // Short jumps are 2 bytes
-    } else if (op.toLowerCase() === "int") {
+    } else if (opLower === "int") {
       byteLength = 2;
+    } else if (
+      [
+        "movsb",
+        "movsw",
+        "lodsb",
+        "lodsw",
+        "stosb",
+        "stosw",
+        "cmpsb",
+        "cmpsw",
+        "scasb",
+        "scasw",
+        "cld",
+        "std",
+      ].includes(opLower)
+    ) {
+      byteLength = prefix ? 2 : 1;
     }
 
     instructions.push({
       op: opUpper,
+      prefix,
       dest,
       src,
       originalLine: rawLine,
@@ -574,14 +643,34 @@ export function compile8086(code: string): CompilerResult {
   for (const inst of instructions) {
     const opLower = inst.op.toLowerCase();
 
+    const resolveSymbol = (symStr: string): number | null => {
+      const parts = symStr.replace(/\s*-\s*/g, "+-").split("+");
+      let total = 0;
+      for (let p of parts) {
+        p = p.trim();
+        if (!p) continue;
+        const val = parseNumber(p);
+        if (val !== null) {
+          total += val;
+        } else {
+          const pUpper = p.toUpperCase();
+          if (labels.has(pUpper)) {
+            total += labels.get(pUpper)!;
+          } else if (variables.has(pUpper)) {
+            total += variables.get(pUpper)!.offset;
+          } else {
+            return null;
+          }
+        }
+      }
+      return total;
+    };
+
     // Resolve immediate values for symbols/variables
     if (inst.dest && inst.dest.type === "label") {
-      const symName = inst.dest.value.toUpperCase();
-      if (labels.has(symName)) {
-        inst.dest.immValue = labels.get(symName);
-        inst.dest.type = "immediate";
-      } else if (variables.has(symName)) {
-        inst.dest.immValue = variables.get(symName)?.offset;
+      const resolved = resolveSymbol(inst.dest.value);
+      if (resolved !== null) {
+        inst.dest.immValue = resolved;
         inst.dest.type = "immediate";
       } else if (
         !opLower.startsWith("j") &&
@@ -595,12 +684,9 @@ export function compile8086(code: string): CompilerResult {
       }
     }
     if (inst.src && inst.src.type === "label") {
-      const symName = inst.src.value.toUpperCase();
-      if (labels.has(symName)) {
-        inst.src.immValue = labels.get(symName);
-        inst.src.type = "immediate";
-      } else if (variables.has(symName)) {
-        inst.src.immValue = variables.get(symName)?.offset;
+      const resolved = resolveSymbol(inst.src.value);
+      if (resolved !== null) {
+        inst.src.immValue = resolved;
         inst.src.type = "immediate";
       } else if (
         !opLower.startsWith("j") &&
