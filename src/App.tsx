@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import {
   FileCode,
-  Terminal,
   AlertCircle,
   Info,
   HelpCircle,
@@ -10,7 +9,6 @@ import {
   Download,
   Copy,
   Check,
-  Accessibility,
   Cpu,
   Play,
   Pause,
@@ -26,6 +24,10 @@ import { examples } from "./utils/examples";
 import { Logger } from "./utils/logger";
 import InstructionSetModal from "./components/InstructionSetModal";
 import { highlight8086Assembly } from "./utils/syntaxHighlighter";
+import GlowHorizonDemo from "./components/ui/glow-horizon-demo";
+import DeveloperProfiles from "./components/ui/developer-profiles";
+import { ThemeToggleFAB } from "./components/ui/theme-toggle-fab";
+import { HoverButton } from "./components/ui/hover-glow-button";
 import "./App.css";
 
 export type ViewMode = "compiler" | "landing";
@@ -57,10 +59,8 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
   const [editingMemAddr, setEditingMemAddr] = useState<number | null>(null);
   const [editingMemVal, setEditingMemVal] = useState<string>("");
 
-  // Accessibility mode toggle
-  const [accessibilityMode, setAccessibilityMode] = useState<boolean>(false);
   // Dark mode toggle
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
+  const [isDarkMode, setIsDarkMode] = useState<boolean>(true);
   // Instruction Set Modal toggle
   const [isInstructionSetOpen, setIsInstructionSetOpen] =
     useState<boolean>(false);
@@ -446,360 +446,251 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
     <div
       className={`yj-app-wrapper ${isDarkMode ? "dark-theme" : "light-theme"}`}
     >
-      {/* TOP HEADER NAVBAR */}
-      <header className="yj-navbar">
-        <div className="yj-navbar-left">
-          <span
-            className="yj-logo-text"
-            onClick={() =>
-              setViewMode(viewMode === "compiler" ? "landing" : "compiler")
-            }
-          >
-            TSEC 8086 COMPILER
-          </span>
-        </div>
-
-        <div className="yj-navbar-right">
-          <button
-            className="yj-nav-icon-btn"
-            title="Help / Tutorial"
-            onClick={handleStartTutorial}
-          >
-            <HelpCircle size={18} />
-          </button>
-
-          <button
-            className={`yj-nav-icon-btn ${viewMode === "compiler" ? "active" : ""}`}
-            title="Compiler View"
-            onClick={() => setViewMode("compiler")}
-          >
-            <Terminal size={18} />
-          </button>
-
-          <button
-            className={`yj-nav-icon-btn ${viewMode === "landing" ? "active" : ""}`}
-            title="Info / Landing Page"
-            onClick={() => setViewMode("landing")}
-          >
-            <Info size={18} />
-          </button>
-
-          <button
-            className={`yj-nav-icon-btn ${isInstructionSetOpen ? "active" : ""}`}
-            title="Instruction Set Options & CPU Reference"
-            onClick={() => setIsInstructionSetOpen(true)}
-          >
-            <Cpu size={18} />
-          </button>
-
-          <button
-            className="yj-nav-icon-btn"
-            title="Toggle Light/Dark Theme"
-            onClick={() => setIsDarkMode(!isDarkMode)}
-          >
-            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-        </div>
-      </header>
+      {/* NO NAVBAR OR FAB IN COMPILER VIEW */}
 
       {/* VIEW MODE 1: LANDING PAGE */}
       {viewMode === "landing" ? (
-        <div className="yj-landing-container">
-          <section className="yj-hero-card">
-            <div className="yj-hero-img-col">
-              <img
-                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=800&q=80"
-                alt="Workspace Desk"
-                className="yj-hero-img"
-              />
-            </div>
-            <div className="yj-hero-text-col">
-              <h2>Online 8086 EMULATOR</h2>
-              <p>Platform and Device Independent!</p>
-              <p>Now run 8086 based assembly programs right in browser.</p>
-              <p>
-                Open Source :{" "}
-                <a
-                  href="https://github.com/shubhamsanjayvarma/8086-Microprocessor-TSEC"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  Github Repository
-                </a>
-              </p>
-              <p>Also in Command Line version</p>
-              <p>Made Using React, WASM and Rust.</p>
-              <div className="yj-hero-btns">
-                <button
-                  className="yj-btn-primary"
-                  onClick={() => setViewMode("compiler")}
-                >
-                  TRY ONLINE 8086 COMPILER
-                </button>
-              </div>
-            </div>
-          </section>
-
-          <div className="yj-features-grid">
-            <div className="yj-feature-box">
-              <h3>Multiple Themes</h3>
-              <p>
-                We know that programmers love the dark theme. Toggle between
-                Bright and Dark Theme using the theme button in Navbar.
-              </p>
-            </div>
-            <div className="yj-feature-box">
-              <h3>Access To 1 MB Memory</h3>
-              <p>
-                The Emulator supports complete 1 MB Memory, which can be
-                accessed from the memory table.
-              </p>
-            </div>
-            <div className="yj-feature-box">
-              <h3>Validated Jump and Call using Labels</h3>
-              <p>
-                As Jumps and calls only allows valid labels, it does not permit
-                any jumps to incorrect position.
-              </p>
-            </div>
-            <div className="yj-feature-box">
-              <h3>Selected Interrupts</h3>
-              <p>
-                Being an Emulator, this does not have 'true' memory so it
-                supports select few interrupts.
-              </p>
-            </div>
-            <div className="yj-feature-box">
-              <h3>Line by Line Execution</h3>
-              <p>
-                Supports running all instructions automatically, or manual line
-                by line execution. You can also stop the automatic execution
-                with a simple button click.
-              </p>
-            </div>
-            <div className="yj-feature-box">
-              <h3>Check Registers and Flags in Real Time</h3>
-              <p>
-                Updates Flags and registers along with the execution, so can
-                check the state of Emulator easily, all in a single view.
-              </p>
+        <div style={{ background: "var(--glow-bg)", position: "relative" }}>
+          {/* Subtle Grid Grounding */}
+          <div className="glow-grid-bg absolute inset-0 z-0 opacity-40 pointer-events-none" />
+          {/* Hero section */}
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              height: "100vh",
+              overflow: "hidden",
+            }}
+          >
+            <GlowHorizonDemo isDarkMode={isDarkMode} />
+            {/* CTA button overlaid on hero */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: "15%",
+                left: 0,
+                right: 0,
+                display: "flex",
+                justifyContent: "center",
+                zIndex: 20,
+              }}
+            >
+              <HoverButton
+                onClick={() => setViewMode("compiler")}
+                glowColor="var(--glow-card-hover-border)"
+                backgroundColor="var(--glow-card-bg)"
+                textColor="var(--glow-text-primary)"
+                hoverTextColor="var(--glow-text-primary)"
+                className="w-auto text-xl font-bold border-2 border-[var(--glow-card-hover-border)] shadow-[0_0_30px_var(--glow-card-hover-border)] backdrop-blur-md rounded-full hover:scale-[1.03] active:scale-95"
+                style={{ padding: "16px 40px" }}
+              >
+                Try Compiler
+              </HoverButton>
             </div>
           </div>
+          {/* Developer profiles section */}
+          <DeveloperProfiles />
 
-          <section className="yj-contributors-section">
-            <h2>Contributors</h2>
-            <div className="yj-contributors-grid">
-              <a
-                href="https://github.com/shubhamsanjayvarma"
-                target="_blank"
-                rel="noreferrer"
-                className="yj-contributor-card"
-              >
-                <img
-                  src="https://github.com/shubhamsanjayvarma.png"
-                  alt="Shubham Varma"
-                />
-                <span>Shubham Varma</span>
-              </a>
-              <a
-                href="https://github.com/pratikforge"
-                target="_blank"
-                rel="noreferrer"
-                className="yj-contributor-card"
-              >
-                <img
-                  src="https://github.com/pratikforge.png"
-                  alt="Pratik Yadav"
-                />
-                <span>Pratik Yadav</span>
-              </a>
-              <a
-                href="https://github.com/tiwaripiyush140-glitch"
-                target="_blank"
-                rel="noreferrer"
-                className="yj-contributor-card"
-              >
-                <img
-                  src="https://github.com/tiwaripiyush140-glitch.png"
-                  alt="Piyush Tiwari"
-                />
-                <span>Piyush Tiwari</span>
-              </a>
-              <a
-                href="https://github.com/tarakdesai19"
-                target="_blank"
-                rel="noreferrer"
-                className="yj-contributor-card"
-              >
-                <img
-                  src="https://github.com/tarakdesai19.png"
-                  alt="Tarak Desai"
-                />
-                <span>Tarak Desai</span>
-              </a>
-            </div>
-          </section>
-
-          <footer className="yj-footer">
-            © Reserved | Developed by •{" "}
-            <a href="https://github.com/shubhamsanjayvarma">Shubham Varma</a> •{" "}
-            <a href="https://github.com/pratikforge">Pratik Yadav</a> •{" "}
-            <a href="https://github.com/tiwaripiyush140-glitch">
-              Piyush Tiwari
-            </a>{" "}
-            • <a href="https://github.com/tarakdesai19">Tarak Desai</a>
-          </footer>
+          {/* Floating Theme Toggle */}
+          <ThemeToggleFAB
+            isDarkMode={isDarkMode}
+            toggle={() => setIsDarkMode(!isDarkMode)}
+          />
         </div>
       ) : (
         /* VIEW MODE 2: COMPILER / EMULATOR DASHBOARD */
-        <div className="yj-compiler-main">
-          <div className="yj-compiler-grid">
+        <div className="yj-compiler-main" style={{ position: "relative" }}>
+          {/* Subtle Grid Grounding */}
+          <div className="glow-grid-bg absolute inset-0 z-0 opacity-40 pointer-events-none" />
+
+          <div
+            className="yj-compiler-grid"
+            style={{ position: "relative", zIndex: 10 }}
+          >
             {/* LEFT COLUMN: CODE EDITOR & INPUT / OUTPUT */}
             <div className="yj-col-left">
-              {/* Header row: Code Editor title + Actions & Accessibility Mode Toggle */}
-              <div className="yj-editor-header">
-                <div className="yj-editor-header-left">
-                  <h2 className="yj-section-title">Code Editor</h2>
-                </div>
-
-                <div className="yj-editor-header-right">
-                  {/* Action Buttons Row */}
-                  <div className="yj-action-row">
-                    <button
-                      className="yj-btn-compile-primary yj-tutorial-step-compile"
-                      onClick={handleCompile}
-                      title="Compile Code"
-                    >
-                      <Code2 size={18} />
-                    </button>
-                    <button
-                      className={`yj-btn-action yj-tutorial-step-run ${isRunning ? "active" : ""}`}
-                      onClick={() => setIsRunning(!isRunning)}
-                      disabled={compilerResult?.errors.length ? true : false}
-                      title={isRunning ? "Pause Execution" : "Run Code"}
-                    >
-                      {isRunning ? <Pause size={18} /> : <Play size={18} />}
-                    </button>
-                    <button
-                      className="yj-btn-action yj-tutorial-step-step"
-                      onClick={handleStep}
-                      disabled={
-                        isRunning ||
-                        (compilerResult?.errors.length ? true : false)
-                      }
-                      title="Next Instruction (Step)"
-                    >
-                      <SkipForward size={18} />
-                    </button>
-                    <button
-                      className="yj-btn-action yj-tutorial-step-stop"
-                      onClick={handleReset}
-                      title="Stop Execution / Reset"
-                    >
-                      <Square size={18} />
-                    </button>
-                  </div>
-
-                  <div className="yj-header-divider" />
-
-                  <div className="yj-accessibility-toggle">
-                    <Accessibility size={16} />
-                    <span className="yj-toggle-label">Accessibility</span>
-                    <button
-                      className={`yj-switch ${accessibilityMode ? "on" : "off"}`}
-                      onClick={() => setAccessibilityMode(!accessibilityMode)}
-                    >
-                      <span className="yj-switch-knob"></span>
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Code Editor Box with sidebar action tools */}
-              <div className="yj-editor-box">
-                <div className="yj-editor-inner">
-                  {/* Line numbers gutter */}
-                  <div className="yj-line-gutter">
-                    {code.split("\n").map((_, idx) => (
-                      <div
-                        key={idx}
-                        className={`yj-line-no ${currentLineIndex === idx ? "active-line" : ""}`}
-                        onClick={() => handleLineClick(idx)}
-                        title={`Click to select line ${idx + 1}`}
+              {/* Header row: Actions & Accessibility Mode Toggle (Now inside a card header) */}
+              <div
+                className="yj-editor-container yj-io-card"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  height: "100%",
+                  flex: 1,
+                }}
+              >
+                <div
+                  className="yj-editor-header yj-card-table-header"
+                  style={{ padding: "4px 8px" }}
+                >
+                  <div className="yj-editor-header-left">
+                    {/* General App Options (Moved to Left) */}
+                    <div className="yj-app-options-row">
+                      <button
+                        className="yj-nav-icon-btn"
+                        title="Help / Tutorial"
+                        onClick={handleStartTutorial}
                       >
-                        {idx + 1}
-                      </div>
-                    ))}
+                        <HelpCircle size={16} />
+                      </button>
+                      <button
+                        className="yj-nav-icon-btn"
+                        title="Info / Landing Page"
+                        onClick={() => setViewMode("landing")}
+                      >
+                        <Info size={16} />
+                      </button>
+                      <button
+                        className="yj-nav-icon-btn"
+                        title="Instruction Set Options & CPU Reference"
+                        onClick={() => setIsInstructionSetOpen(true)}
+                      >
+                        <Cpu size={16} />
+                      </button>
+                      <button
+                        className="yj-nav-icon-btn"
+                        title="Toggle Light/Dark Theme"
+                        onClick={() => setIsDarkMode(!isDarkMode)}
+                      >
+                        {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
+                      </button>
+                    </div>
                   </div>
 
-                  {/* Main Syntax Highlighted Workspace */}
-                  <div className="yj-editor-workspace">
-                    {currentLineIndex >= 0 && (
-                      <div
-                        className="yj-active-line-highlight"
-                        style={{
-                          top: `${currentLineIndex * 22 + 12 - editorScrollTop}px`,
+                  <div className="yj-editor-header-right">
+                    {/* Action Buttons Row */}
+                    <div className="yj-action-row">
+                      <button
+                        className="yj-btn-compile-primary yj-tutorial-step-compile"
+                        onClick={handleCompile}
+                        title="Compile Code"
+                      >
+                        <Code2 size={18} />
+                      </button>
+                      <button
+                        className={`yj-btn-action yj-tutorial-step-run ${isRunning ? "active" : ""}`}
+                        onClick={() => setIsRunning(!isRunning)}
+                        disabled={compilerResult?.errors.length ? true : false}
+                        title={isRunning ? "Pause Execution" : "Run Code"}
+                      >
+                        {isRunning ? <Pause size={18} /> : <Play size={18} />}
+                      </button>
+                      <button
+                        className="yj-btn-action yj-tutorial-step-step"
+                        onClick={handleStep}
+                        disabled={
+                          isRunning ||
+                          (compilerResult?.errors.length ? true : false)
+                        }
+                        title="Next Instruction (Step)"
+                      >
+                        <SkipForward size={18} />
+                      </button>
+                      <button
+                        className="yj-btn-action yj-tutorial-step-stop"
+                        onClick={handleReset}
+                        title="Stop Execution / Reset"
+                      >
+                        <Square size={18} />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Code Editor Box with sidebar action tools */}
+                <div
+                  className="yj-editor-box"
+                  style={{
+                    border: "none",
+                    borderRadius: 0,
+                    boxShadow: "none",
+                    flex: 1,
+                  }}
+                >
+                  <div className="yj-editor-inner">
+                    {/* Line numbers gutter */}
+                    <div className="yj-line-gutter">
+                      {code.split("\n").map((_, idx) => (
+                        <div
+                          key={idx}
+                          className={`yj-line-no ${currentLineIndex === idx ? "active-line" : ""}`}
+                          onClick={() => handleLineClick(idx)}
+                          title={`Click to select line ${idx + 1}`}
+                        >
+                          {idx + 1}
+                        </div>
+                      ))}
+                    </div>
+
+                    {/* Main Syntax Highlighted Workspace */}
+                    <div className="yj-editor-workspace">
+                      {currentLineIndex >= 0 && (
+                        <div
+                          className="yj-active-line-highlight"
+                          style={{
+                            top: `${currentLineIndex * 22 + 12 - editorScrollTop}px`,
+                          }}
+                        />
+                      )}
+                      <pre
+                        ref={highlightLayerRef}
+                        className="yj-code-highlight-layer"
+                        dangerouslySetInnerHTML={{
+                          __html: highlight8086Assembly(code) || " ",
                         }}
                       />
-                    )}
-                    <pre
-                      ref={highlightLayerRef}
-                      className="yj-code-highlight-layer"
-                      dangerouslySetInnerHTML={{
-                        __html: highlight8086Assembly(code) || " ",
-                      }}
-                    />
-                    <textarea
-                      ref={textareaRef}
-                      className="yj-code-textarea yj-code-textarea-overlay"
-                      value={code}
-                      onChange={(e) => {
-                        setCode(e.target.value);
-                        updateActiveLineFromTextarea(e.target);
-                      }}
-                      onKeyUp={(e) =>
-                        updateActiveLineFromTextarea(e.currentTarget)
-                      }
-                      onClick={(e) =>
-                        updateActiveLineFromTextarea(e.currentTarget)
-                      }
-                      onSelect={(e) =>
-                        updateActiveLineFromTextarea(e.currentTarget)
-                      }
-                      onScroll={handleEditorScroll}
-                      placeholder="; Write 8086 Assembly code here..."
-                      spellCheck={false}
-                    />
+                      <textarea
+                        ref={textareaRef}
+                        className="yj-code-textarea yj-code-textarea-overlay"
+                        value={code}
+                        onChange={(e) => {
+                          setCode(e.target.value);
+                          updateActiveLineFromTextarea(e.target);
+                        }}
+                        onKeyUp={(e) =>
+                          updateActiveLineFromTextarea(e.currentTarget)
+                        }
+                        onClick={(e) =>
+                          updateActiveLineFromTextarea(e.currentTarget)
+                        }
+                        onSelect={(e) =>
+                          updateActiveLineFromTextarea(e.currentTarget)
+                        }
+                        onScroll={handleEditorScroll}
+                        placeholder="; Write 8086 Assembly code here..."
+                        spellCheck={false}
+                      />
+                    </div>
                   </div>
-                </div>
 
-                {/* Right-side icon bar inside editor box */}
-                <div className="yj-editor-side-tools">
-                  <button
-                    className="yj-side-icon-btn"
-                    onClick={handleDownloadAsm}
-                    title="Download .asm File"
-                  >
-                    <Download size={18} />
-                  </button>
-                  <button
-                    className="yj-side-icon-btn"
-                    onClick={handleNextSample}
-                    title="Load Next Sample Code"
-                  >
-                    <FileCode size={18} />
-                  </button>
-                  <button
-                    className="yj-side-icon-btn"
-                    onClick={handleCopyCode}
-                    title="Copy Code"
-                  >
-                    {copied ? (
-                      <Check size={18} color="#228b22" />
-                    ) : (
-                      <Copy size={18} />
-                    )}
-                  </button>
+                  {/* Right-side icon bar inside editor box */}
+                  <div className="yj-editor-side-tools">
+                    <button
+                      className="yj-side-icon-btn"
+                      onClick={handleDownloadAsm}
+                      title="Download .asm File"
+                    >
+                      <Download size={18} />
+                    </button>
+                    <button
+                      className="yj-side-icon-btn"
+                      onClick={handleNextSample}
+                      title="Load Next Sample Code"
+                    >
+                      <FileCode size={18} />
+                    </button>
+                    <button
+                      className="yj-side-icon-btn"
+                      onClick={handleCopyCode}
+                      title="Copy Code"
+                    >
+                      {copied ? (
+                        <Check size={18} color="#228b22" />
+                      ) : (
+                        <Copy size={18} />
+                      )}
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -1102,16 +993,7 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
             </div>
           </div>
 
-          {/* FOOTER */}
-          <footer className="yj-footer">
-            © Reserved | Developed by •{" "}
-            <a href="https://github.com/shubhamsanjayvarma">Shubham Varma</a> •{" "}
-            <a href="https://github.com/pratikforge">Pratik Yadav</a> •{" "}
-            <a href="https://github.com/tiwaripiyush140-glitch">
-              Piyush Tiwari
-            </a>{" "}
-            • <a href="https://github.com/tarakdesai19">Tarak Desai</a>
-          </footer>
+          {/* FOOTER HIDDEN IN COMPILER VIEW TO MAXIMIZE SPACE */}
         </div>
       )}
 

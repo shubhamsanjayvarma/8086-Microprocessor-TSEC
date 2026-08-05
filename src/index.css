@@ -1,4 +1,89 @@
-/* Reset and Global Styles */
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--yj-bg);
+  --color-foreground: var(--yj-text-main);
+  --color-primary: var(--yj-primary);
+  --color-primary-foreground: var(--yj-bg);
+  --radius-none: 0px;
+  --radius-xs: 0.125rem;
+  --radius-default: 0.375rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 1.875rem;
+  --radius-full: 9999px;
+  --color-button-ripple-color: var(--button-ripple-color);
+}
+
+:root {
+  /* Light Theme colors */
+  --glow-bg: var(--yj-bg); /* Ground is creamy */
+  --glow-arc-1: #ffffff;
+  --glow-arc-2: #93c5fd; /* light blue */
+  --glow-arc-3: var(--yj-primary); /* #2563eb */
+  --glow-arc-4: #e0f2fe; /* Sky is watery light blue (droplet) */
+  --glow-shadow: 0px -4px 23px 0px rgba(255, 255, 255, 0.8);
+  --glow-text-primary: var(--yj-text-main);
+  --glow-text-accent: var(--yj-primary);
+  --glow-card-bg: rgba(37, 99, 235, 0.05);
+  --glow-card-border: rgba(37, 99, 235, 0.15);
+  --glow-card-hover-bg: rgba(37, 99, 235, 0.1);
+  --glow-card-hover-border: rgba(37, 99, 235, 0.4);
+  --button-ripple-color: oklch(0.145 0 0 / 0.3);
+}
+
+.dark-theme {
+  /* Dark Theme colors */
+  --glow-bg: var(--yj-bg);
+  --glow-arc-1: #ffffff;
+  --glow-arc-2: #4ade80; /* light green */
+  --glow-arc-3: var(--yj-primary); /* #16a34a */
+  --glow-arc-4: var(--yj-bg);
+  --glow-shadow: 0px -4px 23px 0px rgba(255, 255, 255, 0.6);
+  --glow-text-primary: #ffffff;
+  --glow-text-accent: var(--yj-primary);
+  --glow-card-bg: rgba(255, 255, 255, 0.03);
+  --glow-card-border: rgba(255, 255, 255, 0.06);
+  --glow-card-hover-bg: rgba(22, 163, 74, 0.08);
+  --glow-card-hover-border: rgba(22, 163, 74, 0.3);
+  --button-ripple-color: oklch(0.985 0 0 / 0.5);
+}
+
+.glow-grid-bg {
+  background-size: 30px 30px;
+  background-image:
+    linear-gradient(to right, var(--glow-card-border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--glow-card-border) 1px, transparent 1px);
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+}
+
+@keyframes float-droplet {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-24px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-float-droplet {
+  animation: float-droplet 5s ease-in-out infinite;
+}
 html,
 body,
 #root {
