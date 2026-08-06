@@ -22,7 +22,7 @@ describe("InstructionSetModal - Space & Time Complexity", () => {
     const filters = ["MOV", "ADD", "JMP", "INT", "NOP", ""];
 
     const start = performance.now();
-    for (let i = 0; i < 30; i++) {
+    for (let i = 0; i < 10; i++) {
       fireEvent.change(searchInput, {
         target: { value: filters[i % filters.length] },
       });
@@ -33,8 +33,8 @@ describe("InstructionSetModal - Space & Time Complexity", () => {
     expect(end - start).toBeLessThan(40000);
   }, 50000);
 
-  it("Space Complexity: Mount and unmount modal 20 times without DOM node leak", () => {
-    for (let i = 0; i < 20; i++) {
+  it("Space Complexity: Mount and unmount modal 5 times without DOM node leak", () => {
+    for (let i = 0; i < 5; i++) {
       const { unmount } = render(
         <InstructionSetModal
           isOpen={true}

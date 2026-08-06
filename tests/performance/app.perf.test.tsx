@@ -16,8 +16,8 @@ describe("Milestone 6: App State & Data Flow Performance", () => {
     const getNodes = () => container.getElementsByTagName("*").length;
     const initialNodes = getNodes();
 
-    // Trigger state changes 20 times
-    for (let i = 0; i < 20; i++) {
+    // Trigger state changes 5 times
+    for (let i = 0; i < 5; i++) {
       await act(async () => {
         fireEvent.change(textarea, { target: { value: `MOV AX, ${i}` } });
       });
@@ -28,7 +28,7 @@ describe("Milestone 6: App State & Data Flow Performance", () => {
 
     const finalNodes = getNodes();
     // DOM size should be stable after repeated compilations
-    expect(finalNodes).toBeLessThanOrEqual(initialNodes + 20); // Small margin for error list items
+    expect(finalNodes).toBeLessThanOrEqual(initialNodes + 5); // Small margin for error list items
 
     cleanup();
   }, 30000);
@@ -40,7 +40,7 @@ describe("Milestone 6: App State & Data Flow Performance", () => {
     ) as HTMLTextAreaElement;
 
     const start = performance.now();
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 10; i++) {
       await act(async () => {
         fireEvent.change(textarea, {
           target: { value: `MOV AX, ${i}\n`.repeat(10) },

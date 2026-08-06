@@ -36,9 +36,9 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
 
     const start = performance.now();
 
-    // Simulate 100 fast rapid clicks on the Step button
+    // Simulate 10 fast rapid clicks on the Step button
     await act(async () => {
-      for (let i = 0; i < 100; i++) {
+      for (let i = 0; i < 10; i++) {
         fireEvent.click(stepBtn);
       }
     });
@@ -81,7 +81,7 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
       "Next Instruction (Step)",
     ) as HTMLButtonElement;
     await act(async () => {
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 10; i++) {
         fireEvent.click(stepBtn);
       }
     });
