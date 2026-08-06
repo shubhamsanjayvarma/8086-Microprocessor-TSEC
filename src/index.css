@@ -98,3 +98,41 @@ body {
   font-family: "Courier Prime", "Courier New", Courier, monospace;
   overflow-x: hidden;
 }
+
+/* Glass Button Styles */
+.glass-button-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+.glass-button {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.dark-theme .glass-button {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dark-theme .glass-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.glass-button-shadow {
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  z-index: 10;
+}
