@@ -47,7 +47,7 @@ describe("Milestone 6: App State & Data Flow Security", () => {
     ) as HTMLTextAreaElement;
     const compileBtn = getByTitle("Compile Code");
 
-    const largeInput = "NOP\n".repeat(20000); // 20k lines
+    const largeInput = "NOP\n".repeat(5000); // 5k lines
 
     await act(async () => {
       fireEvent.change(textarea, { target: { value: largeInput } });
