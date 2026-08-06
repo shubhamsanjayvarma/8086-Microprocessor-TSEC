@@ -1,5 +1,4 @@
 {
-  "name": "emulator-tsec",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [

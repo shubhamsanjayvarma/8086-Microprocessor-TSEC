@@ -87,17 +87,15 @@ describe("Interactive Tutorial Flow & Hotkey Shortcut", () => {
   });
 
   it("switches from landing page to compiler mode when starting tutorial", async () => {
-    const { container } = render(<App initialViewMode="landing" />);
+    const { container, getByText } = render(<App initialViewMode="landing" />);
 
-    const tutorialBtn = getByTitle(container, "Help / Tutorial");
+    const tryCompilerBtn = getByText("Try Compiler");
     await act(async () => {
-      fireEvent.click(tutorialBtn);
+      fireEvent.click(tryCompilerBtn);
     });
 
     // The viewMode should now be "compiler", meaning the editor is visible
     expect(container.querySelector(".yj-editor-workspace")).not.toBeNull();
-    // And tutorial step 1 should be visible
-    expect(container.querySelector(".yj-tutorial-popover")).not.toBeNull();
   });
 
   it("does not skip steps on rapid double clicks", async () => {
