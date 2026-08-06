@@ -51,7 +51,6 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
   const [currentLineIndex, setCurrentLineIndex] = useState<number>(-1);
   const [isRunning, setIsRunning] = useState<boolean>(false);
   const [runSpeed] = useState<number>(1000); // steps per second
-  const [, setStatusText] = useState<string>("Ready to Compile");
 
   // Input field state for runtime INT 21H / input
   const [runtimeInput, setRuntimeInput] = useState<string>("");
@@ -218,7 +217,6 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
     setCompilerResult(result);
 
     if (result.errors.length > 0) {
-      setStatusText("Compilation Failed");
       setCurrentLineIndex(-1);
       Logger.error("Compilation Failed", { errors: result.errors });
       return;
@@ -233,7 +231,6 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
     const emulator = new Emulator(result.instructions, initialMem);
     emulatorRef.current = emulator;
     setCpuState(cloneCPUState(emulator.state));
-    setStatusText("Compilation Successful. Ready to Run.");
 
     // Highlight the first instruction
     updateCurrentInstructionHighlight(
@@ -270,28 +267,21 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
       return;
     }
 
-    if (emulatorRef.current.state.halted) {
-      setStatusText("CPU Halted. Click Reset to run again.");
+    if (cpuState.halted) {
       setIsRunning(false);
       return;
     }
 
     try {
-      const executedInst = emulatorRef.current.step();
+      emulatorRef.current.step();
       setCpuState(cloneCPUState(emulatorRef.current.state));
-
-      if (executedInst) {
-        setStatusText(`Executed: ${executedInst.originalLine.trim()}`);
-      }
     } catch (err) {
       Logger.fatal("Emulator crashed during step execution", err);
-      setStatusText("Emulator Crashed. Check logs.");
       setIsRunning(false);
       return;
     }
 
     if (emulatorRef.current.state.halted) {
-      setStatusText("CPU Halted.");
       setIsRunning(false);
     } else {
       updateCurrentInstructionHighlight(
