@@ -179,7 +179,7 @@ html,
   gap: 2px;
   height: 100%;
   min-height: 0;
-  overflow-y: hidden;
+  overflow-y: auto;
   padding-right: 4px; /* for scrollbar */
 }
 
@@ -572,6 +572,10 @@ html,
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 220px;
 }
 
 .yj-io-card:hover {
@@ -579,10 +583,11 @@ html,
 }
 
 .yj-io-card-body {
-  padding: 4px;
+  padding: 6px;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 6px;
+  flex: 1;
 }
 
 .yj-example-inline {
@@ -654,7 +659,8 @@ html,
 .yj-output-section {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
+  flex: 1;
 }
 
 .yj-output-label {
@@ -668,17 +674,19 @@ html,
   background-color: var(--yj-input-bg);
   border: 1px solid var(--yj-border);
   border-radius: 8px;
-  height: 32px;
-  padding: 2px 6px;
+  flex: 1;
+  min-height: 80px;
+  padding: 8px;
   overflow-y: auto;
   font-family: var(--yj-font-mono);
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .yj-output-text {
-  color: #228b22;
+  color: #4ade80;
   text-shadow: var(--yj-text-glow);
   white-space: pre-wrap;
+  font-size: 15px;
 }
 
 .yj-error-box {
@@ -729,7 +737,27 @@ html,
   border-bottom: 1px solid var(--yj-border);
 }
 
+.yj-card-table-header-3col {
+  background-color: var(--yj-gutter-bg);
+  color: var(--yj-text-main);
+  font-family: var(--yj-font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 8px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  border-bottom: 1px solid var(--yj-border);
+}
+
 .dark-theme .yj-card-table-header {
+  background-color: #26262e;
+  color: #f4f4f5;
+  border-bottom: 1px solid var(--yj-border);
+}
+
+.dark-theme .yj-card-table-header-3col {
   background-color: #26262e;
   color: #f4f4f5;
   border-bottom: 1px solid var(--yj-border);
@@ -748,12 +776,23 @@ html,
   font-family: var(--yj-font-mono);
   font-size: 13px;
 }
+.yj-table-row > span:nth-child(2),
+.yj-card-table-header-3col > span:nth-child(2) {
+  text-align: center;
+}
+.yj-table-row > span:nth-child(3),
+.yj-card-table-header-3col > span:nth-child(3) {
+  text-align: right;
+}
 
 .yj-table-row-2col {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   font-family: var(--yj-font-mono);
   font-size: 13px;
+}
+.yj-table-row-2col > span:nth-child(2) {
+  text-align: right;
 }
 
 .yj-cell-lbl {

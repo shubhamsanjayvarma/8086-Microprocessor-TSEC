@@ -15,6 +15,7 @@ import {
   SkipForward,
   Code2,
   Square,
+  Terminal,
 } from "lucide-react";
 import { compile8086 } from "./utils/compiler";
 import type { CompilerResult, ParsedInstruction } from "./utils/compiler";
@@ -22,6 +23,7 @@ import { Emulator, initialCPUState, cloneCPUState } from "./utils/emulator";
 import type { CPUState } from "./utils/emulator";
 import { examples } from "./utils/examples";
 import { Logger } from "./utils/logger";
+import { GlassButton } from "./components/ui/glass-button";
 import InstructionSetModal from "./components/InstructionSetModal";
 import { highlight8086Assembly } from "./utils/syntaxHighlighter";
 import GlowHorizonDemo from "./components/ui/glow-horizon-demo";
@@ -503,13 +505,100 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
           {/* Subtle Grid Grounding */}
           <div className="glow-grid-bg absolute inset-0 z-0 opacity-40 pointer-events-none" />
 
+          {/* TOP NAVIGATION BAR */}
+          <div
+            className="yj-top-navbar"
+            style={{
+              position: "relative",
+              zIndex: 10,
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              padding: "12px 16px",
+              marginBottom: "8px",
+            }}
+          >
+            <div
+              onClick={() => setViewMode("landing")}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "12px",
+                cursor: "pointer",
+              }}
+            >
+              <img
+                src={isDarkMode ? "/logo.jpg" : "/logo.png"}
+                alt="TSEC Logo"
+                style={{
+                  height: "32px",
+                  width: "32px",
+                  borderRadius: "4px",
+                  objectFit: "contain",
+                }}
+              />
+              <div
+                className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[var(--yj-primary)] to-[var(--yj-primary-hover)]"
+                style={{
+                  letterSpacing: "1px",
+                  textTransform: "uppercase",
+                  fontFamily: '"Orbitron", sans-serif',
+                }}
+              >
+                TSEC 8086 COMPILER
+              </div>
+            </div>
+            <div className="yj-app-options-row">
+              <GlassButton
+                size="icon"
+                className="yj-nav-icon-btn"
+                title="Help / Tutorial"
+                onClick={handleStartTutorial}
+              >
+                <HelpCircle size={18} />
+              </GlassButton>
+              <GlassButton
+                size="icon"
+                className="yj-nav-icon-btn active"
+                title="Terminal / Console"
+                onClick={() => {}}
+              >
+                <Terminal size={18} />
+              </GlassButton>
+              <GlassButton
+                size="icon"
+                className="yj-nav-icon-btn"
+                title="Info / Landing Page"
+                onClick={() => setViewMode("landing")}
+              >
+                <Info size={18} />
+              </GlassButton>
+              <GlassButton
+                size="icon"
+                className="yj-nav-icon-btn"
+                title="Instruction Set Options & CPU Reference"
+                onClick={() => setIsInstructionSetOpen(true)}
+              >
+                <Cpu size={18} />
+              </GlassButton>
+              <GlassButton
+                size="icon"
+                className="yj-nav-icon-btn"
+                title="Toggle Light/Dark Theme"
+                onClick={() => setIsDarkMode(!isDarkMode)}
+              >
+                {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+              </GlassButton>
+            </div>
+          </div>
+
           <div
             className="yj-compiler-grid"
             style={{ position: "relative", zIndex: 10 }}
           >
             {/* LEFT COLUMN: CODE EDITOR & INPUT / OUTPUT */}
             <div className="yj-col-left">
-              {/* Header row: Actions & Accessibility Mode Toggle (Now inside a card header) */}
+              {/* Header row */}
               <div
                 className="yj-editor-container yj-io-card"
                 style={{
@@ -521,61 +610,78 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
               >
                 <div
                   className="yj-editor-header yj-card-table-header"
-                  style={{ padding: "4px 8px" }}
+                  style={{ padding: "8px 16px" }}
                 >
                   <div className="yj-editor-header-left">
-                    {/* General App Options (Moved to Left) */}
-                    <div className="yj-app-options-row">
-                      <button
-                        className="yj-nav-icon-btn"
-                        title="Help / Tutorial"
-                        onClick={handleStartTutorial}
-                      >
-                        <HelpCircle size={16} />
-                      </button>
-                      <button
-                        className="yj-nav-icon-btn"
-                        title="Info / Landing Page"
-                        onClick={() => setViewMode("landing")}
-                      >
-                        <Info size={16} />
-                      </button>
-                      <button
-                        className="yj-nav-icon-btn"
-                        title="Instruction Set Options & CPU Reference"
-                        onClick={() => setIsInstructionSetOpen(true)}
-                      >
-                        <Cpu size={16} />
-                      </button>
-                      <button
-                        className="yj-nav-icon-btn"
-                        title="Toggle Light/Dark Theme"
-                        onClick={() => setIsDarkMode(!isDarkMode)}
-                      >
-                        {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
-                      </button>
-                    </div>
+                    <span
+                      style={{
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                        fontFamily: "monospace",
+                        letterSpacing: "1px",
+                      }}
+                    >
+                      Code Editor
+                    </span>
                   </div>
 
-                  <div className="yj-editor-header-right">
+                  <div
+                    className="yj-editor-header-right"
+                    style={{
+                      display: "flex",
+                      gap: "20px",
+                      alignItems: "center",
+                    }}
+                  >
                     {/* Action Buttons Row */}
-                    <div className="yj-action-row">
-                      <button
+                    <div
+                      className="yj-action-row"
+                      style={{ display: "flex", gap: "8px" }}
+                    >
+                      <GlassButton
+                        size="icon"
                         className="yj-btn-compile-primary yj-tutorial-step-compile"
                         onClick={handleCompile}
                         title="Compile Code"
+                        style={{
+                          background:
+                            "color-mix(in srgb, var(--yj-primary) 80%, transparent)",
+                          color: "#fff",
+                          border:
+                            "1px solid color-mix(in srgb, var(--yj-primary) 50%, transparent)",
+                          borderRadius: "50%",
+                          cursor: "pointer",
+                          padding: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
                       >
                         <Code2 size={18} />
-                      </button>
-                      <button
+                      </GlassButton>
+                      <GlassButton
+                        size="icon"
                         className={`yj-btn-action yj-tutorial-step-run ${isRunning ? "active" : ""}`}
                         onClick={() => setIsRunning(!isRunning)}
                         disabled={compilerResult?.errors.length ? true : false}
                         title={isRunning ? "Pause Execution" : "Run Code"}
+                        style={{
+                          background:
+                            "color-mix(in srgb, var(--yj-input-bg) 70%, transparent)",
+                          color: "var(--yj-text-main)",
+                          border: "1px solid var(--yj-border)",
+                          borderRadius: "50%",
+                          cursor: "pointer",
+                          padding: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
                       >
                         {isRunning ? <Pause size={18} /> : <Play size={18} />}
-                      </button>
-                      <button
+                      </GlassButton>
+                      <GlassButton
+                        size="icon"
                         className="yj-btn-action yj-tutorial-step-step"
                         onClick={handleStep}
                         disabled={
@@ -583,16 +689,41 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
                           (compilerResult?.errors.length ? true : false)
                         }
                         title="Next Instruction (Step)"
+                        style={{
+                          background:
+                            "color-mix(in srgb, var(--yj-input-bg) 70%, transparent)",
+                          color: "var(--yj-text-main)",
+                          border: "1px solid var(--yj-border)",
+                          borderRadius: "50%",
+                          cursor: "pointer",
+                          padding: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
                       >
                         <SkipForward size={18} />
-                      </button>
-                      <button
+                      </GlassButton>
+                      <GlassButton
+                        size="icon"
                         className="yj-btn-action yj-tutorial-step-stop"
                         onClick={handleReset}
                         title="Stop Execution / Reset"
+                        style={{
+                          background:
+                            "color-mix(in srgb, var(--yj-input-bg) 70%, transparent)",
+                          color: "var(--yj-text-main)",
+                          border: "1px solid var(--yj-border)",
+                          borderRadius: "50%",
+                          cursor: "pointer",
+                          padding: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
                       >
                         <Square size={18} />
-                      </button>
+                      </GlassButton>
                     </div>
                   </div>
                 </div>
@@ -757,13 +888,23 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
                             : undefined
                         }
                       />
-                      <button
+                      <GlassButton
+                        size="icon"
                         className="yj-input-submit-btn"
                         onClick={handleInputSubmit}
                         title="Submit Input"
+                        style={{
+                          borderRadius: "50%",
+                          background:
+                            "color-mix(in srgb, var(--yj-primary) 80%, transparent)",
+                          padding: 0,
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                        }}
                       >
-                        ✓
-                      </button>
+                        <Check size={18} />
+                      </GlassButton>
                     </div>
                   </div>
 
@@ -850,16 +991,28 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
                       }
                       maxLength={5}
                     />
-                    <button
+                    <GlassButton
+                      size="icon"
                       className="yj-btn-set"
                       onClick={() =>
                         setMemStartAddressHex(
                           memStartAddressHex.padStart(5, "0"),
                         )
                       }
+                      style={{
+                        borderRadius: "50%",
+                        background:
+                          "color-mix(in srgb, var(--yj-primary) 80%, transparent)",
+                        fontSize: "0.75rem",
+                        padding: 0,
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontWeight: "bold",
+                      }}
                     >
                       SET
-                    </button>
+                    </GlassButton>
                   </div>
                 </div>
                 <div className="yj-memory-card-body">
@@ -873,7 +1026,7 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
               <div className="yj-top-tables-row">
                 {/* 1. REG TABLE (Reg / H / L) */}
                 <div className="yj-card-table">
-                  <div className="yj-card-table-header">
+                  <div className="yj-card-table-header-3col">
                     <span>Reg</span>
                     <span>H</span>
                     <span>L</span>
@@ -993,7 +1146,59 @@ export default function App({ initialViewMode = "landing" }: AppProps = {}) {
             </div>
           </div>
 
-          {/* FOOTER HIDDEN IN COMPILER VIEW TO MAXIMIZE SPACE */}
+          {/* COMPILER FOOTER */}
+          <div
+            className="yj-compiler-footer"
+            style={{
+              textAlign: "center",
+              padding: "12px",
+              fontSize: "12px",
+              color: "var(--yj-text-dim)",
+              fontFamily: "monospace",
+              letterSpacing: "0.5px",
+            }}
+          >
+            © Reserved | Developed by •{" "}
+            <a
+              href="https://github.com/shubhamsanjayvarma"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--yj-primary)", textDecoration: "none" }}
+              className="hover:underline"
+            >
+              Shubham Varma
+            </a>{" "}
+            •{" "}
+            <a
+              href="https://github.com/pratikforge"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--yj-primary)", textDecoration: "none" }}
+              className="hover:underline"
+            >
+              Pratik Yadav
+            </a>{" "}
+            •{" "}
+            <a
+              href="https://github.com/tiwaripiyush140-glitch"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--yj-primary)", textDecoration: "none" }}
+              className="hover:underline"
+            >
+              Piyush Tiwari
+            </a>{" "}
+            •{" "}
+            <a
+              href="https://github.com/tarakdesai19"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "var(--yj-primary)", textDecoration: "none" }}
+              className="hover:underline"
+            >
+              Tarak Desai
+            </a>
+          </div>
         </div>
       )}
 

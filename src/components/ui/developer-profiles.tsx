@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { CoverflowCarousel } from "./coverflow-carousel";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
@@ -8,26 +9,35 @@ const DEVELOPERS = [
   {
     name: "Shubham Varma",
     github: "shubhamsanjayvarma",
-    role: "Lead Developer",
+    role: "Developer",
   },
   {
     name: "Pratik Yadav",
     github: "pratikforge",
-    role: "Core Contributor",
+    role: "Developer",
   },
   {
     name: "Piyush Tiwari",
     github: "tiwaripiyush140-glitch",
-    role: "Core Contributor",
+    role: "Developer",
   },
   {
     name: "Tarak Desai",
     github: "tarakdesai19",
-    role: "Core Contributor",
+    role: "Developer",
   },
 ];
 
 export default function DeveloperProfiles() {
+  const slides = DEVELOPERS.map((dev) => ({
+    src: `https://github.com/${dev.github}.png`,
+    alt: dev.name,
+    title: dev.name,
+    subtitle: dev.role,
+    meta: [{ label: "GitHub", value: `@${dev.github}` }],
+    href: `https://github.com/${dev.github}`,
+  }));
+
   return (
     <section
       style={{
@@ -93,86 +103,14 @@ export default function DeveloperProfiles() {
         Built with passion for TSEC
       </motion.p>
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(2, minmax(220px, 320px))",
-          justifyContent: "center",
-          gap: "32px",
-          width: "100%",
-          maxWidth: "960px",
-        }}
-      >
-        {DEVELOPERS.map((dev, i) => (
-          <motion.a
-            key={dev.github}
-            href={`https://github.com/${dev.github}`}
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "16px",
-              padding: "32px 20px",
-              borderRadius: "16px",
-              background: "var(--glow-card-bg)",
-              border: "1px solid var(--glow-card-border)",
-              textDecoration: "none",
-              transition: "background 0.3s, border-color 0.3s",
-            }}
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease: EASE, delay: i * 0.12 }}
-            whileHover={{
-              scale: 1.04,
-              transition: { duration: 0.2 },
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = "var(--glow-card-hover-bg)";
-              e.currentTarget.style.borderColor =
-                "var(--glow-card-hover-border)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = "var(--glow-card-bg)";
-              e.currentTarget.style.borderColor = "var(--glow-card-border)";
-            }}
-          >
-            <img
-              src={`https://github.com/${dev.github}.png`}
-              alt={dev.name}
-              style={{
-                width: "80px",
-                height: "80px",
-                borderRadius: "50%",
-                border: "2px solid var(--glow-card-hover-border)",
-              }}
-            />
-            <div style={{ textAlign: "center" }}>
-              <div
-                style={{
-                  color: "var(--glow-text-accent)",
-                  fontWeight: 600,
-                  fontSize: "1rem",
-                  fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
-                }}
-              >
-                {dev.name}
-              </div>
-              <div
-                style={{
-                  color: "#666",
-                  fontSize: "0.85rem",
-                  marginTop: "4px",
-                  fontFamily: "'Inter', 'Segoe UI', system-ui, sans-serif",
-                }}
-              >
-                {dev.role}
-              </div>
-            </div>
-          </motion.a>
-        ))}
+      <div style={{ width: "100%", maxWidth: "800px" }}>
+        <CoverflowCarousel
+          slides={slides}
+          showCaption
+          showNavigation
+          showPagination
+          loop
+        />
       </div>
     </section>
   );
