@@ -36,7 +36,7 @@ export interface AppProps {
   initialViewMode?: ViewMode;
 }
 
-export default function App({ initialViewMode = "compiler" }: AppProps = {}) {
+export default function App({ initialViewMode = "landing" }: AppProps = {}) {
   const [viewMode, setViewMode] = useState<ViewMode>(initialViewMode);
   const [code, setCode] = useState<string>(examples[0].code);
   const [selectedExampleIndex, setSelectedExampleIndex] = useState<number>(0);

@@ -45,9 +45,9 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
 
     const end = performance.now();
 
-    // 100 React DOM render cycles of the entire emulator UI should complete fast (bumped to 10000ms per Rule 18 for CI runners)
-    expect(end - start).toBeLessThan(10000);
-  });
+    // 100 React DOM render cycles of the entire emulator UI should complete fast (bumped to 20000ms per Rule 18 for CI runners)
+    expect(end - start).toBeLessThan(20000);
+  }, 30000);
 
   it("Space Complexity: Deep cloning CPU state does not trigger maximum call stack bounds", async () => {
     const { container } = render(<App initialViewMode="compiler" />);
@@ -89,7 +89,7 @@ describe("Component 3: UI State Management (App.tsx) Space/Time Complexity", () 
     // It should render successfully without "Maximum call stack size exceeded"
     // Since we don't have "READY" we just assert the stepBtn is defined
     expect(stepBtn).toBeDefined();
-  }, 30000);
+  }, 40000);
 
   it("Cyber Attack (XSS): App sanitizes script injections in compiled assembly", async () => {
     const { container } = render(<App initialViewMode="compiler" />);

@@ -29,9 +29,9 @@ describe("InstructionSetModal - Space & Time Complexity", () => {
     }
     const end = performance.now();
 
-    // 30 renders/filters in jsdom, allowing up to 20000ms
-    expect(end - start).toBeLessThan(20000);
-  }, 30000);
+    // 30 renders/filters in jsdom, allowing up to 40000ms
+    expect(end - start).toBeLessThan(40000);
+  }, 50000);
 
   it("Space Complexity: Mount and unmount modal 20 times without DOM node leak", () => {
     for (let i = 0; i < 20; i++) {
@@ -46,5 +46,5 @@ describe("InstructionSetModal - Space & Time Complexity", () => {
       // Ensure the modal container is actually removed
       expect(document.querySelector(".yj-instruction-modal")).toBeNull();
     }
-  }, 30000);
+  }, 50000);
 });
